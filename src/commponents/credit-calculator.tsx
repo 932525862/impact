@@ -1,29 +1,28 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 
 export default function CreditCalculator() {
-  const [creditAmount, setCreditAmount] = useState(1000000)
-  const [creditTerm, setCreditTerm] = useState(3)
-  const [interestRate, setInterestRate] = useState("")
-  const [monthlyPayment, setMonthlyPayment] = useState(0)
+  const [creditAmount, setCreditAmount] = useState(1000000);
+  const [creditTerm, setCreditTerm] = useState(3);
+  const [interestRate, setInterestRate] = useState("");
+  const [monthlyPayment, setMonthlyPayment] = useState(0);
 
-  
   useEffect(() => {
     if (interestRate && !isNaN(Number(interestRate))) {
-      const principal = creditAmount
-      const rate = Number(interestRate) / 100
-      const totalAmount = principal + principal * rate
-      const monthly = totalAmount / creditTerm
-      setMonthlyPayment(monthly)
+      const principal = creditAmount;
+      const rate = Number(interestRate) / 100;
+      const totalAmount = principal + principal * rate;
+      const monthly = totalAmount / creditTerm;
+      setMonthlyPayment(monthly);
     } else {
-      setMonthlyPayment(0)
+      setMonthlyPayment(0);
     }
-  }, [creditAmount, creditTerm, interestRate])
+  }, [creditAmount, creditTerm, interestRate]);
 
   const formatNumber = (num: number) => {
-    return new Intl.NumberFormat("uz-UZ").format(num)
-  }
+    return new Intl.NumberFormat("uz-UZ").format(num);
+  };
 
   return (
     <div id="kalkulyator" className="bg-gray-50 py-16 px-4">
@@ -32,11 +31,12 @@ export default function CreditCalculator() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h2 className="text-4xl font-black text-gray-900 mb-4">
-              Kreditni <span style={{ color: "#578f27" }}>hisoblash kalkulyatori</span>
+              Kreditni{" "}
+              <span style={{ color: "#578f27" }}>hisoblash kalkulyatori</span>
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl">
-              Saytdagi kalkulyatordan foydalanib, summani va muddatni tanlab, oylik to\lovning taxminiy miqdorini
-              hisoblang chiqing
+              Saytdagi kalkulyatordan foydalanib, summani va muddatni tanlab,
+              oylik to\lovning taxminiy miqdorini hisoblang chiqing
             </p>
           </div>
           <div className="hidden md:block">
@@ -69,9 +69,14 @@ export default function CreditCalculator() {
             <div className="space-y-8">
               {/* Credit Amount */}
               <div>
-                <label className="block text-gray-600 text-sm mb-3">Kredit summasi</label>
+                <label className="block text-gray-600 text-sm mb-3">
+                  Kredit summasi
+                </label>
                 <div className="mb-4">
-                  <span className="text-2xl font-bold" style={{ color: "#578f27" }}>
+                  <span
+                    className="text-2xl font-bold"
+                    style={{ color: "#578f27" }}
+                  >
                     {formatNumber(creditAmount)} so\m
                   </span>
                 </div>
@@ -85,15 +90,19 @@ export default function CreditCalculator() {
                     onChange={(e) => setCreditAmount(Number(e.target.value))}
                     className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
                   />
-                 
                 </div>
               </div>
 
               {/* Credit Term */}
               <div>
-                <label className="block text-gray-600 text-sm mb-3">Kredit muddati</label>
+                <label className="block text-gray-600 text-sm mb-3">
+                  Kredit muddati
+                </label>
                 <div className="mb-4">
-                  <span className="text-2xl font-bold" style={{ color: "#578f27" }}>
+                  <span
+                    className="text-2xl font-bold"
+                    style={{ color: "#578f27" }}
+                  >
                     {creditTerm} oy
                   </span>
                 </div>
@@ -120,25 +129,30 @@ export default function CreditCalculator() {
 
               {/* Interest Rate Input */}
               <div>
-                <label className="block text-gray-600 text-sm mb-3">Foiz stavkasi (%)</label>
+                <label className="block text-gray-600 text-sm mb-3">
+                  Foiz stavkasi (%)
+                </label>
                 <input
                   type="number"
                   placeholder="Foiz stavkasini kiriting"
                   value={interestRate}
                   onChange={(e) => setInterestRate(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent text-[#000000] text-lg"
-                  style={{ "--tw-ring-color": "#578f27" } as any}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#578f27] focus:border-transparent text-[#000000] text-lg"
                 />
               </div>
 
               {/* Contact Info */}
-              <div className="rounded-lg p-6" style={{ backgroundColor: "#578f2710" }}>
+              <div
+                className="rounded-lg p-6"
+                style={{ backgroundColor: "#578f2710" }}
+              >
                 <h3 className="font-bold mb-2" style={{ color: "#578f27" }}>
                   Hisob-kitob dastlabki
                 </h3>
                 <p className="text-gray-600 text-sm mb-4">
-                  Summalar, muddatlar va to\lovlar to\g\risida batafsil ma\lumot olish uchun istalgan qulay bo\lmiga
-                  murojaat qilishingiz yoki telefon raqami orqali bog\lanishingiz zarur
+                  Summalar, muddatlar va to\lovlar to\g\risida batafsil ma\lumot
+                  olish uchun istalgan qulay bo\lmiga murojaat qilishingiz yoki
+                  telefon raqami orqali bog\lanishingiz zarur
                 </p>
                 <p className="text-gray-900 font-bold"> +998 (55) 515-01-11</p>
               </div>
@@ -146,18 +160,22 @@ export default function CreditCalculator() {
 
             {/* Right side - Result */}
             <div className="bg-gray-50 rounded-xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Foydali taklif</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Foydali taklif
+              </h3>
 
               <div className="mb-8">
                 <p className="text-gray-600 mb-2">Oylik to\lov:</p>
                 <p className="text-4xl font-bold" style={{ color: "#578f27" }}>
-                  {monthlyPayment > 0 ? formatNumber(Math.round(monthlyPayment)) : "0"}{" "}
+                  {monthlyPayment > 0
+                    ? formatNumber(Math.round(monthlyPayment))
+                    : "0"}{" "}
                   <span className="text-xl">oy</span>
                 </p>
               </div>
 
               <button
-                 onClick={() => {
+                onClick={() => {
                   const section = document.getElementById("kontaktlar");
                   if (section) {
                     section.scrollIntoView({ behavior: "smooth" });
@@ -165,14 +183,21 @@ export default function CreditCalculator() {
                 }}
                 className="w-full text-white font-bold py-4 px-6 rounded-lg text-lg transition-colors duration-200 mb-6"
                 style={{ backgroundColor: "#578f27" }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#4a7a22")}
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#578f27")}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.backgroundColor = "#4a7a22")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.backgroundColor = "#578f27")
+                }
               >
                 Ariza qoldirish
               </button>
 
               <div className="text-xl text-gray-500 leading-relaxed">
-              Biz tadbirkorlar va bizneslarga moliyaviy qo‘llab-quvvatlash orqali ularning orzularini ro‘yobga chiqarishga yordam beramiz. Kredit xizmatlarimiz bilan ishonchlilik, barqarorlik va yangi imkoniyatlar sari dadil qadam tashlashingiz mumkin.
+                Biz tadbirkorlar va bizneslarga moliyaviy qo‘llab-quvvatlash
+                orqali ularning orzularini ro‘yobga chiqarishga yordam beramiz.
+                Kredit xizmatlarimiz bilan ishonchlilik, barqarorlik va yangi
+                imkoniyatlar sari dadil qadam tashlashingiz mumkin.
               </div>
             </div>
           </div>
@@ -188,9 +213,9 @@ export default function CreditCalculator() {
           background: #578f27;
           cursor: pointer;
           border: 2px solid #ffffff;
-          box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
-        
+
         .slider::-moz-range-thumb {
           height: 20px;
           width: 20px;
@@ -198,9 +223,9 @@ export default function CreditCalculator() {
           background: #578f27;
           cursor: pointer;
           border: 2px solid #ffffff;
-          box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
       `}</style>
     </div>
-  )
+  );
 }
