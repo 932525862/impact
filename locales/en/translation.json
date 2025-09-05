@@ -1,0 +1,179 @@
+{
+  "home": "Home",
+  "advantages": "Our Advantages",
+  "services1": "Services",
+  "calculator1": "Calculator",
+  "contacts": "Contacts",
+  "phone": "Phone Number",
+
+  "about": {
+    "heading": "About Us",
+    "intro1": "<strong>Impact Finance</strong> is a microfinance organization aimed at expanding financial inclusion and supporting economic stability. We provide fair, transparent, and reliable financial solutions for small business owners, women entrepreneurs, youth, and rural residents.",
+    "intro2": "Our main goal is to create opportunities for those excluded from the traditional financial system. Therefore, through microloans and other financial services, we encourage social and economic development.",
+    "valuesHeading": "Our Values",
+    "values": {
+      "trust": "<strong>Reliability</strong> – we always serve our clients honestly and responsibly.",
+      "transparency": "<strong>Transparency</strong> – we provide clear and understandable terms and conditions in all processes.",
+      "sustainability": "<strong>Sustainability</strong> – we strengthen community well-being through financial support.",
+      "collaboration": "<strong>Collaboration</strong> – we develop long-term, mutually beneficial partnerships."
+    },
+    "closing": "For us, the success of every client is the success of <strong>Impact Finance</strong>."
+  },
+
+  "section": {
+    "title": "Credit",
+    "highlight": "Types",
+    "button": "Learn More",
+    "modal": {
+      "mijoz": "Client Type",
+      "foiz": "Annual Interest Rate",
+      "muddat": "Maximum Loan Term",
+      "tolov": "Repayment Terms",
+      "garov": "Collateral",
+      "talablar": "Basic Requirements"
+    }
+  },
+
+  "activities": {
+    "biznes": {
+      "title": "Microloan Business",
+      "mijoz": ["Legal entities", "Individual entrepreneurs", "Self-employed"],
+      "foiz": "42%  Note: Rates may vary depending on the client’s situation.",
+      "muddat": "From 3 to 36 months",
+      "tolov": "Monthly, annuity payments",
+      "garov": ["Vehicle", "Real estate"],
+      "talablar": [
+        "Must be a resident of Uzbekistan",
+        "Business owner’s age between 20 and 60",
+        "At least 6 months of business experience",
+        "No overdue debts of more than 30 days in the past year",
+        "Profitable business indicators",
+        "Business must not violate legislation and/or internal rules of IMPACT FINANCE LEADERS"
+      ]
+    },
+    "biznesPlus": {
+      "title": "Microloan Business+",
+      "mijoz": ["Legal entities", "Individual entrepreneurs", "Self-employed"],
+      "foiz": "46%  Note: Rates may vary depending on the client’s situation.",
+      "muddat": "From 3 to 36 months",
+      "tolov": "Monthly, annuity payments",
+      "garov": ["Guarantee"],
+      "talablar": [
+        "Must be a resident of Uzbekistan",
+        "Business owner’s age between 20 and 60",
+        "At least 6 months of business experience",
+        "No overdue debts of more than 30 days in the past year",
+        "Profitable business indicators",
+        "Business must not violate legislation and/or internal rules of IMPACT FINANCE LEADERS"
+      ]
+    },
+    "oson": {
+      "title": "Microloan Easy",
+      "mijoz": ["Individuals"],
+      "foiz": "49%  Note: Rates may vary depending on the client’s situation.",
+      "muddat": "From 3 to 36 months",
+      "tolov": "Monthly, annuity payments",
+      "garov": ["Vehicle", "Real estate"],
+      "talablar": [
+        "Must be a resident of Uzbekistan",
+        "Age between 20 and 60",
+        "Credit rating of C or higher",
+        "No current outstanding debts",
+        "Client or guarantor must be registered in Tashkent city (including region)",
+        "Income must not violate legislation and/or internal rules of IMPACT FINANCE LEADERS"
+      ]
+    },
+    "ishonch": {
+      "title": "Microloan Trust",
+      "mijoz": ["Individuals", "Self-employed"],
+      "foiz": "59%",
+      "muddat": "From 3 to 18 months",
+      "tolov": "Monthly, annuity payments",
+      "garov": ["Guarantee"],
+      "talablar": [
+        "Must be a resident of Uzbekistan",
+        "Age between 20 and 60",
+        "Client’s written income statement",
+        "Credit bureau rating of C or higher",
+        "No current outstanding debts",
+        "Client or guarantor must be registered in Tashkent city (including region)",
+        "Income must not violate legislation and/or internal rules of IMPACT FINANCE LEADERS"
+      ]
+    }
+  },
+
+  "calculator": {
+    "title": "Loan",
+    "highlight": "Calculator",
+    "description": "Use the calculator on the website to select the amount and term, and calculate the approximate monthly payment.",
+    "offer": "Special Offer",
+    "monthlyPayment": "Monthly Payment:",
+    "currency": "UZS",
+    "button": "Apply Now",
+    "noteTitle": "Preliminary Calculation",
+    "noteText": "For detailed information about amounts, terms, and repayments, please contact any of our branches or call our phone number.",
+    "phone": "+998 (55) 515-01-11",
+    "creditAmount": {
+      "label": "Loan Amount",
+      "placeholder": "Enter amount"
+    },
+    "creditTerm": {
+      "label": "Loan Term (months)",
+      "placeholder": "Enter term"
+    },
+    "interestRate": {
+      "label": "Interest Rate (%)",
+      "placeholder": "Enter interest rate"
+    },
+    "info": "We help entrepreneurs and businesses turn their dreams into reality through financial support. With our credit services, you can move confidently towards reliability, stability, and new opportunities."
+  },
+
+  "contact": {
+    "title": "Contacts",
+    "subtitle": "If you have any questions or requests, please feel free to contact us",
+    "phone_label": "Phone Number:",
+    "email": "impactfinanceleaders@gmail.com",
+    "address": "Tashkent city, Shaykhontohur district, Orda MFY, Labzak street 2a-u",
+    "form": {
+      "title": "Feedback form for complaints and suggestions",
+      "name_placeholder": "Your name",
+      "phone_placeholder": "Your phone number",
+      "message_placeholder": "Message",
+      "button": "Send",
+      "consent": "By submitting this form, you agree to the processing of personal data."
+    },
+    "toast": "We will contact you soon!"
+  },
+
+  "hero": {
+    "slogan": "Towards Big Dreams!",
+    "carousel": [
+      "Cash microloan for any need",
+      "Convenient loans for business development",
+      "Fast and easy loan processing"
+    ],
+    "description": "With IMPACT FINANCE, find a reliable partner to achieve your financial goals. Take advantage of fast, convenient, and secure credit services.",
+    "button": "Choose a Loan",
+    "image_alt": "IMPACT FINANCE microcredit services"
+  },
+
+  "services": {
+    "title": "Why should you choose us?",
+    "subtitle": "With IMPACT FINANCE, enjoy reliable and convenient loan services",
+    "cards": [
+      {
+        "title": "Get a loan in a short time",
+        "description": "Fast and easy processing. Achieve maximum results with minimal time spent."
+      },
+      {
+        "title": "Favorable loan conditions",
+        "description": "The most affordable interest rates and flexible repayment terms. Tailored to your opportunities."
+      },
+      {
+        "title": "High approval rate",
+        "description": "Possibility of getting a loan with minimal documents. We serve as your trusted partner."
+      }
+    ],
+    "more": "Learn More"
+  }
+}

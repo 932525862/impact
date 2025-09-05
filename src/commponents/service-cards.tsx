@@ -1,45 +1,41 @@
-import { Clock, CheckCircle, TrendingUp, ArrowRight } from "lucide-react"
+"use client";
 
-const services = [
-  {
-    number: "1",
-    title: "Qisqa vaqt ichida kredit olish",
-    description: "Tez va oson rasmiylashtirish jarayoni. Minimal vaqt sarflab, maksimal natijaga erishing.",
-    icon: Clock,
-    color: "from-blue-500 to-blue-600",
-  },
-  {
-    number: "2",
-    title: "Foydali kredit shartlari",
-    description: "Eng qulay foiz stavkalari va moslashuvchan to'lov muddatlari. Sizning imkoniyatingizga mos.",
-    icon: CheckCircle,
-    color: "from-green-500 to-green-600",
-  },
-  {
-    number: "3",
-    title: "Yugori tasdiqlanish ehtimoli",
-    description: "Minimal hujjatlar bilan kredit olish imkoniyati. Ishonchli hamkor sifatida xizmat ko'rsatamiz.",
-    icon: TrendingUp,
-    color: "from-purple-500 to-purple-600",
-  },
-]
+import { Clock, CheckCircle, TrendingUp, ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
+
+const icons = [Clock, CheckCircle, TrendingUp];
+const colors = [
+  "from-blue-500 to-blue-600",
+  "from-green-500 to-green-600",
+  "from-purple-500 to-purple-600",
+];
 
 export function ServiceCards() {
+  const { t } = useTranslation();
+
+  const services = t("services.cards", { returnObjects: true }) as {
+    title: string;
+    description: string;
+  }[];
+
   return (
-    <section id="afzalliklarimiz" className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section
+      id="afzalliklarimiz"
+      className="py-20 bg-gradient-to-b from-gray-50 to-white"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 text-balance">
-            Nima uchun aynan bizni tanlashingiz kerak?
+            {t("services.title")}
           </h2>
           <p className="text-xl font-semibold text-gray-600 max-w-3xl mx-auto text-pretty">
-          IMPACT FINANCE bilan ishonchli va qulay kredit xizmatlaridan foydalaning
+            {t("services.subtitle")}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
           {services.map((service, index) => {
-            const IconComponent = service.icon
+            const IconComponent = icons[index];
             return (
               <div
                 key={index}
@@ -51,10 +47,10 @@ export function ServiceCards() {
                   <div className="space-y-8">
                     <div className="flex items-start justify-between">
                       <div className="text-8xl font-black text-gray-100 group-hover:text-[#578f27]/20 transition-colors duration-300 leading-none">
-                        {service.number}
+                        {index + 1}
                       </div>
                       <div
-                        className={`bg-gradient-to-br ${service.color} p-5 rounded-3xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-2xl`}
+                        className={`bg-gradient-to-br ${colors[index]} p-5 rounded-3xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-2xl`}
                       >
                         <IconComponent className="h-10 w-10 text-white" />
                       </div>
@@ -71,17 +67,17 @@ export function ServiceCards() {
 
                     <div className="pt-6">
                       <div className="flex items-center text-[#578f27] font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0">
-                        <span className="text-base">Batafsil malumot</span>
+                        <span className="text-base">{t("services.more")}</span>
                         <ArrowRight className="ml-3 h-5 w-5" />
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            )
+            );
           })}
         </div>
       </div>
     </section>
-  )
+  );
 }

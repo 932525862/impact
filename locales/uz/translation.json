@@ -1,0 +1,187 @@
+{
+  "home": "Bosh sahifa",
+  "advantages": "Afzalliklarimiz",
+  "services1": "Xizmatlar",
+  "calculator1": "Kalkulyator",
+  "contacts": "Kontaktlar",
+  "phone": "Telefon raqam",
+
+  
+    "about": {
+      "heading": "Biz haqimizda",
+      "intro1": "<strong>Impact Finance</strong> — bu moliyaviy inklyuziyani kengaytirish va iqtisodiy barqarorlikni qo‘llab-quvvatlashga yo‘naltirilgan mikromoliya tashkiloti. Biz kichik biznes egalari, ayollar tadbirkorligi, yoshlar va qishloq aholisi uchun adolatli, shaffof va ishonchli moliyaviy yechimlarni taqdim etamiz.",
+      "intro2": "Bizning asosiy maqsadimiz — an’anaviy moliyaviy tizimdan chetda qolgan qatlamlarga ham imkoniyat yaratishdir. Shuning uchun biz mikrokreditlar va boshqa moliyaviy xizmatlar orqali ijtimoiy va iqtisodiy rivojlanishni rag‘batlantiramiz.",
+      "valuesHeading": "Qadriyatlarimiz",
+      "values": {
+        "trust": "<strong>Ishonchlilik</strong> – mijozlarimizga doimo halol va mas’uliyat bilan xizmat ko‘rsatamiz.",
+        "transparency": "<strong>Shaffoflik</strong> – barcha jarayonlarda ochiq va tushunarli shart-sharoitlarni taqdim etamiz.",
+        "sustainability": "<strong>Barqaror rivojlanish</strong> – moliyaviy yordam orqali jamiyat farovonligini mustahkamlaymiz.",
+        "collaboration": "<strong>Hamkorlik</strong> – uzoq muddatli, o‘zaro foydali aloqalarni rivojlantiramiz."
+      },
+      "closing": "Biz uchun har bir mijozning muvaffaqiyati — <strong>Impact Finance</strong> muvaffaqiyatidir."
+    },
+
+  "section": {
+    "title": "Kredit",
+    "highlight": "turlari",
+    "button": "Batafsil",
+    "modal": {
+      "mijoz": "Mijoz turi",
+      "foiz": "Yillik foiz stavkasi",
+      "muddat": "Kreditning maksimal muddati",
+      "tolov": "To‘lash shartlari",
+      "garov": "Garov ta’minoti",
+      "talablar": "Asosiy talablar"
+    }
+  },
+  "activities": {
+    "biznes": {
+      "title": "Mikrokredit Biznes",
+      "mijoz": ["Yuridik shaxslar", "Yakka tartibdagi tadbirkorlar", "O‘zini o‘zi band qilganlar"],
+      "foiz": "42 %  Eslatma: foizlar mijozning holatidan kelib chiqqan holda o‘zgarishi mumkin.",
+      "muddat": "3 oydan 36 oygacha",
+      "tolov": "Oylik, annuitet to‘lovlar orqali",
+      "garov": ["Avtotransport", "Ko‘chmas mulk"],
+      "talablar": [
+        "O‘zbekiston rezidenti bo‘lishi",
+        "Biznes egasining yoshi 20 dan 60 yoshgacha",
+        "Biznesda kamida 6 oylik tajriba",
+        "So‘nggi 1 yilda 30 kundan ortiq qarzdorlik bo‘lmasligi",
+        "Foydali biznes ko‘rsatkichlari",
+        "Biznes qonun hujjatlariga va/yoki IMPACT FINANCE LEADERS ichki qoidalariga zid bo‘lmasligi"
+      ]
+    },
+    "biznesPlus": {
+      "title": "Mikrokredit Biznes+",
+      "mijoz": ["Yuridik shaxslar", "Yakka tartibdagi tadbirkorlar", "O‘zini o‘zi band qilganlar"],
+      "foiz": "46 %  Eslatma: foizlar mijozning holatidan kelib chiqqan holda o‘zgarishi mumkin.",
+      "muddat": "3 oydan 36 oygacha",
+      "tolov": "Oylik, annuitet to‘lovlar orqali",
+      "garov": ["Kafillik"],
+      "talablar": [
+        "O‘zbekiston rezidenti bo‘lishi",
+        "Biznes egasining yoshi 20 dan 60 yoshgacha",
+        "Biznesda kamida 6 oylik tajriba",
+        "So‘nggi 1 yilda 30 kundan ortiq qarzdorlik bo‘lmasligi",
+        "Foydali biznes ko‘rsatkichlari",
+        "Biznes qonun hujjatlariga va/yoki IMPACT FINANCE LEADERS ichki qoidalariga zid bo‘lmasligi"
+      ]
+    },
+    "oson": {
+      "title": "Mikrokredit Oson",
+      "mijoz": ["Jismoniy shaxslar"],
+      "foiz": "49 %  Eslatma: foizlar mijozning holatidan kelib chiqqan holda o‘zgarishi mumkin.",
+      "muddat": "3 oydan 36 oygacha",
+      "tolov": "Oylik, annuitet to‘lovlar orqali",
+      "garov": ["Avtotransport", "Ko‘chmas mulk"],
+      "talablar": [
+        "O‘zbekiston rezidenti bo‘lishi",
+        "Yoshi 20 dan 60 yoshgacha",
+        "Kredit reytingi C va undan yuqori bo‘lishi",
+        "Joriy qarzdorlik bo‘lmasligi",
+        "Mijoz yoki kafili Toshkent shahri (viloyati bilan birga)da ro‘yxatdan o‘tgan bo‘lishi",
+        "Daromad qonun hujjatlariga va/yoki IMPACT FINANCE LEADERS ichki qoidalariga zid bo‘lmasligi"
+      ]
+    },
+    "ishonch": {
+      "title": "Mikrozaym Ishonch",
+      "mijoz": ["Jismoniy shaxslar", "O‘zini o‘zi band qilganlar"],
+      "foiz": "59 %",
+      "muddat": "3 oydan 18 oygacha",
+      "tolov": "Oylik, annuitet to‘lovlar orqali",
+      "garov": ["Kafillik"],
+      "talablar": [
+        "O‘zbekiston rezidenti bo‘lishi",
+        "Yoshi 20 dan 60 yoshgacha",
+        "Mijozning yozma daromad arizasi",
+        "Kredit byurosidagi reytingi C va undan yuqori bo‘lishi",
+        "Joriy qarzdorlik bo‘lmasligi",
+        "Mijoz yoki kafili Toshkent shahri (viloyati bilan birga)da ro‘yxatdan o‘tgan bo‘lishi",
+        "Daromad qonun hujjatlariga va/yoki IMPACT FINANCE LEADERS ichki qoidalariga zid bo‘lmasligi"
+      ]
+    }
+  },
+
+  "calculator": {
+    "title": "Kreditni",
+    "highlight": "hisoblash kalkulyatori",
+    "description": "Saytdagi kalkulyatordan foydalanib, summani va muddatni tanlab, oylik to‘lovning taxminiy miqdorini hisoblab chiqing",
+    "offer": "Foydali taklif",
+    "monthlyPayment": "Oylik to‘lov:",
+    "currency": "so‘m",
+    "button": "Ariza qoldirish",
+    "noteTitle": "Hisob-kitob dastlabki",
+    "noteText": "Summalar, muddatlar va to‘lovlar to‘g‘risida batafsil ma’lumot olish uchun istalgan qulay bo‘lmiga murojaat qilishingiz yoki telefon raqami orqali bog‘lanishingiz zarur",
+    "phone": "+998 (55) 515-01-11",
+    "creditAmount": {
+      "label": "Kredit summasi",
+      "placeholder": "Summani kiriting"
+    },
+    "creditTerm": {
+      "label": "Kredit muddati (oy)",
+      "placeholder": "Muddatni kiriting"
+    },
+    "interestRate": {
+      "label": "Foiz stavkasi (%)",
+      "placeholder": "Foiz stavkasini kiriting"
+    },
+    "info": "Biz tadbirkorlar va bizneslarga moliyaviy qo‘llab-quvvatlash orqali ularning orzularini ro‘yobga chiqarishga yordam beramiz. Kredit xizmatlarimiz bilan ishonchlilik, barqarorlik va yangi imkoniyatlar sari dadil qadam tashlashingiz mumkin."
+  },
+
+
+  "contact": {
+    "title": "Kontaktlar",
+    "subtitle": "Agar sizda biron bir savol yoki istak paydo bo‘lsa, iltimos, biz bilan bog‘laning",
+    "phone_label": "Telefon raqami:",
+    "email": "impactfinanceleaders@gmail.com",
+    "address": "Toshkent shahar, Shayxontohur tumani, O’rda MFY, Labzak ko’chasi 2a-u",
+    "form": {
+      "title": "Shikoyat va takliflar bilan bog‘liq izohlarni qoldirish shakli",
+      "name_placeholder": "Ismingiz",
+      "phone_placeholder": "Telefoningiz",
+      "message_placeholder": "Izoh",
+      "button": "Yuborish",
+      "consent": "Ushbu shaklni yuborish orqali siz shaxsiy ma’lumotlarni qayta ishlashga rozilik bildirasiz."
+    },
+    "toast": "Tez orada siz bilan bog‘lanamiz!"
+  },
+
+
+    "hero": {
+      "slogan": "Katta orzular sari!",
+      "carousel": [
+        "Har qanday ehtiyoj uchun naqd mikrokredit",
+        "Biznes rivojlantirish uchun qulay kreditlar",
+        "Tez va oson kredit rasmiylashtirish"
+      ],
+      "description": "IMPACT FINANCE bilan moliyaviy maqsadlaringizga erishish uchun ishonchli hamkor toping. Tez, qulay va xavfsiz kredit xizmatlaridan foydalaning.",
+      "button": "Kredit tanlang",
+      "image_alt": "IMPACT FINANCE mikrokredit xizmatlari"
+    },
+
+    "services": {
+    "title": "Nima uchun aynan bizni tanlashingiz kerak?",
+    "subtitle": "IMPACT FINANCE bilan ishonchli va qulay kredit xizmatlaridan foydalaning",
+    "cards": [
+      {
+        "title": "Qisqa vaqt ichida kredit olish",
+        "description": "Tez va oson rasmiylashtirish jarayoni. Minimal vaqt sarflab, maksimal natijaga erishing."
+      },
+      {
+        "title": "Foydali kredit shartlari",
+        "description": "Eng qulay foiz stavkalari va moslashuvchan to'lov muddatlari. Sizning imkoniyatingizga mos."
+      },
+      {
+        "title": "Yuqori tasdiqlanish ehtimoli",
+        "description": "Minimal hujjatlar bilan kredit olish imkoniyati. Ishonchli hamkor sifatida xizmat ko'rsatamiz."
+      }
+    ],
+    "more": "Batafsil ma’lumot"
+  }
+  
+  
+
+    
+  
+  
+  }

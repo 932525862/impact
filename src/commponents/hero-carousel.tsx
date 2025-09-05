@@ -3,14 +3,13 @@
 import { useState, useEffect } from "react";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
-
-const carouselTexts = [
-  "Har qanday ehtiyoj uchun naqd mikrokredit",
-  "Biznes rivojlantirish uchun qulay kreditlar",
-  "Tez va oson kredit rasmiylashtirish",
-];
+import { useTranslation } from "react-i18next";
 
 export function HeroCarousel() {
+  const { t } = useTranslation();
+
+  const carouselTexts = t("hero.carousel", { returnObjects: true }) as string[];
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -19,7 +18,7 @@ export function HeroCarousel() {
     }, 4000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [carouselTexts.length]);
 
   return (
     <section
@@ -46,13 +45,13 @@ export function HeroCarousel() {
                 <div className="w-2 h-2 bg-[#578f27]/40 rounded-full animate-pulse delay-200"></div>
               </div>
               <span className="text-sm font-semibold text-gray-700 tracking-wide uppercase">
-                Hamma bilan birgalikda, har kim bilan shaxsan!
+                {t("hero.slogan")}
               </span>
             </div>
 
             <div className="space-y-6">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight text-balance">
-                <span className="text-[#578f27] font-black">
+                <span className="text-[#000000] font-black">
                   {carouselTexts[currentIndex].split(" ").slice(0, 2).join(" ")}
                 </span>
                 <span className="block mt-2 font-black">
@@ -75,9 +74,7 @@ export function HeroCarousel() {
               </div>
 
               <p className="text-lg text-gray-600 leading-relaxed max-w-lg text-pretty font-bold">
-                IMPACT FINANCE bilan moliyaviy maqsadlaringizga erishish uchun
-                ishonchli hamkor toping. Tez, qulay va xavfsiz kredit
-                xizmatlaridan foydalaning.
+                {t("hero.description")}
               </p>
             </div>
 
@@ -91,7 +88,7 @@ export function HeroCarousel() {
                 }}
                 className="inline-flex items-center justify-center bg-[#578f27] hover:bg-[#578f27]/90 text-white px-12 py-6 text-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 group h-16 rounded-md"
               >
-                Kredit tanlang
+                {t("hero.button")}
                 <ChevronRight className="ml-2 h-6 w-6 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
@@ -101,20 +98,14 @@ export function HeroCarousel() {
             <div className="relative w-full h-[500px] rounded-3xl overflow-hidden shadow-2xl">
               <Image
                 src="/home.jpeg"
-                alt="IMPACT FINANCE mikrokredit xizmatlari"
+                alt={t("hero.image_alt")}
                 fill
                 className="object-cover"
                 priority
               />
 
-              {/* Professional overlay with company stats */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#578f27]/60 via-transparent to-transparent" />
-
-             
             </div>
-
-           
-
           </div>
         </div>
       </div>
