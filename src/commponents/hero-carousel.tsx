@@ -23,7 +23,7 @@ export function HeroCarousel() {
   return (
     <section
       id="home"
-      className="relative bg-white min-h-[700px] flex items-center overflow-hidden pt-20"
+      className="relative bg-white min-h-[700px] flex items-center overflow-hidden pt-10"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-green-50/30" />
 
@@ -44,9 +44,9 @@ export function HeroCarousel() {
                 <div className="w-2 h-2 bg-[#578f27]/60 rounded-full animate-pulse delay-100"></div>
                 <div className="w-2 h-2 bg-[#578f27]/40 rounded-full animate-pulse delay-200"></div>
               </div>
-              <span className="text-xl font-semibold text-gray-700 tracking-wide uppercase">
+              {/* <span className="text-xl font-semibold text-gray-700 tracking-wide uppercase">
                 {t("hero.slogan")}
-              </span>
+              </span> */}
             </div>
 
             <div className="space-y-6">
