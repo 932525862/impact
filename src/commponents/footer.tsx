@@ -18,7 +18,7 @@ export default function ContactPage() {
     e.preventDefault();
 
     const botToken = "7802443916:AAGH1E-yusLQvkMmfHhqA9po0ibMp8Xvssg";
-    const chatId = "5389621761";
+    const chatId = "-1003050519990";
     const text = `📩 Yangi murojaat:\n\n👤 Ism: ${form.name}\n📞 Tel: +998${form.phone}\n💬 Xabar: ${form.message}`;
 
     try {
@@ -92,17 +92,23 @@ export default function ContactPage() {
               required
             />
 
-            <div className="flex items-center gap-2 border-b border-white py-2">
-              <span className="text-white">+998</span>
-              <input
-                type="tel"
-                placeholder={t("contact.form.phone_placeholder")}
-                className="w-full bg-transparent placeholder-white text-white focus:outline-none"
-                value={form.phone}
-                onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                required
-              />
-            </div>
+<div className="flex items-center gap-2 border-b border-white py-2">
+  <span className="text-white">+998</span>
+  <input
+    type="tel"
+    placeholder={t("contact.form.phone_placeholder")}
+    className="w-full bg-transparent placeholder-white text-white focus:outline-none"
+    value={form.phone}
+    onChange={(e) => {
+      // faqat raqamlarni qabul qilish va 9 ta bilan cheklash
+      const value = e.target.value.replace(/\D/g, ""); // raqam bo'lmaganlarni o'chirish
+      if (value.length <= 9) {
+        setForm({ ...form, phone: value });
+      }
+    }}
+    required
+  />
+</div>
 
             <textarea
               placeholder={t("contact.form.message_placeholder")}

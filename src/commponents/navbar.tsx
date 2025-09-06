@@ -92,7 +92,7 @@ export function Navbar() {
             </div>
           </div>
 
-          {/* Right Section */}
+          {/* Right Section - Desktop */}
           <div className="hidden lg:flex items-center space-x-6">
             <div className="flex items-center space-x-4">
               <div className="text-right">
@@ -135,8 +135,34 @@ export function Navbar() {
             </div>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="lg:hidden">
+          {/* Right Section - Mobile (Til + Hamburger yonma-yon) */}
+          <div className="flex items-center space-x-2 lg:hidden">
+            {/* Language Switcher */}
+            <div className="relative">
+              <button
+                onClick={() => setLangOpen(!langOpen)}
+                className="flex items-center space-x-1 text-sm font-semibold text-gray-900 bg-gray-100 px-3 py-1 rounded-lg hover:bg-gray-200 transition"
+              >
+                <span>{currentLang}</span>
+                <ChevronDown className="h-4 w-4" />
+              </button>
+
+              {langOpen && (
+                <div className="absolute right-0 mt-2 w-24 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                  {["UZ", "EN", "RU"].map((lang) => (
+                    <button
+                      key={lang}
+                      onClick={() => changeLanguage(lang)}
+                      className="block w-full text-left px-4 py-2 text-[#000000] text-sm hover:bg-gray-50"
+                    >
+                      {lang}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Hamburger tugma */}
             <button
               onClick={toggleMenu}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#578f27] transition-colors"
@@ -184,31 +210,6 @@ export function Navbar() {
               >
                 {t("contacts")}
               </button>
-
-              {/* 🔥 Mobile Language Switcher */}
-              <div className="mt-4">
-                <button
-                  onClick={() => setLangOpen(!langOpen)}
-                  className="flex items-center justify-between w-full text-sm font-semibold text-gray-900 bg-gray-100 px-4 py-2 rounded-lg hover:bg-gray-200 transition"
-                >
-                  <span>{currentLang}</span>
-                  <ChevronDown className="h-4 w-4" />
-                </button>
-
-                {langOpen && (
-                  <div className="mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg">
-                    {["UZ", "EN", "RU"].map((lang) => (
-                      <button
-                        key={lang}
-                        onClick={() => changeLanguage(lang)}
-                        className="block w-full text-left px-4 py-2 text-[#000000] text-sm hover:bg-gray-50"
-                      >
-                        {lang}
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
             </div>
           </div>
         )}
