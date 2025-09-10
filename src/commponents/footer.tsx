@@ -44,7 +44,7 @@ export default function ContactPage() {
   return (
     <div
       id="kontaktlar"
-      className="bg-[#578f27] text-white py-16 px-6 md:px-12 relative"
+      className="bg-[#004526] text-white py-16 px-6 md:px-12 relative"
     >
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
         {/* Chap qism */}

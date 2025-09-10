@@ -35,11 +35,11 @@ export default function ActivityDirections() {
         <div className="text-center mb-12">
           <h2 className="text-4xl font-black text-gray-900 mb-4">
             {t("section.title")}{" "}
-            <span style={{ color: "#578f27" }}>{t("section.highlight")}</span>
+            <span style={{ color: "#004526" }}>{t("section.highlight")}</span>
           </h2>
           <div
             className="w-24 h-1 mx-auto"
-            style={{ backgroundColor: "#578f27" }}
+            style={{ backgroundColor: "#004526" }}
           ></div>
         </div>
 
@@ -61,7 +61,7 @@ export default function ActivityDirections() {
                 className="absolute inset-0"
                 style={{
                   background:
-                    "linear-gradient(to top, rgba(87,143,39,0.9) 30%, rgba(87,143,39,0.1) 100%)",
+                    "linear-gradient(to top, #004526 30%, rgba(87,143,39,0.1) 100%)",
                 }}
               ></div>
 
@@ -73,7 +73,7 @@ export default function ActivityDirections() {
 
                 <button
                   onClick={() => setSelected(index)}
-                  className="self-start bg-white text-[#578f27] font-semibold px-4 py-2 rounded-lg shadow-md hover:bg-gray-100 transition"
+                  className="self-start bg-white text-[#004526] font-semibold px-4 py-2 rounded-lg shadow-md hover:bg-gray-100 transition"
                 >
                   {t("section.button")}
                 </button>

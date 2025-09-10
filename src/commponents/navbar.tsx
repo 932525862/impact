@@ -102,7 +102,7 @@ export function Navbar() {
               </div>
               <div className="w-10 h-10 bg-[#578f27]/10 rounded-lg flex items-center justify-center">
                 <a href="tel:+998555150111">
-                  <Phone className="h-5 w-5 text-[#578f27]" />
+                  <Phone className="h-5 w-5 text-[#004526]" />
                 </a>
               </div>
             </div>

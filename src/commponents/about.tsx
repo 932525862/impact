@@ -10,7 +10,7 @@ export default function AboutUs() {
     <section className="bg-white text-black py-16 px-6 md:px-20">
       <div className="max-w-4xl mx-auto">
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#578f27]">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#004526]">
           {t("about.heading")}
         </h2>
 
@@ -25,13 +25,13 @@ export default function AboutUs() {
         />
 
         {/* Values */}
-        <h3 className="text-2xl font-semibold mb-4 text-[#578f27]">
+        <h3 className="text-2xl font-semibold mb-4 text-[#004526]">
           {t("about.valuesHeading")}
         </h3>
         <ul className="space-y-3 mb-10">
           {["trust", "transparency", "sustainability", "collaboration"].map((key) => (
             <li key={key} className="flex items-start">
-              <span className="text-[#578f27] font-bold mr-2">•</span>
+              <span className="text-[#004526] font-bold mr-2">•</span>
               <span dangerouslySetInnerHTML={{ __html: t(`about.values.${key}`) }} />
             </li>
           ))}

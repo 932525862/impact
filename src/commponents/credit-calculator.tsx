@@ -47,7 +47,7 @@ export default function CreditCalculator() {
           <div>
             <h2 className="text-4xl font-black text-gray-900 mb-4">
               {t("calculator.title")}{" "}
-              <span style={{ color: "#578f27" }}>
+              <span style={{ color: "#004526" }}>
                 {t("calculator.highlight")}
               </span>
             </h2>
@@ -62,7 +62,7 @@ export default function CreditCalculator() {
             >
               <svg
                 className="w-8 h-8"
-                style={{ color: "#578f27" }}
+                style={{ color: "#004526" }}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -89,7 +89,7 @@ export default function CreditCalculator() {
 
               <div className="mb-8">
                 <p className="text-gray-600 mb-2">{t("calculator.monthlyPayment")}</p>
-                <p className="text-4xl font-bold" style={{ color: "#578f27" }}>
+                <p className="text-4xl font-bold" style={{ color: "#004526" }}>
                   {monthlyPayment > 0
                     ? formatNumber(Math.round(monthlyPayment))
                     : "0"}{" "}
@@ -105,12 +105,12 @@ export default function CreditCalculator() {
                   }
                 }}
                 className="w-full text-white font-bold py-4 px-6 rounded-lg text-lg transition-colors duration-200 mb-6"
-                style={{ backgroundColor: "#578f27" }}
+                style={{ backgroundColor: "#004526" }}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.backgroundColor = "#4a7a22")
                 }
                 onMouseLeave={(e) =>
-                  (e.currentTarget.style.backgroundColor = "#578f27")
+                  (e.currentTarget.style.backgroundColor = "#004526")
                 }
               >
                 {t("calculator.button")}
@@ -133,7 +133,7 @@ export default function CreditCalculator() {
                   placeholder={t("calculator.creditAmount.placeholder")!}
                   value={creditAmount}
                   onChange={(e) => setCreditAmount(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#578f27] focus:border-transparent text-[#000000] text-lg"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#004526] focus:border-transparent text-[#000000] text-lg"
                 />
               </div>
 
@@ -147,7 +147,7 @@ export default function CreditCalculator() {
                   placeholder={t("calculator.creditTerm.placeholder")!}
                   value={creditTerm}
                   onChange={(e) => setCreditTerm(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#578f27] focus:border-transparent text-[#000000] text-lg"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#004526] focus:border-transparent text-[#000000] text-lg"
                 />
               </div>
 
@@ -161,7 +161,7 @@ export default function CreditCalculator() {
                   placeholder={t("calculator.interestRate.placeholder")!}
                   value={interestRate}
                   onChange={(e) => setInterestRate(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#578f27] focus:border-transparent text-[#000000] text-lg"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#004526] focus:border-transparent text-[#000000] text-lg"
                 />
               </div>
 
@@ -170,7 +170,7 @@ export default function CreditCalculator() {
                 className="rounded-lg p-6"
                 style={{ backgroundColor: "#578f2710" }}
               >
-                <h3 className="font-bold mb-2" style={{ color: "#578f27" }}>
+                <h3 className="font-bold mb-2" style={{ color: "#004526" }}>
                   {t("calculator.noteTitle")}
                 </h3>
                 <p className="text-gray-600 text-sm mb-4">
@@ -189,7 +189,7 @@ export default function CreditCalculator() {
           height: 20px;
           width: 20px;
           border-radius: 50%;
-          background: #578f27;
+          background: #004526;
           cursor: pointer;
           border: 2px solid #ffffff;
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -199,7 +199,7 @@ export default function CreditCalculator() {
           height: 20px;
           width: 20px;
           border-radius: 50%;
-          background: #578f27;
+          background: #004526;
           cursor: pointer;
           border: 2px solid #ffffff;
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);

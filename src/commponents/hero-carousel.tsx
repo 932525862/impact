@@ -40,9 +40,9 @@ export function HeroCarousel() {
           <div className="space-y-8">
             <div className="flex items-center space-x-3">
               <div className="flex space-x-1">
-                <div className="w-2 h-2 bg-[#578f27] rounded-full animate-pulse"></div>
-                <div className="w-2 h-2 bg-[#578f27]/60 rounded-full animate-pulse delay-100"></div>
-                <div className="w-2 h-2 bg-[#578f27]/40 rounded-full animate-pulse delay-200"></div>
+                <div className="w-2 h-2 bg-[#004526] rounded-full animate-pulse"></div>
+                <div className="w-2 h-2 bg-[#004526]/60 rounded-full animate-pulse delay-100"></div>
+                <div className="w-2 h-2 bg-[#004526]/40 rounded-full animate-pulse delay-200"></div>
               </div>
               {/* <span className="text-xl font-semibold text-gray-700 tracking-wide uppercase">
                 {t("hero.slogan")}
@@ -66,7 +66,7 @@ export function HeroCarousel() {
                     onClick={() => setCurrentIndex(index)}
                     className={`h-1 rounded-full transition-all duration-300 ${
                       index === currentIndex
-                        ? "w-12 bg-[#578f27]"
+                        ? "w-12 bg-[#004526]"
                         : "w-6 bg-gray-300 hover:bg-gray-400"
                     }`}
                   />
@@ -81,12 +81,12 @@ export function HeroCarousel() {
             <div className="flex flex-col sm:flex-row gap-4">
               <button
                 onClick={() => {
-                  const section = document.getElementById("kontaktlar");
+                  const section = document.getElementById("xizmatlar");
                   if (section) {
                     section.scrollIntoView({ behavior: "smooth" });
                   }
                 }}
-                className="inline-flex items-center justify-center bg-[#578f27] hover:bg-[#578f27]/90 text-white px-12 py-6 text-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 group h-16 rounded-md"
+                className="inline-flex items-center justify-center bg-[#004526] hover:bg-[#004526]/90 text-white px-12 py-6 text-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 group h-16 rounded-md"
               >
                 {t("hero.button")}
                 <ChevronRight className="ml-2 h-6 w-6 group-hover:translate-x-1 transition-transform" />
@@ -104,7 +104,7 @@ export function HeroCarousel() {
                 priority
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-[#578f27]/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#004526]/60 via-transparent to-transparent" />
             </div>
           </div>
         </div>
