@@ -1,13 +1,13 @@
 "use client";
 
-import { Clock, CheckCircle, TrendingUp, ArrowRight } from "lucide-react";
+import { Clock, CheckCircle, TrendingUp,  } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const icons = [Clock, CheckCircle, TrendingUp];
 const colors = [
-  "from-[#004526] to-[#004526]",
-  "from-[#004526] to-[#004526]",
-  "from-[#004526] to-[#004526]",
+  "from-blue-500 to-blue-600",
+  "from-green-500 to-green-600",
+  "from-purple-500 to-purple-600",
 ];
 
 export function ServiceCards() {
