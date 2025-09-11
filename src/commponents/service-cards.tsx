@@ -1,6 +1,6 @@
 "use client";
 
-import { Clock, CheckCircle, TrendingUp,  } from "lucide-react";
+import { Clock, CheckCircle, TrendingUp } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const icons = [Clock, CheckCircle, TrendingUp];
@@ -9,6 +9,9 @@ const colors = [
   "from-green-500 to-green-600",
   "from-purple-500 to-purple-600",
 ];
+
+// Raqamlar uchun ranglar
+const numberColors = ["text-blue-500", "text-green-500", "text-purple-500"];
 
 export function ServiceCards() {
   const { t } = useTranslation();
@@ -46,11 +49,17 @@ export function ServiceCards() {
                 <div className="relative p-10 h-full">
                   <div className="space-y-8">
                     <div className="flex items-start justify-between">
-                      <div className="text-8xl font-black text-gray-100 group-hover:text-[#004526]/20 transition-colors duration-300 leading-none">
+                      {/* Raqam rangini massivdan olish */}
+                      <div
+                        className={`text-8xl font-black leading-none ${
+                          numberColors[index]
+                        } group-hover:text-[#004526]/20 transition-colors duration-300`}
+                      >
                         {index + 1}
                       </div>
+
                       <div
-                        className={`bg-gradient-to-br ${colors[index]} p-5 rounded-3xl  shadow-2xl`}
+                        className={`bg-gradient-to-br ${colors[index]} p-5 rounded-3xl shadow-2xl`}
                       >
                         <IconComponent className="h-10 w-10 text-white" />
                       </div>
@@ -64,13 +73,6 @@ export function ServiceCards() {
                         {service.description}
                       </p>
                     </div>
-
-                    {/* <div className="pt-6">
-                      <div className="flex items-center text-[#578f27] font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0">
-                        <span className="text-base">{t("services.more")}</span>
-                        <ArrowRight className="ml-3 h-5 w-5" />
-                      </div>
-                    </div> */}
                   </div>
                 </div>
               </div>
