@@ -13,9 +13,10 @@ export default function Home() {
       <HeroCarousel />
       <About />
       <ServiceCards />
+      <ActivityDirections />
       <CreditCalculator />
       <Team />  
-      <ActivityDirections />
+      
       <Footer/>
     </main>
   )
