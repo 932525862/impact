@@ -1,4 +1,27 @@
 {
+
+  "sectionTitle": "Board of Directors and Management",
+  "items": {
+    "jaloliddin": {
+      "title": "Jaloliddin Kadirov",
+      "text": "Chief Executive Officer – a manager with experience in leadership and executive positions in the banking and finance sector, specializing in small and medium-sized business relations. Possesses deep knowledge in corporate and SME financing, loan recovery, and monitoring."
+    },
+    "jamoliddin": {
+      "title": "Jamoliddin Abdullaev",
+      "text": "Chief Risk Officer – an experienced specialist with 20 years of work in banking and finance, including senior and executive management. Skilled in SME financing, operations, risk management, treasury, and financial planning. Held leadership roles in both state and commercial banks."
+    },
+    "mirzo": {
+      "title": "Mirzo Bozorov",
+      "text": "Chief Financial Officer – a leader with 10 years of experience in financial management, project management, and product development within the banking and finance system. Focuses on the efficiency of banking products and the delivery channels of digital banking services. Holds an international financial certification."
+    },
+    "mirgulom": {
+      "title": "Mirgulom Dosmuhammedov",
+      "text": "Chief Accountant with over 15 years of experience in the banking sector of Uzbekistan, specializing in banking and microfinance. Has deep knowledge of accounting and tax reporting, with strong attention to compliance with regulatory requirements."
+    }
+  },  
+
+
+
   "home": "Home",
   "advantages": "Our Advantages",
   "services1": "Services",

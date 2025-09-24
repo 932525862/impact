@@ -1,4 +1,26 @@
 {
+
+   "sectionTitle": "Boshqaruv va direktorlar kengashi",
+  "items": {
+    "jaloliddin": {
+      "title": "Jaloliddin Kadirov",
+      "text": "Bosh direktor – bank-moliya sohasida rahbarlik va ijro lavozimlarida tajribaga ega bo‘lgan kichik va o‘rta biznes bilan ishlash bo‘yicha menejer. Korporativ hamda kichik va o’rta biznesni moliyalashtirish, qarzlarni qaytarish va monitoring bo‘yicha chuqur bilimga ega."
+    },
+    "jamoliddin": {
+      "title": "Jamoliddin Abdullaev",
+      "text": "Risklar bo‘yicha direktor - bank ishi va bank-moliya sohasida 20 yillik ish tajribasiga ega, yuqori va ijro etuvchi boshqaruv, kichik va o‘rta biznesni moliyalashtirish, operatsion faoliyat, xatarlarni boshqarish, g‘aznachilik va moliyaviy rejalashtirish sohasida ish tajribasiga ega bo‘lgan tajribali mutaxassis. Davlat hamda tijorat banklarida rahbarlik lavozimlarida ishlagan."
+    },
+    "mirzo": {
+      "title": "Mirzo Bozorov",
+      "text": "Moliya bo‘yicha direktor - bank-moliya tizimida moliyaviy boshqaruv, loyihalarni boshqarish va mahsulotlarni ishlab chiqish sohasida 10 yillik ish tajribaga ega bo‘lgan, bank ishi va strategik rejalashtirish sohasidagi rahbar. Bank va moliya sohasida mahsulotlar samaradorligi va raqamli bank mahsulotlarini yetkazib berish kanallariga alohida e’tibor qaratadi. Moliya sohasida Xalqaro sertifikatga ega rahbar."
+    },
+    "mirgulom": {
+      "title": "Mirg’ulom Dosmuhammedov",
+      "text": "O‘zbekiston bank sektorida 15 yildan ortiq tajribaga ega bo‘lgan bosh buxgalter bank va MFO sohasiga ixtisoslashgan. Buxgalteriya hisoboti va soliq hisobi bo‘yicha chuqur bilimga ega, me’yoriy talablarga rioya qilishga e’tibor qaratadi."
+    }
+  },
+
+
   "home": "Bosh sahifa",
   "advantages": "Afzalliklarimiz",
   "services1": "Xizmatlar",
