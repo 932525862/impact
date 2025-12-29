@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 import { useTranslation } from "react-i18next";
-
+   
 export default function ActivityDirections() {
   const { t } = useTranslation();
 
