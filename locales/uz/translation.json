@@ -132,8 +132,8 @@
     "monthlyPayment": "Oylik to‘lov:",
     "currency": "so‘m",
     "button": "Ariza qoldirish",
-    "noteTitle": "Hisob-kitob dastlabki",
-    "noteText": "Summalar, muddatlar va to‘lovlar to‘g‘risida batafsil ma’lumot olish uchun istalgan qulay bo‘lmiga murojaat qilishingiz yoki telefon raqami orqali bog‘lanishingiz zarur",
+    "noteTitle": "Dastlabki hisob-kitob ",
+    "noteText": "Summalar, muddatlar va to‘lovlar bo‘yicha batafsil ma’lumot olish uchun tashkilot ofisiga tashrif buyurishingiz yoki telefon raqami orqali bog‘lanishingiz mumkin.",
     "phone": "+998 (55) 515-01-11",
     "creditAmount": {
       "label": "Kredit summasi",

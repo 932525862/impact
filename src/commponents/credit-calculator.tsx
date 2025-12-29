@@ -39,6 +39,20 @@ export default function CreditCalculator() {
     return new Intl.NumberFormat("uz-UZ").format(num);
   };
 
+  // Format a numeric string with spaces for thousands: "1000000" -> "1 000 000"
+  const formatWithSpaces = (value: string) => {
+    if (!value) return "";
+    // remove leading zeros
+    const digits = value.replace(/^0+(?=\d)/, "");
+    return digits.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  };
+
+  const handleCreditAmountChange = (input: string) => {
+    // allow only digits
+    const digits = input.replace(/\D/g, "");
+    setCreditAmount(digits);
+  };
+
   return (
     <div id="kalkulyator" className="bg-gray-50 py-16 px-4">
       <div className="max-w-6xl mx-auto">
@@ -129,10 +143,12 @@ export default function CreditCalculator() {
                   {t("calculator.creditAmount.label")}
                 </label>
                 <input
-                  type="number"
+                  type="text"
+                  inputMode="numeric"
+                  pattern="[0-9]*"
                   placeholder={t("calculator.creditAmount.placeholder")!}
-                  value={creditAmount}
-                  onChange={(e) => setCreditAmount(e.target.value)}
+                  value={formatWithSpaces(creditAmount)}
+                  onChange={(e) => handleCreditAmountChange(e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#004526] focus:border-transparent text-[#000000] text-lg"
                 />
               </div>

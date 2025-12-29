@@ -126,30 +126,31 @@
   },
 
   "calculator": {
-    "title": "Loan",
-    "highlight": "Calculator",
-    "description": "Use the calculator on the website to select the amount and term, and calculate the approximate monthly payment.",
-    "offer": "Special Offer",
-    "monthlyPayment": "Monthly Payment:",
-    "currency": "UZS",
-    "button": "Apply Now",
-    "noteTitle": "Preliminary Calculation",
-    "noteText": "For detailed information about amounts, terms, and repayments, please contact any of our branches or call our phone number.",
-    "phone": "+998 (55) 515-01-11",
-    "creditAmount": {
-      "label": "Loan Amount",
-      "placeholder": "Enter amount"
-    },
-    "creditTerm": {
-      "label": "Loan Term (months)",
-      "placeholder": "Enter term"
-    },
-    "interestRate": {
-      "label": "Interest Rate (%)",
-      "placeholder": "Enter interest rate"
-    },
-    "info": "We help entrepreneurs and businesses turn their dreams into reality through financial support. With our credit services, you can move confidently towards reliability, stability, and new opportunities."
+  "title": "Loan",
+  "highlight": "calculation calculator",
+  "description": "Use the calculator on the website to select the amount and term and calculate the approximate monthly payment",
+  "offer": "Special offer",
+  "monthlyPayment": "Monthly payment:",
+  "currency": "UZS",
+  "button": "Submit an application",
+  "noteTitle": "Preliminary calculation",
+  "noteText": "For detailed information about amounts, terms, and payments, you may visit the organization’s office or contact us by phone.",
+  "phone": "+998 (55) 515-01-11",
+  "creditAmount": {
+    "label": "Loan amount",
+    "placeholder": "Enter the amount"
   },
+  "creditTerm": {
+    "label": "Loan term (months)",
+    "placeholder": "Enter the term"
+  },
+  "interestRate": {
+    "label": "Interest rate (%)",
+    "placeholder": "Enter the interest rate"
+  },
+  "info": "We help entrepreneurs and businesses achieve their goals by providing financial support. With our loan services, you can confidently move toward reliability, stability, and new opportunities."
+},
+
 
   "contact": {
     "title": "Contacts",

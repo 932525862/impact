@@ -3,31 +3,35 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { useTranslation } from "react-i18next";
-
+import SeoImg1 from "../../public/jalolidin.png";
+import SeoImg2 from "../../public/jamoldn.png"
+import SeoImg3 from "../../public/mirzo.jpg";
+import SeoImg4 from "../../public/mirgulom.png";
 export default function WeAreLookingFor() {
   const { t } = useTranslation();
 
   const items = [
     {
-      img: "/bank.jpeg",
+      img: SeoImg1,
       title: t("items.jaloliddin.title"),
       text: t("items.jaloliddin.text"),
     },
     {
-      img: "/bank.jpeg",
+      img: SeoImg2,
       title: t("items.jamoliddin.title"),
       text: t("items.jamoliddin.text"),
     },
     {
-      img: "/bank.jpeg",
+      img: SeoImg3,
       title: t("items.mirzo.title"),
       text: t("items.mirzo.text"),
     },
     {
-      img: "/bank.jpeg",
+      img: SeoImg4, 
       title: t("items.mirgulom.title"),
       text: t("items.mirgulom.text"),
     },
+   
   ];
 
   return (
