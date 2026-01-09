@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import jsPDF from "jspdf";
-
+import logo from "../../public/logo2.png"
 export default function CreditCalculator() {
   const { t } = useTranslation();
   const tableRef = useRef<HTMLDivElement>(null);
@@ -102,141 +102,195 @@ export default function CreditCalculator() {
     if (!tableRef.current || !paymentSchedule) return;
 
     try {
-      const pdf = new jsPDF({
-        orientation: "portrait",
-        unit: "mm",
-        format: "a4",
-      });
+      // helper for CSV-like formatting in PDF (commas thousands)
+      const fmt = (n: number | string) => {
+        const num = typeof n === "number" ? n : Number(n) || 0;
+        return new Intl.NumberFormat("en-US").format(Math.round(num));
+      };
 
-      let yPosition = 15;
-      const pageHeight = pdf.internal.pageSize.getHeight();
-      const margin = 10;
-      const pageWidth = pdf.internal.pageSize.getWidth();
-
-      // Sarlavha
-      pdf.setFontSize(16);
-      pdf.setTextColor(0, 69, 38);
-      pdf.text("Kredit to'lovlari jadavali", margin, yPosition);
-      yPosition += 10;
-
-      // Kredit ma'lumotlari
-      pdf.setFontSize(10);
-      pdf.setTextColor(0, 0, 0);
-      pdf.text(`Kredit miqdori: ${formatNumber(Number(creditAmount))} UZS`, margin, yPosition);
-      yPosition += 6;
-      pdf.text(`Kredit muddati: ${creditTerm} oy`, margin, yPosition);
-      yPosition += 6;
-      pdf.text(`Foiz stavkasi: ${interestRate}%`, margin, yPosition);
-      yPosition += 6;
-      pdf.text(`Oylik to'lov: ${formatNumber(Math.round(monthlyPayment))} UZS`, margin, yPosition);
-      yPosition += 12;
-
-      // Jadvol sarlavha
-      const columns = ["Oy", "Asosiy qarz", "Foiz", "Oylik to'lov", "Qolgan qarz"];
-      const columnWidths = [15, 35, 35, 35, 35];
-      const rowHeight = 6;
-      const headerHeight = 8;
-
-      // Sarlavha chiziqlar
-      pdf.setFontSize(9);
-      pdf.setFont(undefined, "bold");
-      pdf.setTextColor(255, 255, 255);
-      pdf.setFillColor(0, 69, 38);
-
-      let xPosition = margin;
-      columns.forEach((col, index) => {
-        pdf.rect(xPosition, yPosition, columnWidths[index], headerHeight, "F");
-        pdf.text(col, xPosition + 1, yPosition + headerHeight - 1);
-        xPosition += columnWidths[index];
-      });
-
-      yPosition += headerHeight;
-
-      // Jadval qatoralari
-      pdf.setFont(undefined, "normal");
-      pdf.setTextColor(0, 0, 0);
-
-      paymentSchedule.forEach((row, index) => {
-        // Sahifa o'zgartirilsa yangi sahifa qo'shish
-        if (yPosition > pageHeight - 20) {
-          pdf.addPage();
-          yPosition = margin;
-        }
-
-        const rowData = [
-          row.month.toString(),
-          formatNumber(Math.round(row.principal)),
-          formatNumber(Math.round(row.interest)),
-          formatNumber(Math.round(row.payment)),
-          formatNumber(row.remaining),
-        ];
-
-        // Fon rangi
-        if (index % 2 === 0) {
-          xPosition = margin;
-          columns.forEach((_, idx) => {
-            pdf.setFillColor(249, 250, 251);
-            pdf.rect(xPosition, yPosition, columnWidths[idx], rowHeight, "F");
-            xPosition += columnWidths[idx];
+      // logo fetch helper
+      const fetchDataUrl = async (url: string) => {
+        try {
+          const r = await fetch(url);
+          const b = await r.blob();
+          return await new Promise<string>((res, rej) => {
+            const fr = new FileReader();
+            fr.onloadend = () => res(fr.result as string);
+            fr.onerror = rej;
+            fr.readAsDataURL(b);
           });
+        } catch (e) {
+          return null;
+        }
+      };
+
+      const pdf = new jsPDF({ unit: "mm", format: "a4" });
+      const pageW = pdf.internal.pageSize.getWidth();
+      const pageH = pdf.internal.pageSize.getHeight();
+      const margin = 18;
+      let y = margin;
+
+      // centered logo
+      const logoPath = "/logo2.png";
+      const logoData = await fetchDataUrl(logoPath);
+      if (logoData) {
+        const logoW = 40; // mm
+        const logoX = (pageW - logoW) / 2;
+        pdf.addImage(logoData, "PNG", logoX, y, logoW, 0);
+        y += 20;
+      }
+
+      // Title
+      pdf.setFontSize(18);
+      pdf.setFont("helvetica", "bold");
+      pdf.setTextColor(0, 69, 38);
+      pdf.text("Kredit to'lovlari jadavali", pageW / 2, y, { align: "center" });
+      y += 10;
+
+      // Info block left aligned
+      pdf.setFontSize(10);
+      pdf.setFont("helvetica", "normal");
+      pdf.setTextColor(0, 0, 0);
+      pdf.text(`Kredit miqdori: ${fmt(Number(creditAmount))} UZS`, margin, y);
+      y += 6;
+      pdf.text(`Kredit muddati: ${creditTerm} oy`, margin, y);
+      y += 6;
+      pdf.text(`Foiz stavkasi: ${interestRate}%`, margin, y);
+      y += 6;
+      pdf.text(`Oylik to'lov: ${fmt(Math.round(monthlyPayment))} UZS`, margin, y);
+      y += 10;
+
+      // (Removed top green rule to match requested design)
+
+      // table columns (precise proportional widths)
+      const usable = pageW - margin * 2;
+      const colPerc = [0.08, 0.36, 0.16, 0.2, 0.2];
+      const colW = colPerc.map((p) => usable * p);
+      const rowH = 12; // increased for better spacing
+
+      // headers
+      pdf.setFontSize(10);
+      pdf.setFont("helvetica", "bold");
+      pdf.setTextColor(0, 0, 0);
+      let x = margin;
+      const headers = ["Oy", "Asosiy qarz", "Foiz", "Oylik to'lov", "Qolgan qarz"];
+      const headerTextY = y + rowH / 2 + 2;
+      for (let i = 0; i < headers.length; i++) {
+        // center headers above their columns
+        const hx = margin + colW.slice(0, i).reduce((s, v) => s + v, 0) + colW[i] / 2;
+        pdf.text(headers[i], hx, headerTextY, { align: "center" });
+      }
+      y += rowH;
+
+      // thin green line under header (reduced thickness)
+      pdf.setDrawColor(0, 69, 38);
+      pdf.setLineWidth(0.8);
+      pdf.line(margin, y - 2, pageW - margin, y - 2);
+
+      // rows
+      pdf.setFont("helvetica", "normal");
+      // helpers for formatting with decimals
+      const fmtDecimal = (value: number, digits = 0) => {
+        return new Intl.NumberFormat("en-US", {
+          minimumFractionDigits: digits,
+          maximumFractionDigits: digits,
+        }).format(value);
+      };
+
+      for (let i = 0; i < paymentSchedule.length; i++) {
+        const r = paymentSchedule[i];
+        if (y + rowH + 30 > pageH) {
+          pdf.addPage();
+          y = margin;
         }
 
-        // Matn
-        xPosition = margin;
-        rowData.forEach((data, idx) => {
-          const alignment = idx === 0 ? "left" : "right";
-          const startX = alignment === "left" ? xPosition + 1 : xPosition + columnWidths[idx] - 1;
-          pdf.text(data, startX, yPosition + rowHeight - 1, { align: alignment });
-          xPosition += columnWidths[idx];
-        });
+        // alternating background
+        if (i % 2 === 1) {
+          x = margin;
+          pdf.setFillColor(249, 250, 251);
+          for (let c = 0; c < colW.length; c++) {
+            pdf.rect(x, y, colW[c], rowH, "F");
+            x += colW[c];
+          }
+        }
 
-        // Chiziq
+        // values
+        x = margin;
+        const vals = [
+          r.month.toString(),
+          fmtDecimal(r.principal, 0),
+          fmtDecimal(r.interest, 0),
+          fmtDecimal(r.payment, 0),
+          // remaining keep two decimals if fractional
+          fmtDecimal(r.remaining, r.remaining % 1 === 0 ? 0 : 2),
+        ];
+        const textY = y + rowH / 2 + 3; // adjusted vertical centering
+
+        for (let c = 0; c < vals.length; c++) {
+          const isLeft = c === 0;
+          // make monthly payment column bold
+          if (c === 3) pdf.setFont("helvetica", "bold"); else pdf.setFont("helvetica", "normal");
+          if (isLeft) {
+            const tx = x + 6; // small left padding
+            pdf.text(vals[c], tx, textY, { align: "left" });
+          } else {
+            // center numeric columns under header
+            const tx = x + colW[c] / 2;
+            pdf.text(vals[c], tx, textY, { align: "center" });
+          }
+          x += colW[c];
+        }
+
+        // separator
         pdf.setDrawColor(229, 231, 235);
-        pdf.line(margin, yPosition + rowHeight, pageWidth - margin, yPosition + rowHeight);
-        yPosition += rowHeight;
-      });
+        pdf.setLineWidth(0.4);
+        pdf.line(margin, y + rowH, pageW - margin, y + rowH);
+        y += rowH;
+      }
 
-      // Jami qatorasi
-      yPosition += 2;
-      pdf.setFont(undefined, "bold");
+      // totals row with background and top green border
+      if (y + rowH + 24 > pageH) {
+        pdf.addPage();
+        y = margin;
+      }
+
+      pdf.setDrawColor(0, 69, 38);
+      pdf.setLineWidth(1.6);
+      pdf.line(margin, y + 2, pageW - margin, y + 2);
+
       pdf.setFillColor(243, 244, 246);
+      x = margin;
+      for (let i = 0; i < colW.length; i++) {
+        pdf.rect(x, y, colW[i], rowH, "F");
+        x += colW[i];
+      }
 
-      const totalRow = [
-        "Jami",
-        formatNumber(Number(creditAmount)),
-        formatNumber(
-          Math.round(
-            paymentSchedule.reduce((sum, row) => sum + row.interest, 0)
-          )
-        ),
-        formatNumber(
-          Math.round(
-            paymentSchedule.reduce((sum, row) => sum + row.payment, 0)
-          )
-        ),
-        "0",
-      ];
+      pdf.setFont("helvetica", "bold");
+      const totalInt = Math.round(paymentSchedule.reduce((s, rr) => s + rr.interest, 0));
+      const totalPay = Math.round(paymentSchedule.reduce((s, rr) => s + rr.payment, 0));
+      const totals = ["Jami", fmt(Number(creditAmount)), fmt(totalInt), fmt(totalPay), "0"];
+      x = margin;
+      for (let c = 0; c < totals.length; c++) {
+        const isLeft = c === 0;
+        if (isLeft) {
+          const tx = x + 6;
+          pdf.text(totals[c], tx, y + rowH - 3, { align: "left" });
+        } else {
+          const tx = x + colW[c] / 2;
+          pdf.text(totals[c], tx, y + rowH - 3, { align: "center" });
+        }
+        x += colW[c];
+      }
 
-      xPosition = margin;
-      columns.forEach((_, idx) => {
-        pdf.rect(xPosition, yPosition, columnWidths[idx], rowHeight, "F");
-        xPosition += columnWidths[idx];
-      });
+      y += rowH + 8;
+      // bottom small summary
+      pdf.setFont("helvetica", "normal");
+      pdf.setFontSize(10);
+      pdf.text(`Jami summasi: ${fmt(totalPay)} UZS`, margin, y);
 
-      xPosition = margin;
-      totalRow.forEach((data, idx) => {
-        const alignment = idx === 0 ? "left" : "right";
-        const startX = alignment === "left" ? xPosition + 1 : xPosition + columnWidths[idx] - 1;
-        pdf.text(data, startX, yPosition + rowHeight - 1, { align: alignment });
-        xPosition += columnWidths[idx];
-      });
-
-      // PDF ni yuklash
-      pdf.save(
-        `kredit-jadavali-${new Date().toISOString().slice(0, 10)}.pdf`
-      );
-    } catch (error) {
-      console.error("PDF yaratishda xato:", error);
+      pdf.save(`kredit-jadavali-${new Date().toISOString().slice(0, 10)}.pdf`);
+    } catch (err) {
+      console.error("PDF yaratishda xato:", err);
       alert("PDF yaratishda xato yuz berdi");
     }
   };
@@ -318,26 +372,7 @@ export default function CreditCalculator() {
                 {t("calculator.button")}
               </button>
 
-              {/* <button
-                onClick={downloadPDF}
-                disabled={!paymentSchedule}
-                className="w-full text-white font-bold py-3 px-6 rounded-lg text-lg transition-colors duration-200 mb-6 disabled:opacity-50 disabled:cursor-not-allowed"
-                style={{
-                  backgroundColor: paymentSchedule ? "#004526" : "#cccccc",
-                }}
-                onMouseEnter={(e) => {
-                  if (paymentSchedule) {
-                    e.currentTarget.style.backgroundColor = "#4a7a22";
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (paymentSchedule) {
-                    e.currentTarget.style.backgroundColor = "#004526";
-                  }
-                }}
-              >
-                To'lovlar jadvalini yuklash
-              </button> */}
+             
 
               <div className="hidden md:block text-xm text-gray-500 leading-relaxed">
                 {t("calculator.info")}
@@ -411,7 +446,9 @@ export default function CreditCalculator() {
             <div className="mt-12 bg-white rounded-2xl p-8 shadow-lg">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-2xl font-bold text-gray-900">
-                  {t("calculator.paymentSchedule") || "To'lovlar jadvalini"}
+                  {/* {t("calculator.paymentSchedule") || "To'lovlar jadvalini"}
+                   */}
+                   Kredit to'lovlari jadavali
                 </h3>
                 <button
                   onClick={downloadPDF}
