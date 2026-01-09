@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { X } from "lucide-react";
 import { useTranslation } from "react-i18next";
    
@@ -50,11 +51,13 @@ export default function ActivityDirections() {
               key={index}
               className="relative group cursor-pointer rounded-2xl overflow-hidden h-80 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
             >
-              {/* Background image */}
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${activity.image})` }}
-              ></div>
+              {/* Background image - use img with object-contain so the whole photo is visible */}
+              <Image
+                src={activity.image}
+                alt={activity.key}
+                fill
+                className="object-contain object-top"
+              />
 
               {/* Gradient overlay */}
               <div
