@@ -106,7 +106,7 @@ export default function CreditCalculator() {
       const element = document.createElement("div");
       element.style.width = "210mm";
       element.style.padding = "15mm";
-      element.style.fontFamily = "'Times New Roman', Times, serif";
+      element.style.fontFamily = "Calibri, sans-serif";
       element.style.backgroundColor = "white";
       element.style.color = "#000";
       element.style.lineHeight = "1.4";
@@ -116,13 +116,13 @@ export default function CreditCalculator() {
 
       const logoImg = document.createElement("img");
       logoImg.src = "/logo2.png";
-      logoImg.style.height = "30mm";
+      logoImg.style.height = "15mm";
       logoImg.style.width = "auto";
 
       // MARKAZGA OLISH
-      logoImg.style.display = "block";
-      logoImg.style.marginLeft = "auto";
-      logoImg.style.marginRight = "auto";
+      // logoImg.style.display = "block";
+      // logoImg.style.marginLeft = "auto";
+      // logoImg.style.marginRight = "auto";
 
       logoDiv.appendChild(logoImg);
       element.appendChild(logoDiv);
@@ -182,8 +182,9 @@ export default function CreditCalculator() {
       headers.forEach((header) => {
         const th = document.createElement("th");
         th.textContent = header;
-        th.style.padding = "4pt";
+        th.style.padding = "8pt 6pt";
         th.style.textAlign = "center";
+        th.style.verticalAlign = "middle";
         th.style.fontWeight = "bold";
         th.style.borderBottom = "1px solid #004526";
         headerRow.appendChild(th);
@@ -206,14 +207,15 @@ export default function CreditCalculator() {
           Math.round(r.principal).toLocaleString(),
           Math.round(r.interest).toLocaleString(),
           Math.round(r.payment).toLocaleString(),
-          r.remaining.toFixed(0),
+          Math.round(r.remaining).toLocaleString(),
         ];
 
         vals.forEach((val) => {
           const td = document.createElement("td");
           td.textContent = val;
-          td.style.padding = "4pt";
+          td.style.padding = "8pt 6pt";
           td.style.textAlign = "center";
+          td.style.verticalAlign = "middle";
           td.style.border = "1px solid #ddd";
           row.appendChild(td);
         });
@@ -245,8 +247,9 @@ export default function CreditCalculator() {
       totals.forEach((val) => {
         const td = document.createElement("td");
         td.textContent = val;
-        td.style.padding = "4pt";
+        td.style.padding = "8pt 6pt";
         td.style.textAlign = "center";
+        td.style.verticalAlign = "middle";
         td.style.border = "1px solid #ddd";
         totalRow.appendChild(td);
       });
