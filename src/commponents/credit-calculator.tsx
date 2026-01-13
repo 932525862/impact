@@ -2,9 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import jsPDF from "jspdf";
-import html2pdf from "html2pdf.js";
-import logo from "../../public/logo2.png"
+import logo from "../../public/logo2.png";
 export default function CreditCalculator() {
   const { t } = useTranslation();
   const tableRef = useRef<HTMLDivElement>(null);
@@ -37,16 +35,16 @@ export default function CreditCalculator() {
         const annuity =
           principal * (monthlyRate / (1 - Math.pow(1 + monthlyRate, -n)));
         setMonthlyPayment(annuity);
-        
+
         // To'lovlar jadvalini hisoblash
         const schedule = [];
         let remainingBalance = principal;
-        
+
         for (let i = 1; i <= n; i++) {
           const interestPayment = remainingBalance * monthlyRate;
           const principalPayment = annuity - interestPayment;
           remainingBalance -= principalPayment;
-          
+
           schedule.push({
             month: i,
             principal: Math.round(principalPayment * 100) / 100,
@@ -55,12 +53,12 @@ export default function CreditCalculator() {
             remaining: Math.max(0, Math.round(remainingBalance * 100) / 100),
           });
         }
-        
+
         setPaymentSchedule(schedule);
       } else {
         const monthlyPay = principal / n;
         setMonthlyPayment(monthlyPay);
-        
+
         // To'lovlar jadvalini hisoblash (faiz yo'q)
         const schedule = [];
         for (let i = 1; i <= n; i++) {
@@ -69,10 +67,11 @@ export default function CreditCalculator() {
             principal: Math.round((principal / n) * 100) / 100,
             interest: 0,
             payment: Math.round(monthlyPay * 100) / 100,
-            remaining: Math.round((principal - (principal / n) * i) * 100) / 100,
+            remaining:
+              Math.round((principal - (principal / n) * i) * 100) / 100,
           });
         }
-        
+
         setPaymentSchedule(schedule);
       }
     } else {
@@ -112,14 +111,19 @@ export default function CreditCalculator() {
       element.style.color = "#000";
       element.style.lineHeight = "1.4";
 
-      // Logo at the top
       const logoDiv = document.createElement("div");
-      logoDiv.style.textAlign = "center";
       logoDiv.style.marginBottom = "10pt";
+
       const logoImg = document.createElement("img");
       logoImg.src = "/logo2.png";
-      logoImg.style.height = "40mm";
+      logoImg.style.height = "30mm";
       logoImg.style.width = "auto";
+
+      // MARKAZGA OLISH
+      logoImg.style.display = "block";
+      logoImg.style.marginLeft = "auto";
+      logoImg.style.marginRight = "auto";
+
       logoDiv.appendChild(logoImg);
       element.appendChild(logoDiv);
 
@@ -138,10 +142,16 @@ export default function CreditCalculator() {
       infoDiv.style.fontSize = "10pt";
       infoDiv.style.marginBottom = "10pt";
       const infos = [
-        `${t("calculator.creditAmountPdf")}: ${Number(creditAmount).toLocaleString()} UZS`,
-        `${t("calculator.creditTermPdf")}: ${creditTerm} ${t("calculator.table.month")}`,
+        `${t("calculator.creditAmountPdf")}: ${Number(
+          creditAmount
+        ).toLocaleString()} UZS`,
+        `${t("calculator.creditTermPdf")}: ${creditTerm} ${t(
+          "calculator.table.month"
+        )}`,
         `${t("calculator.interestRatePdf")}: ${interestRate}%`,
-        `${t("calculator.monthlyPaymentPdf")}: ${Math.round(monthlyPayment).toLocaleString()} UZS`,
+        `${t("calculator.monthlyPaymentPdf")}: ${Math.round(
+          monthlyPayment
+        ).toLocaleString()} UZS`,
       ];
       infos.forEach((info) => {
         const p = document.createElement("p");
@@ -218,8 +228,12 @@ export default function CreditCalculator() {
       totalRow.style.fontWeight = "bold";
       totalRow.style.borderTop = "2px solid #004526";
 
-      const totalInt = Math.round(paymentSchedule.reduce((s, r) => s + r.interest, 0));
-      const totalPay = Math.round(paymentSchedule.reduce((s, r) => s + r.payment, 0));
+      const totalInt = Math.round(
+        paymentSchedule.reduce((s, r) => s + r.interest, 0)
+      );
+      const totalPay = Math.round(
+        paymentSchedule.reduce((s, r) => s + r.payment, 0)
+      );
       const totals = [
         t("calculator.total"),
         Number(creditAmount).toLocaleString(),
@@ -242,7 +256,9 @@ export default function CreditCalculator() {
 
       // Summary
       const summary = document.createElement("p");
-      summary.textContent = `${t("calculator.totalAmount")}: ${totalPay.toLocaleString()} UZS`;
+      summary.textContent = `${t(
+        "calculator.totalAmount"
+      )}: ${totalPay.toLocaleString()} UZS`;
       summary.style.marginTop = "12pt";
       summary.style.fontSize = "10pt";
       summary.style.fontWeight = "bold";
@@ -251,7 +267,9 @@ export default function CreditCalculator() {
       // Generate PDF with options to preserve text as text (not image)
       const options = {
         margin: [10, 10, 10, 10] as [number, number, number, number],
-        filename: `kredit-jadavali-${new Date().toISOString().slice(0, 10)}.pdf`,
+        filename: `kredit-jadavali-${new Date()
+          .toISOString()
+          .slice(0, 10)}.pdf`,
         image: { type: "jpeg" as const, quality: 0.98 },
         html2canvas: {
           scale: 2,
@@ -262,6 +280,8 @@ export default function CreditCalculator() {
         jsPDF: { unit: "mm", format: "a4", orientation: "portrait" as const },
       };
 
+      // Dynamic import to avoid SSR issues with html2pdf
+      const html2pdf = (await import("html2pdf.js")).default;
       await html2pdf().set(options).from(element).save();
     } catch (err) {
       console.error("PDF error:", err);
@@ -318,7 +338,9 @@ export default function CreditCalculator() {
               </h3>
 
               <div className="mb-8">
-                <p className="text-gray-600 mb-2">{t("calculator.monthlyPayment")}</p>
+                <p className="text-gray-600 mb-2">
+                  {t("calculator.monthlyPayment")}
+                </p>
                 <p className="text-4xl font-bold" style={{ color: "#004526" }}>
                   {monthlyPayment > 0
                     ? formatNumber(Math.round(monthlyPayment))
@@ -345,8 +367,6 @@ export default function CreditCalculator() {
               >
                 {t("calculator.button")}
               </button>
-
-             
 
               <div className="hidden md:block text-xm text-gray-500 leading-relaxed">
                 {t("calculator.info")}
@@ -410,7 +430,9 @@ export default function CreditCalculator() {
                 <p className="text-gray-600 text-sm mb-4">
                   {t("calculator.noteText")}
                 </p>
-                <p className="text-gray-900 font-bold">{t("calculator.phone")}</p>
+                <p className="text-gray-900 font-bold">
+                  {t("calculator.phone")}
+                </p>
               </div>
             </div>
           </div>
@@ -535,7 +557,9 @@ export default function CreditCalculator() {
               <p className="mt-4 text-gray-600 text-sm">
                 <strong>{t("calculator.totalAmount")}:</strong>{" "}
                 {formatNumber(
-                  Math.round(paymentSchedule.reduce((sum, row) => sum + row.payment, 0))
+                  Math.round(
+                    paymentSchedule.reduce((sum, row) => sum + row.payment, 0)
+                  )
                 )}{" "}
                 UZS
               </p>

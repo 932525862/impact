@@ -149,7 +149,7 @@
     },
     "info": "Biz tadbirkorlar va bizneslarga moliyaviy qo'llab-quvvatlash orqali ularning orzularini ro'yobga chiqarishga yordam beramiz. Kredit xizmatlarimiz bilan ishonchlilik, barqarorlik va yangi imkoniyatlar sari dadil qadam tashlashingiz mumkin.",
     "paymentSchedule": "To'lovlar jadavali",
-    "pdfTitle": "Kredit to'lovlari jadavali",
+    "pdfTitle": "Kreditni so'ndirish jadvali",
     "creditAmountPdf": "Kredit miqdori",
     "creditTermPdf": "Kredit muddati",
     "interestRatePdf": "Foiz stavkasi",
@@ -164,7 +164,7 @@
     "total": "Jami",
     "totalAmount": "Jami summasi",
     "downloadButton": "Jadvalini yuklash",
-    "consent": "Kredit to'lovlari jadavali"
+    "consent": "Kreditni so'ndirish jadvali"
   },
 
 
