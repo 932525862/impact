@@ -147,7 +147,23 @@
       "label": "Foiz stavkasi (%)",
       "placeholder": "Foiz stavkasini kiriting"
     },
-    "info": "Biz tadbirkorlar va bizneslarga moliyaviy qo‘llab-quvvatlash orqali ularning orzularini ro‘yobga chiqarishga yordam beramiz. Kredit xizmatlarimiz bilan ishonchlilik, barqarorlik va yangi imkoniyatlar sari dadil qadam tashlashingiz mumkin.",
+    "info": "Biz tadbirkorlar va bizneslarga moliyaviy qo'llab-quvvatlash orqali ularning orzularini ro'yobga chiqarishga yordam beramiz. Kredit xizmatlarimiz bilan ishonchlilik, barqarorlik va yangi imkoniyatlar sari dadil qadam tashlashingiz mumkin.",
+    "paymentSchedule": "To'lovlar jadavali",
+    "pdfTitle": "Kredit to'lovlari jadavali",
+    "creditAmountPdf": "Kredit miqdori",
+    "creditTermPdf": "Kredit muddati",
+    "interestRatePdf": "Foiz stavkasi",
+    "monthlyPaymentPdf": "Oylik to'lov",
+    "table": {
+      "month": "Oy",
+      "principal": "Asosiy qarz",
+      "interest": "Foiz",
+      "payment": "Oylik to'lov",
+      "remaining": "Qolgan qarz"
+    },
+    "total": "Jami",
+    "totalAmount": "Jami summasi",
+    "downloadButton": "Jadvalini yuklash",
     "consent": "Kredit to'lovlari jadavali"
   },
 

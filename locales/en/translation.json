@@ -148,7 +148,23 @@
     "label": "Interest rate (%)",
     "placeholder": "Enter the interest rate"
   },
-  "info": "We help entrepreneurs and businesses achieve their goals by providing financial support. With our loan services, you can confidently move toward reliability, stability, and new opportunities."
+  "info": "We help entrepreneurs and businesses achieve their goals by providing financial support. With our loan services, you can confidently move toward reliability, stability, and new opportunities.",
+  "paymentSchedule": "Payment Schedule",
+  "pdfTitle": "Loan Payment Schedule",
+  "creditAmountPdf": "Loan Amount",
+  "creditTermPdf": "Loan Term",
+  "interestRatePdf": "Interest Rate",
+  "monthlyPaymentPdf": "Monthly Payment",
+  "table": {
+    "month": "Month",
+    "principal": "Principal",
+    "interest": "Interest",
+    "payment": "Monthly Payment",
+    "remaining": "Remaining Balance"
+  },
+  "total": "Total",
+  "totalAmount": "Total Amount",
+  "downloadButton": "Download Schedule"
 },
 
 

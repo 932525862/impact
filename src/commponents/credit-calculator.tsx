@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import jsPDF from "jspdf";
+import html2pdf from "html2pdf.js";
 import logo from "../../public/logo2.png"
 export default function CreditCalculator() {
   const { t } = useTranslation();
@@ -99,198 +100,171 @@ export default function CreditCalculator() {
   };
 
   const downloadPDF = async () => {
-    if (!tableRef.current || !paymentSchedule) return;
+    if (!paymentSchedule) return;
 
     try {
-      // helper for CSV-like formatting in PDF (commas thousands)
-      const fmt = (n: number | string) => {
-        const num = typeof n === "number" ? n : Number(n) || 0;
-        return new Intl.NumberFormat("en-US").format(Math.round(num));
-      };
+      // Create PDF container with proper styling for text preservation
+      const element = document.createElement("div");
+      element.style.width = "210mm";
+      element.style.padding = "15mm";
+      element.style.fontFamily = "'Times New Roman', Times, serif";
+      element.style.backgroundColor = "white";
+      element.style.color = "#000";
+      element.style.lineHeight = "1.4";
 
-      // logo fetch helper
-      const fetchDataUrl = async (url: string) => {
-        try {
-          const r = await fetch(url);
-          const b = await r.blob();
-          return await new Promise<string>((res, rej) => {
-            const fr = new FileReader();
-            fr.onloadend = () => res(fr.result as string);
-            fr.onerror = rej;
-            fr.readAsDataURL(b);
-          });
-        } catch (e) {
-          return null;
-        }
-      };
-
-      const pdf = new jsPDF({ unit: "mm", format: "a4" });
-      const pageW = pdf.internal.pageSize.getWidth();
-      const pageH = pdf.internal.pageSize.getHeight();
-      const margin = 18;
-      let y = margin;
-
-      // centered logo
-      const logoPath = "/logo2.png";
-      const logoData = await fetchDataUrl(logoPath);
-      if (logoData) {
-        const logoW = 40; // mm
-        const logoX = (pageW - logoW) / 2;
-        pdf.addImage(logoData, "PNG", logoX, y, logoW, 0);
-        y += 20;
-      }
+      // Logo at the top
+      const logoDiv = document.createElement("div");
+      logoDiv.style.textAlign = "center";
+      logoDiv.style.marginBottom = "10pt";
+      const logoImg = document.createElement("img");
+      logoImg.src = "/logo2.png";
+      logoImg.style.height = "40mm";
+      logoImg.style.width = "auto";
+      logoDiv.appendChild(logoImg);
+      element.appendChild(logoDiv);
 
       // Title
-      pdf.setFontSize(18);
-      pdf.setFont("helvetica", "bold");
-      pdf.setTextColor(0, 69, 38);
-      pdf.text("Kredit to'lovlari jadavali", pageW / 2, y, { align: "center" });
-      y += 10;
+      const title = document.createElement("h1");
+      title.textContent = t("calculator.pdfTitle");
+      title.style.fontSize = "16pt";
+      title.style.textAlign = "center";
+      title.style.marginBottom = "12pt";
+      title.style.color = "#004526";
+      title.style.fontWeight = "bold";
+      element.appendChild(title);
 
-      // Info block left aligned
-      pdf.setFontSize(10);
-      pdf.setFont("helvetica", "normal");
-      pdf.setTextColor(0, 0, 0);
-      pdf.text(`Kredit miqdori: ${fmt(Number(creditAmount))} UZS`, margin, y);
-      y += 6;
-      pdf.text(`Kredit muddati: ${creditTerm} oy`, margin, y);
-      y += 6;
-      pdf.text(`Foiz stavkasi: ${interestRate}%`, margin, y);
-      y += 6;
-      pdf.text(`Oylik to'lov: ${fmt(Math.round(monthlyPayment))} UZS`, margin, y);
-      y += 10;
+      // Info section
+      const infoDiv = document.createElement("div");
+      infoDiv.style.fontSize = "10pt";
+      infoDiv.style.marginBottom = "10pt";
+      const infos = [
+        `${t("calculator.creditAmountPdf")}: ${Number(creditAmount).toLocaleString()} UZS`,
+        `${t("calculator.creditTermPdf")}: ${creditTerm} ${t("calculator.table.month")}`,
+        `${t("calculator.interestRatePdf")}: ${interestRate}%`,
+        `${t("calculator.monthlyPaymentPdf")}: ${Math.round(monthlyPayment).toLocaleString()} UZS`,
+      ];
+      infos.forEach((info) => {
+        const p = document.createElement("p");
+        p.textContent = info;
+        p.style.margin = "3pt 0";
+        infoDiv.appendChild(p);
+      });
+      element.appendChild(infoDiv);
 
-      // (Removed top green rule to match requested design)
+      // Table
+      const table = document.createElement("table");
+      table.style.width = "100%";
+      table.style.borderCollapse = "collapse";
+      table.style.marginTop = "10pt";
+      table.style.fontSize = "9pt";
 
-      // table columns (precise proportional widths)
-      const usable = pageW - margin * 2;
-      const colPerc = [0.08, 0.36, 0.16, 0.2, 0.2];
-      const colW = colPerc.map((p) => usable * p);
-      const rowH = 12; // increased for better spacing
+      // Headers
+      const thead = document.createElement("thead");
+      const headerRow = document.createElement("tr");
+      headerRow.style.borderBottom = "2px solid #004526";
+      const headers = [
+        t("calculator.table.month"),
+        t("calculator.table.principal"),
+        t("calculator.table.interest"),
+        t("calculator.table.payment"),
+        t("calculator.table.remaining"),
+      ];
+      headers.forEach((header) => {
+        const th = document.createElement("th");
+        th.textContent = header;
+        th.style.padding = "4pt";
+        th.style.textAlign = "center";
+        th.style.fontWeight = "bold";
+        th.style.borderBottom = "1px solid #004526";
+        headerRow.appendChild(th);
+      });
+      thead.appendChild(headerRow);
+      table.appendChild(thead);
 
-      // headers
-      pdf.setFontSize(10);
-      pdf.setFont("helvetica", "bold");
-      pdf.setTextColor(0, 0, 0);
-      let x = margin;
-      const headers = ["Oy", "Asosiy qarz", "Foiz", "Oylik to'lov", "Qolgan qarz"];
-      const headerTextY = y + rowH / 2 + 2;
-      for (let i = 0; i < headers.length; i++) {
-        // center headers above their columns
-        const hx = margin + colW.slice(0, i).reduce((s, v) => s + v, 0) + colW[i] / 2;
-        pdf.text(headers[i], hx, headerTextY, { align: "center" });
-      }
-      y += rowH;
-
-      // thin green line under header (reduced thickness)
-      pdf.setDrawColor(0, 69, 38);
-      pdf.setLineWidth(0.8);
-      pdf.line(margin, y - 2, pageW - margin, y - 2);
-
-      // rows
-      pdf.setFont("helvetica", "normal");
-      // helpers for formatting with decimals
-      const fmtDecimal = (value: number, digits = 0) => {
-        return new Intl.NumberFormat("en-US", {
-          minimumFractionDigits: digits,
-          maximumFractionDigits: digits,
-        }).format(value);
-      };
-
+      // Data rows
+      const tbody = document.createElement("tbody");
       for (let i = 0; i < paymentSchedule.length; i++) {
         const r = paymentSchedule[i];
-        if (y + rowH + 30 > pageH) {
-          pdf.addPage();
-          y = margin;
+        const row = document.createElement("tr");
+        row.style.borderBottom = "1px solid #e0e0e0";
+        if (i % 2 === 0) {
+          row.style.backgroundColor = "#f5f5f5";
         }
 
-        // alternating background
-        if (i % 2 === 1) {
-          x = margin;
-          pdf.setFillColor(249, 250, 251);
-          for (let c = 0; c < colW.length; c++) {
-            pdf.rect(x, y, colW[c], rowH, "F");
-            x += colW[c];
-          }
-        }
-
-        // values
-        x = margin;
         const vals = [
           r.month.toString(),
-          fmtDecimal(r.principal, 0),
-          fmtDecimal(r.interest, 0),
-          fmtDecimal(r.payment, 0),
-          // remaining keep two decimals if fractional
-          fmtDecimal(r.remaining, r.remaining % 1 === 0 ? 0 : 2),
+          Math.round(r.principal).toLocaleString(),
+          Math.round(r.interest).toLocaleString(),
+          Math.round(r.payment).toLocaleString(),
+          r.remaining.toFixed(0),
         ];
-        const textY = y + rowH / 2 + 3; // adjusted vertical centering
 
-        for (let c = 0; c < vals.length; c++) {
-          const isLeft = c === 0;
-          // make monthly payment column bold
-          if (c === 3) pdf.setFont("helvetica", "bold"); else pdf.setFont("helvetica", "normal");
-          if (isLeft) {
-            const tx = x + 6; // small left padding
-            pdf.text(vals[c], tx, textY, { align: "left" });
-          } else {
-            // center numeric columns under header
-            const tx = x + colW[c] / 2;
-            pdf.text(vals[c], tx, textY, { align: "center" });
-          }
-          x += colW[c];
-        }
+        vals.forEach((val) => {
+          const td = document.createElement("td");
+          td.textContent = val;
+          td.style.padding = "4pt";
+          td.style.textAlign = "center";
+          td.style.border = "1px solid #ddd";
+          row.appendChild(td);
+        });
 
-        // separator
-        pdf.setDrawColor(229, 231, 235);
-        pdf.setLineWidth(0.4);
-        pdf.line(margin, y + rowH, pageW - margin, y + rowH);
-        y += rowH;
+        tbody.appendChild(row);
       }
+      table.appendChild(tbody);
 
-      // totals row with background and top green border
-      if (y + rowH + 24 > pageH) {
-        pdf.addPage();
-        y = margin;
-      }
+      // Totals row
+      const totalRow = document.createElement("tr");
+      totalRow.style.backgroundColor = "#f0f0f0";
+      totalRow.style.fontWeight = "bold";
+      totalRow.style.borderTop = "2px solid #004526";
 
-      pdf.setDrawColor(0, 69, 38);
-      pdf.setLineWidth(1.6);
-      pdf.line(margin, y + 2, pageW - margin, y + 2);
+      const totalInt = Math.round(paymentSchedule.reduce((s, r) => s + r.interest, 0));
+      const totalPay = Math.round(paymentSchedule.reduce((s, r) => s + r.payment, 0));
+      const totals = [
+        t("calculator.total"),
+        Number(creditAmount).toLocaleString(),
+        totalInt.toLocaleString(),
+        totalPay.toLocaleString(),
+        "0",
+      ];
 
-      pdf.setFillColor(243, 244, 246);
-      x = margin;
-      for (let i = 0; i < colW.length; i++) {
-        pdf.rect(x, y, colW[i], rowH, "F");
-        x += colW[i];
-      }
+      totals.forEach((val) => {
+        const td = document.createElement("td");
+        td.textContent = val;
+        td.style.padding = "4pt";
+        td.style.textAlign = "center";
+        td.style.border = "1px solid #ddd";
+        totalRow.appendChild(td);
+      });
 
-      pdf.setFont("helvetica", "bold");
-      const totalInt = Math.round(paymentSchedule.reduce((s, rr) => s + rr.interest, 0));
-      const totalPay = Math.round(paymentSchedule.reduce((s, rr) => s + rr.payment, 0));
-      const totals = ["Jami", fmt(Number(creditAmount)), fmt(totalInt), fmt(totalPay), "0"];
-      x = margin;
-      for (let c = 0; c < totals.length; c++) {
-        const isLeft = c === 0;
-        if (isLeft) {
-          const tx = x + 6;
-          pdf.text(totals[c], tx, y + rowH - 3, { align: "left" });
-        } else {
-          const tx = x + colW[c] / 2;
-          pdf.text(totals[c], tx, y + rowH - 3, { align: "center" });
-        }
-        x += colW[c];
-      }
+      tbody.appendChild(totalRow);
+      element.appendChild(table);
 
-      y += rowH + 8;
-      // bottom small summary
-      pdf.setFont("helvetica", "normal");
-      pdf.setFontSize(10);
-      pdf.text(`Jami summasi: ${fmt(totalPay)} UZS`, margin, y);
+      // Summary
+      const summary = document.createElement("p");
+      summary.textContent = `${t("calculator.totalAmount")}: ${totalPay.toLocaleString()} UZS`;
+      summary.style.marginTop = "12pt";
+      summary.style.fontSize = "10pt";
+      summary.style.fontWeight = "bold";
+      element.appendChild(summary);
 
-      pdf.save(`kredit-jadavali-${new Date().toISOString().slice(0, 10)}.pdf`);
+      // Generate PDF with options to preserve text as text (not image)
+      const options = {
+        margin: [10, 10, 10, 10] as [number, number, number, number],
+        filename: `kredit-jadavali-${new Date().toISOString().slice(0, 10)}.pdf`,
+        image: { type: "jpeg" as const, quality: 0.98 },
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          allowTaint: true,
+          backgroundColor: "#ffffff",
+        },
+        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" as const },
+      };
+
+      await html2pdf().set(options).from(element).save();
     } catch (err) {
-      console.error("PDF yaratishda xato:", err);
+      console.error("PDF error:", err);
       alert("PDF yaratishda xato yuz berdi");
     }
   };
@@ -446,12 +420,10 @@ export default function CreditCalculator() {
             <div className="mt-12 bg-white rounded-2xl p-8 shadow-lg">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-2xl font-bold text-gray-900">
-                  {/* {t("calculator.paymentSchedule") || "To'lovlar jadvalini"}
-                   */}
-                   Kredit to'lovlari jadavali
+                  {t("calculator.paymentSchedule")}
                 </h3>
                 <button
-                  onClick={downloadPDF}
+                  onClick={() => downloadPDF()}
                   className="text-white font-bold py-2 px-6 rounded-lg text-sm transition-colors duration-200 whitespace-nowrap ml-4"
                   style={{
                     backgroundColor: "#004526",
@@ -463,7 +435,7 @@ export default function CreditCalculator() {
                     (e.currentTarget.style.backgroundColor = "#004526")
                   }
                 >
-                  Jadvalini yuklash
+                  {t("calculator.downloadButton")}
                 </button>
               </div>
               <div
@@ -478,19 +450,19 @@ export default function CreditCalculator() {
                       }}
                     >
                       <th className="px-4 py-3 text-left font-bold text-gray-900">
-                        Oy
+                        {t("calculator.table.month")}
                       </th>
                       <th className="px-4 py-3 text-right font-bold text-gray-900">
-                        Asosiy qarz
+                        {t("calculator.table.principal")}
                       </th>
                       <th className="px-4 py-3 text-right font-bold text-gray-900">
-                        Foiz
+                        {t("calculator.table.interest")}
                       </th>
                       <th className="px-4 py-3 text-right font-bold text-gray-900">
-                        Oylik to'lov
+                        {t("calculator.table.payment")}
                       </th>
                       <th className="px-4 py-3 text-right font-bold text-gray-900">
-                        Qolgan qarz
+                        {t("calculator.table.remaining")}
                       </th>
                     </tr>
                   </thead>
@@ -528,7 +500,7 @@ export default function CreditCalculator() {
                       }}
                     >
                       <td className="px-4 py-3 font-bold text-gray-900">
-                        Jami
+                        {t("calculator.total")}
                       </td>
                       <td className="px-4 py-3 text-right font-bold text-gray-900">
                         {formatNumber(Number(creditAmount))}
@@ -561,7 +533,7 @@ export default function CreditCalculator() {
                 </table>
               </div>
               <p className="mt-4 text-gray-600 text-sm">
-                <strong>Jami summasi:</strong>{" "}
+                <strong>{t("calculator.totalAmount")}:</strong>{" "}
                 {formatNumber(
                   Math.round(paymentSchedule.reduce((sum, row) => sum + row.payment, 0))
                 )}{" "}
