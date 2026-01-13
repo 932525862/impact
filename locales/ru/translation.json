@@ -158,7 +158,7 @@
     "principal": "Основной долг",
     "interest": "Процент",
     "payment": "Ежемесячный платёж",
-    "remaining": "Остаток долга"
+    "remaining": "Остаток " 
   },
   "total": "Итого",
   "totalAmount": "Общая сумма",
