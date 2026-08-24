@@ -1,17 +1,7 @@
 "use client";
 
-import { Clock, CheckCircle, TrendingUp } from "lucide-react";
+import { Zap, Sliders, ShieldCheck, ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
-
-const icons = [Clock, CheckCircle, TrendingUp];
-const colors = [
-  "from-blue-500 to-blue-600",
-  "from-green-500 to-green-600",
-  "from-purple-500 to-purple-600",
-];
-
-// Raqamlar uchun ranglar
-const numberColors = ["text-blue-500", "text-green-500", "text-purple-500"];
 
 export function ServiceCards() {
   const { t } = useTranslation();
@@ -21,63 +11,85 @@ export function ServiceCards() {
     description: string;
   }[];
 
+  const icons = [Zap, Sliders, ShieldCheck];
+  const badges = ["24 Soat ichida", "Individual yondashuv", "Minimal hujjatlar"];
+
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <section
       id="afzalliklarimiz"
-      className="py-20 bg-gradient-to-b from-gray-50 to-white"
+      className="py-20 bg-white border-b border-slate-200/60 font-sans"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 text-balance">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
             {t("services.title")}
           </h2>
-          <p className="text-xl font-semibold text-gray-600 max-w-3xl mx-auto text-pretty">
+
+          <p className="text-base text-slate-600 font-medium">
             {t("services.subtitle")}
           </p>
+
+          <div className="w-16 h-1 bg-[#004526] mx-auto rounded-full mt-3" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-          {services.map((service, index) => {
-            const IconComponent = icons[index];
-            return (
-              <div
-                key={index}
-                className="group relative overflow-hidden bg-white border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 rounded-3xl"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#578f27]/10 to-[#578f27]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                <div className="relative p-10 h-full">
-                  <div className="space-y-8">
-                    <div className="flex items-start justify-between">
-                      {/* Raqam rangini massivdan olish */}
-                      <div
-                        className={`text-8xl font-black leading-none ${
-                          numberColors[index]
-                        } group-hover:text-[#004526]/20 transition-colors duration-300`}
-                      >
-                        {index + 1}
+        {/* 3 Clean Corporate Cards Grid matching Screenshot aesthetics */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {services &&
+            services.map((service, index) => {
+              const IconComponent = icons[index % icons.length];
+              return (
+                <div
+                  key={index}
+                  className="group bg-[#f4f7f5]/80 hover:bg-white border border-slate-200/80 hover:border-emerald-500/40 rounded-3xl p-8 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                >
+                  <div className="space-y-6">
+                    {/* Top Row: Dark Green Icon Box + Pill Badge */}
+                    <div className="flex items-center justify-between">
+                      <div className="w-14 h-14 rounded-2xl bg-[#004526] text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+                        <IconComponent className="w-7 h-7 text-emerald-300" />
                       </div>
 
-                      <div
-                        className={`bg-gradient-to-br ${colors[index]} p-5 rounded-3xl shadow-2xl`}
-                      >
-                        <IconComponent className="h-10 w-10 text-white" />
-                      </div>
+                      <span className="text-[11px] font-bold text-slate-500 bg-white group-hover:bg-emerald-50 text-[#004526] px-3 py-1 rounded-full border border-slate-200/80">
+                        {badges[index % badges.length]}
+                      </span>
                     </div>
 
-                    <div className="space-y-6">
-                      <h3 className="text-2xl font-black text-gray-900 leading-tight text-balance group-hover:text-[#004526] transition-colors duration-300">
+                    {/* Content */}
+                    <div className="space-y-3">
+                      <h3 className="text-xl font-bold text-slate-900 group-hover:text-[#004526] transition-colors">
                         {service.title}
                       </h3>
-                      <p className="text-gray-600 leading-relaxed text-pretty font-medium text-lg group-hover:text-gray-700 transition-colors">
+                      <p className="text-slate-600 text-sm leading-relaxed font-normal">
                         {service.description}
                       </p>
                     </div>
                   </div>
+
+                  {/* Bottom Action */}
+                  <div className="pt-6 mt-6 border-t border-slate-200/60 flex items-center justify-between">
+                    <button
+                      onClick={() => scrollToSection("kalkulyator")}
+                      className="inline-flex items-center text-xs font-bold text-[#004526] hover:underline space-x-1"
+                    >
+                      <span>{t("services.more")}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+
+                    <span className="text-2xl font-black text-slate-200 group-hover:text-emerald-800/20 transition-colors">
+                      0{index + 1}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
         </div>
       </div>
     </section>

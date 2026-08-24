@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" width="100%" height="100%">
+  <!-- Concentric Rings & Globe Left Symbol -->
+  <g fill="none" stroke="#0f75bc" stroke-linecap="round">
+    <path d="M 220 50 A 130 130 0 0 0 50 180 A 130 130 0 0 0 220 310" stroke-width="28"/>
+    <path d="M 220 90 A 90 90 0 0 0 100 180 A 90 90 0 0 0 220 270" stroke-width="22" stroke="#0092d0"/>
+    <path d="M 220 120 A 60 60 0 0 0 135 180 A 60 60 0 0 0 220 240" stroke-width="16" stroke="#00a0e9"/>
+  </g>
+
+  <!-- Globe Inner Grid Representation -->
+  <g transform="translate(138, 115) scale(0.65)" opacity="0.85">
+    <circle cx="60" cy="100" r="55" fill="none" stroke="#666" stroke-width="4"/>
+    <ellipse cx="60" cy="100" rx="30" ry="55" fill="none" stroke="#888" stroke-width="3"/>
+    <line x1="5" y1="100" x2="115" y2="100" stroke="#888" stroke-width="3"/>
+    <line x1="12" y1="70" x2="108" y2="70" stroke="#aaa" stroke-width="2"/>
+    <line x1="12" y1="130" x2="108" y2="130" stroke="#aaa" stroke-width="2"/>
+  </g>
+
+  <!-- Vertical Divider Bar -->
+  <line x1="228" y1="65" x2="228" y2="310" stroke="#0f75bc" stroke-width="7"/>
+
+  <!-- NAUFOR Main Bold Text -->
+  <text x="242" y="195" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="140" fill="#0f75bc" letter-spacing="-2">НАУФОР</text>
+
+  <!-- Subtitle Lines -->
+  <g fill="#0f75bc" font-family="Arial, 'Helvetica Neue', sans-serif" font-weight="700">
+    <text x="244" y="242" font-size="28" letter-spacing="0.5">НАЦИОНАЛЬНАЯ</text>
+    <text x="244" y="278" font-size="28" letter-spacing="0.5">АССОЦИАЦИЯ УЧАСТНИКОВ</text>
+    <text x="244" y="314" font-size="28" letter-spacing="0.5">ФИНАНСОВОГО РЫНКА</text>
+  </g>
+</svg>
