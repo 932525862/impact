@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Navbar } from "../../commponents/navbar";
 import Footer from "../../commponents/footer";
+import DocumentSlider from "../../commponents/documentSlider";
 import { useTranslation } from "react-i18next";
 import {
   FileText,
@@ -230,6 +231,9 @@ export default function AboutPage() {
                 IMPACT FINANCE tashkilotining rasmiy litsenziyalari, guvohnomalari va moliyaviy audit xulosalari
               </p>
             </div>
+
+            {/* Document Image Carousel Slider for h1, h2, h3 */}
+            <DocumentSlider />
 
             {/* Document Download Cards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
