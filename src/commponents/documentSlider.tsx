@@ -36,7 +36,7 @@ export interface DocumentItem {
 const docSlides: DocumentItem[] = [
   {
     id: "h1",
-    title: "Markaziy Bank Litsenziyasi № 0084",
+    title: "Markaziy Bank Litsenziyasi № 143",
     subtitle: "O'zbekiston Respublikasi Markaziy Banki litsenziyasi (h1.png)",
     type: "Rasmiy Litsenziya",
     date: "2024-yil rasmiy tasdiqlangan",
@@ -144,8 +144,8 @@ export default function DocumentSlider() {
           <button
             onClick={() => setIsPlaying(!isPlaying)}
             className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all shadow-xs font-bold text-xs ${isPlaying
-                ? "bg-[#004526] text-white"
-                : "bg-white text-slate-700 hover:bg-slate-50"
+              ? "bg-[#004526] text-white"
+              : "bg-white text-slate-700 hover:bg-slate-50"
               }`}
             title={isPlaying ? "Avto-slaydni to'xtatish" : "Avto-slaydni yoqish"}
             aria-label="Avto-slayd"
@@ -281,8 +281,8 @@ export default function DocumentSlider() {
                 setIsPlaying(false);
               }}
               className={`p-2.5 sm:p-3 rounded-2xl border transition-all duration-300 text-left flex flex-col sm:flex-row items-center gap-3 ${isActive
-                  ? "bg-white border-[#004526] ring-2 ring-[#004526]/30 shadow-md scale-[1.02]"
-                  : "bg-white/80 hover:bg-white border-slate-200 text-slate-500 hover:border-slate-300"
+                ? "bg-white border-[#004526] ring-2 ring-[#004526]/30 shadow-md scale-[1.02]"
+                : "bg-white/80 hover:bg-white border-slate-200 text-slate-500 hover:border-slate-300"
                 }`}
             >
               <div className="relative w-12 h-16 sm:w-14 sm:h-20 bg-slate-100 rounded-xl overflow-hidden flex-shrink-0 border border-slate-200">
@@ -298,8 +298,8 @@ export default function DocumentSlider() {
                 <div className="flex items-center justify-center sm:justify-start space-x-1.5">
                   <span
                     className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-md ${isActive
-                        ? "bg-[#004526] text-emerald-100"
-                        : "bg-slate-100 text-slate-600"
+                      ? "bg-[#004526] text-emerald-100"
+                      : "bg-slate-100 text-slate-600"
                       }`}
                   >
                     src/{doc.id}.png

@@ -12,7 +12,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "IMPACT FINANCE - Tezkor Mikrokredit va Moliyalashtirish Xizmatlari",
   description:
-    "Biznes egalari, YTT, yuridik shaxslar va jismoniy shaxslarga 100 000 000 so'mgacha imtiyozli mikrokreditlar. Markaziy Bank Litsenziyasi № 0084. 15 daqiqada tezkor ko'rib chiqish.",
+    "Biznes egalari, YTT, yuridik shaxslar va jismoniy shaxslarga 100 000 000 so'mgacha imtiyozli mikrokreditlar. Markaziy Bank Litsenziyasi № 143. 15 daqiqada tezkor ko'rib chiqish.",
   keywords: [
     "impact finance",
     "impact finance mikrokredit",
