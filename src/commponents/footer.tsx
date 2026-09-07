@@ -43,16 +43,16 @@ export default function ContactPage() {
 
   const faqs = [
     {
-      q: "Kredit olish uchun qanday hujjatlar talab qilinadi?",
-      a: "Shaxsni tasdiqlovchi hujjat (Pasport/ID karta), biznes egalari uchun tadbirkorlik guvohnomasi hamda daromadni tasdiqlovchi hujjatlar talab etiladi.",
+      q: t("faq.q1"),
+      a: t("faq.a1"),
     },
     {
-      q: "Ariza qancha vaqt ichida ko'rib chiqiladi?",
-      a: "Hujjatlar to'liq topshirilgandan so'ng ariza 15 daqiqadan 24 soatgacha bo'lgan muddatda ko'rib chiqiladi.",
+      q: t("faq.q2"),
+      a: t("faq.a2"),
     },
     {
-      q: "Kreditni muddatidan oldin yopish mumkinmi?",
-      a: "Ha, kreditni istalgan vaqtda muddatidan oldin hech qanday qo'shimcha jadrimasiz yopishingiz mumkin.",
+      q: t("faq.q3"),
+      a: t("faq.a3"),
     },
   ];
 
@@ -64,10 +64,10 @@ export default function ContactPage() {
           <div className="text-center space-y-2">
             <div className="inline-flex items-center space-x-2 bg-emerald-900/80 text-emerald-300 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
               <HelpCircle className="w-4 h-4" />
-              <span>SAVOL VA JAVOBLAR</span>
+              <span>{t("faq.badge")}</span>
             </div>
             <h2 className="text-2xl md:text-3xl font-extrabold text-white">
-              Ko'p beriladigan savollar
+              {t("faq.title")}
             </h2>
           </div>
 
@@ -133,7 +133,7 @@ export default function ContactPage() {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs text-emerald-300 font-bold block">Bosh Ofis Manzili:</span>
+                  <span className="text-xs text-emerald-300 font-bold block">{t("contact.addressLabel")}</span>
                   <p className="text-sm font-semibold text-emerald-100">{t("contact.address")}</p>
                 </div>
               </div>
@@ -143,15 +143,15 @@ export default function ContactPage() {
                   <Clock className="w-5 h-5" />
                 </div>
                 <div className="space-y-0.5">
-                  <span className="text-xs text-emerald-300 font-bold block">Ish vaqti & Email:</span>
-                  <p className="text-sm font-semibold text-emerald-100">Dushanba - Shanba: 09:00 - 18:00</p>
+                  <span className="text-xs text-emerald-300 font-bold block">{t("contact.hoursLabel")}</span>
+                  <p className="text-sm font-semibold text-emerald-100">{t("contact.workHours")}</p>
                   <p className="text-xs text-emerald-300">{t("contact.email")}</p>
                 </div>
               </div>
             </div>
 
             <div className="pt-2 flex items-center space-x-3">
-              <span className="text-xs text-emerald-200 font-bold">Telegram bot / kanal:</span>
+              <span className="text-xs text-emerald-200 font-bold">{t("contact.telegramLabel")}</span>
               <a
                 href="https://t.me/impactfinance_uz"
                 target="_blank"
@@ -226,10 +226,10 @@ export default function ContactPage() {
         <div className="mt-16 pt-8 border-t border-emerald-800/60 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-emerald-300">
           <div className="flex items-center space-x-2">
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
-            <span>Markaziy Bank Litsenziyasi b-n xizmat ko'rsatiladi</span>
+            <span>{t("contact.licenseNotice")}</span>
           </div>
 
-          <p>© {new Date().getFullYear()} IMPACT FINANCE. Barcha huquqlar himoyalangan.</p>
+          <p>{t("contact.copyright", { year: new Date().getFullYear() })}</p>
         </div>
       </div>
 

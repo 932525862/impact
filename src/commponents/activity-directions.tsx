@@ -53,7 +53,7 @@ export default function ActivityDirections() {
         {/* Section Header with Badge Pill matching Screenshot 1 */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <div className="inline-flex items-center space-x-2 bg-emerald-50 text-[#004526] border border-emerald-200/80 px-4 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider">
-            <span>RASMIY MAHSULOTLAR KATALOGI</span>
+            <span>{t("section.catalogBadge")}</span>
           </div>
 
           <h2 className="text-3xl md:text-4xl font-extrabold text-[#004526] tracking-tight">

@@ -1,5 +1,6 @@
 {
   "sectionTitle": "Boshqaruv va direktorlar kengashi",
+  "teamBadge": "RAHBARIYAT",
   "items": {
     "jaloliddin": {
       "title": "Jaloliddin Kadirov",
@@ -50,6 +51,15 @@
     "calcButton": "Kalkulyatorda hisoblash",
     "quickCalcTitle": "Tezkor Kredit Hisoblagichi",
     "quickCalcSub": "Summa va muddatni tanlang, oylik to'lovni aniqlang",
+    "annualFrom": "yillikdan",
+    "fastApproval": "15 Min Tasdiq",
+    "minimalDocs": "Minimal Hujjat",
+    "noHiddenFees": "0% Yashirin To'lov",
+    "creditAmountLabel": "Kredit summasi:",
+    "creditTermLabel": "Kredit muddati:",
+    "estimatedMonthly": "Taxminiy Oylik To'lov:",
+    "perMonth": " / oy",
+    "applyInstant": "Hoziroq Ariza Topshirish",
     "presets": {
       "label": "Tavsiya etilgan summalar:"
     },
@@ -64,12 +74,31 @@
       "clientsLabel": "Faol mijozlarimiz"
     }
   },
+  "steps": {
+    "title": "Kredit olishning 3 oddiy bosqichi",
+    "subtitle": "Arizadan tortib pulni olishgacha bo'lgan tezkor va shaffof jarayon",
+    "step1": {
+      "title": "1. Online ariza topshirish",
+      "desc": "Saytimizda kerakli summa va muddatni tanlab, tezkor arizani to'ldiring."
+    },
+    "step2": {
+      "title": "2. Tezkor ko'rib chiqish",
+      "desc": "Mutaxassislarimiz arizangizni 15 daqiqa ichida ko'rib chiqadi hamda qaror beradi."
+    },
+    "step3": {
+      "title": "3. Mablag'ni olish",
+      "desc": "Shartnoma rasmiylashtirilgach, pul mablag'larini bank hisobingizga qabul qiling."
+    }
+  },
   "about": {
     "heading": "IMPACT FINANCE Tashkiloti Haqida",
     "subheading": "Barqaror moliyaviy kelajak va biznes rivoji yo'lidagi ishonchli korporativ hamkoringiz",
     "badge": "Rasmiy Litsenziyalangan Mikromoliya Tashkiloti",
     "intro1": "<strong>IMPACT FINANCE</strong> — O'zbekiston Respublikasida moliyaviy inklyuziyani kengaytirish, mikro hamda kichik biznesni rivojlantirish va iqtisodiy barqarorlikni ta'minlashga yo'naltirilgan mas'uliyatli mikromoliya tashkilotidir.",
     "intro2": "Biz kichik biznes egalari, yakka tartibdagi tadbirkorlar, ayollar va jismoniy shaxslarga adolatli, shaffof va yuqori darajadagi moliyaviy xizmatlarni taqdim etamiz. Yashirin to'lovlarsiz halol shartlar — bizning bosh tamoyilimizdir.",
+    "missionTitle": "IMPACT FINANCE Missiyasi va Maqsadi",
+    "regulatoryTitle": "Davlat Regulyatori Standartlari:",
+    "regulatoryText": "Tashkilot faoliyati O'zbekiston Respublikasi Markaziy Banki qonunchilik talablari va moliyaviy barqarorlik normalariga to'liq mos keladi.",
     "stats": {
       "clients": "10,000+",
       "clientsText": "Mamnun mijozlarimiz",
@@ -122,6 +151,7 @@
   "services": {
     "title": "Nima uchun IMPACT FINANCE tanlanadi?",
     "subtitle": "Zamonaviy servis, yuqori ishonch va mijozlarimiz uchun eng qulay moliyaviy shart-sharoitlar",
+    "badges": ["24 Soat ichida", "Individual yondashuv", "Minimal hujjatlar"],
     "cards": [
       {
         "title": "Tezkor va Oson Ko'rib Chiqish",
@@ -141,6 +171,7 @@
   "section": {
     "title": "Kredit",
     "highlight": "turlari va imkoniyatlari",
+    "catalogBadge": "RASMIY MAHSULOTLAR KATALOGI",
     "subtitle": "Biznesingiz yoki shaxsiy ehtiyojlaringiz uchun eng mos moliyaviy mahsulotni tanlang",
     "filter": {
       "all": "Barcha kreditlar",
@@ -239,8 +270,11 @@
     "totalRepayment": "Jami qaytariladigan summa:",
     "totalInterest": "Jami foiz to'lovi:",
     "annualRate": "Yillik foiz stavkasi:",
+    "principalPortion": "Asosiy qarz",
+    "interestPortion": "Foiz",
     "currency": "so'm",
     "month": "oy",
+    "monthUnit": "oy",
     "button": "Ariza qoldirish",
     "noteTitle": "Rasmiy axborot",
     "noteText": "Summalar, muddatlar va to'lovlar to'g'risida batafsil ma'lumot olish uchun istalgan qulay bo'limga murojaat qilishingiz yoki telefon raqami orqali bog'lanishingiz zarur.",
@@ -260,6 +294,12 @@
     "info": "IMPACT FINANCE — biznesingiz va shaxsiy maqsadlaringiz uchun ishonchli moliyaviy ko'priqdir.",
     "paymentSchedule": "To'lovlar jadvali",
     "pdfTitle": "Kreditni so'ndirish jadvali",
+    "creditAmountPdf": "Kredit summasi",
+    "creditTermPdf": "Kredit muddati",
+    "interestRatePdf": "Foiz stavkasi",
+    "monthlyPaymentPdf": "Oylik to'lov",
+    "showSchedule": "To'lovlar jadvalini ko'rish",
+    "hideSchedule": "To'lovlar jadvalini yashirish",
     "downloadButton": "Jadvalni PDF yuklab olish",
     "table": {
       "month": "Oy",
@@ -277,6 +317,12 @@
     "phone_label": "Telefon raqamimiz:",
     "email": "impactfinanceleaders@gmail.com",
     "address": "Toshkent shahar, Shayxontohur tumani, O'rda MFY, Labzak ko'chasi 2a-uy",
+    "addressLabel": "Bosh Ofis Manzili:",
+    "hoursLabel": "Ish vaqti & Email:",
+    "workHours": "Dushanba - Shanba: 09:00 - 18:00",
+    "telegramLabel": "Telegram bot / kanal:",
+    "licenseNotice": "Markaziy Bank Litsenziyasi b-n xizmat ko'rsatiladi",
+    "copyright": "© {{year}} IMPACT FINANCE. Barcha huquqlar himoyalangan.",
     "form": {
       "title": "Onlayn Ariza va Murojaat Shakli",
       "name_placeholder": "Ism va familiyangiz",
@@ -288,7 +334,8 @@
     "toast": "Arizangiz qabul qilindi! Mutaxassisimiz tez orada siz bilan bog'lanadi."
   },
   "faq": {
-    "title": "KO'P BERILADIGAN SAVOLLAR",
+    "badge": "SAVOL VA JAVOBLAR",
+    "title": "Ko'p beriladigan savollar",
     "subtitle": "Kredit olish bo'yicha eng muhim savollarga javoblar",
     "q1": "Kredit olish uchun qanday asosiy hujjatlar talab qilinadi?",
     "a1": "Shaxsni tasdiqlovchi hujjat (Pasport/ID karta), biznes egalari uchun guvohnoma hamda daromadlarni tasdiqlovchi hujjatlar talab etiladi.",
@@ -296,5 +343,39 @@
     "a2": "Hujjatlar to'liq topshirilgandan so'ng ariza 15 daqiqadan 24 soatgacha bo'lgan muddatda ko'rib chiqiladi.",
     "q3": "Kreditni muddatidan oldin yopish mumkinmi?",
     "a3": "Ha, kreditni istalgan vaqtda muddatidan oldin hech qanday qo'shimcha jadrimasiz yopishingiz mumkin."
+  },
+  "docSlider": {
+    "headerTitle": "Hujjatlar va Rasmlar Slayderi",
+    "interactiveBadge": "Interaktiv Slayd",
+    "headerSub": "Rasmiy litsenziyalar, guvohnomalar va audit xulosalari",
+    "fullscreenBtn": "To'liq ekranda ko'rish",
+    "prevSlide": "Oldingi slayd",
+    "nextSlide": "Keyingi slayd",
+    "pauseAuto": "Avto-slaydni to'xtatish",
+    "playAuto": "Avto-slaydni yoqish"
+  },
+  "aboutPage": {
+    "heroBadge": "RASMIY MIKROMOLIYA TASHKILOTI",
+    "heroTitle": "IMPACT FINANCE Tashkiloti Haqida",
+    "heroSub": "Barqaror moliyaviy kelajak va biznes rivoji yo'lidagi ishonchli korporativ hamkoringiz",
+    "tabs": {
+      "info": "Tashkilot Haqida",
+      "docs": "Hujjatlar va Hisobotlar",
+      "naufor": "A'zolik va Hamkorlik (НАУФОР)"
+    },
+    "missionTitle": "IMPACT FINANCE Missiyasi va Maqsadi",
+    "regTitle": "Markaziy Bank Regulyatsiyasi:",
+    "regText": "Tashkilot faoliyati O'zbekiston Respublikasi Markaziy Banki qonunchilik talablari hamda moliyaviy shaffoflik me'yorlariga to'liq mos keladi.",
+    "promiseTitle": "Bizning Va'damiz:",
+    "officeTitle": "Bosh Ofis va Bo'lim:",
+    "officeAddress": "Toshkent shahar, Shayxontohur tumani, O'rda MFY, Labzak ko'chasi 2a-uy",
+    "valuesSub": "Biz amal qiladigan asosiy korporativ tamoyillar",
+    "officialDocsBadge": "Rasmiy Hujjatlar",
+    "docModalView": "Hujjatni ko'rish",
+    "docModalClose": "Yopish",
+    "docModalDownload": "PDF Yuklab olish",
+    "nauforBadge": "RASMIY A'ZOLIK BILDIRISHNOMASI",
+    "nauforStandard": "Xalqaro standartlarga moslik",
+    "nauforGuarantee": "Mijozlar huquqlari kafolati"
   }
 }

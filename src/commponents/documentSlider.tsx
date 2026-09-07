@@ -18,6 +18,7 @@ import {
   Sparkles,
 } from "lucide-react";
 
+import { useTranslation } from "react-i18next";
 import h1Img from "../h1.png";
 import h2Img from "../h2.png";
 import h3Img from "../h3.png";
@@ -70,6 +71,7 @@ const docSlides: DocumentItem[] = [
 ];
 
 export default function DocumentSlider() {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -118,14 +120,14 @@ export default function DocumentSlider() {
           </div>
           <div>
             <div className="flex items-center space-x-2">
-              <h3 className="text-lg font-black text-slate-900">Hujjatlar va Rasmlar Slayderi</h3>
+              <h3 className="text-lg font-black text-slate-900">{t("docSlider.headerTitle")}</h3>
               <span className="bg-amber-100 text-amber-900 border border-amber-300 text-[10px] font-extrabold px-2 py-0.5 rounded-full inline-flex items-center space-x-1">
 
-                <span>Interaktiv Slayd</span>
+                <span>{t("docSlider.interactiveBadge")}</span>
               </span>
             </div>
             <p className="text-xs text-slate-500 font-medium">
-              src papkasidagi h1, h2 va h3 rasmiy hujjatlar slayderi
+              {t("docSlider.headerSub")}
             </p>
           </div>
         </div>
@@ -135,8 +137,8 @@ export default function DocumentSlider() {
           <button
             onClick={handlePrev}
             className="w-9 h-9 rounded-xl bg-white hover:bg-emerald-50 text-slate-700 hover:text-[#004526] flex items-center justify-center transition-all shadow-xs"
-            title="Oldingi slayd"
-            aria-label="Oldingi slayd"
+            title={t("docSlider.prevSlide")}
+            aria-label={t("docSlider.prevSlide")}
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
@@ -147,7 +149,7 @@ export default function DocumentSlider() {
               ? "bg-[#004526] text-white"
               : "bg-white text-slate-700 hover:bg-slate-50"
               }`}
-            title={isPlaying ? "Avto-slaydni to'xtatish" : "Avto-slaydni yoqish"}
+            title={isPlaying ? t("docSlider.pauseAuto") : t("docSlider.playAuto")}
             aria-label="Avto-slayd"
           >
             {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 ml-0.5" />}
@@ -156,8 +158,8 @@ export default function DocumentSlider() {
           <button
             onClick={handleNext}
             className="w-9 h-9 rounded-xl bg-white hover:bg-emerald-50 text-slate-700 hover:text-[#004526] flex items-center justify-center transition-all shadow-xs"
-            title="Keyingi slayd"
-            aria-label="Keyingi slayd"
+            title={t("docSlider.nextSlide")}
+            aria-label={t("docSlider.nextSlide")}
           >
             <ChevronRight className="w-5 h-5" />
           </button>
@@ -198,7 +200,7 @@ export default function DocumentSlider() {
               className="bg-white hover:bg-emerald-50 text-[#004526] font-extrabold px-5 py-2.5 rounded-2xl shadow-xl flex items-center space-x-2 text-xs transition-transform hover:scale-105"
             >
               <Eye className="w-4 h-4" />
-              <span>To'liq ekranda ko'rish</span>
+              <span>{t("docSlider.fullscreenBtn")}</span>
             </button>
           </div>
 

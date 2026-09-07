@@ -154,10 +154,10 @@ export default function CreditCalculator() {
       infoDiv.style.fontSize = "10pt";
       infoDiv.style.marginBottom = "10pt";
       const infos = [
-        `Kredit summasi: ${Number(creditAmount).toLocaleString()} UZS`,
-        `Kredit muddati: ${creditTerm} oy`,
-        `Foiz stavkasi: ${interestRate}%`,
-        `Oylik to'lov: ${Math.round(monthlyPayment).toLocaleString()} UZS`,
+        `${t("calculator.creditAmountPdf")}: ${Number(creditAmount).toLocaleString()} ${t("calculator.currency")}`,
+        `${t("calculator.creditTermPdf")}: ${creditTerm} ${t("calculator.monthUnit")}`,
+        `${t("calculator.interestRatePdf")}: ${interestRate}%`,
+        `${t("calculator.monthlyPaymentPdf")}: ${Math.round(monthlyPayment).toLocaleString()} ${t("calculator.currency")}`,
       ];
       infos.forEach((info) => {
         const p = document.createElement("p");
@@ -176,7 +176,13 @@ export default function CreditCalculator() {
       const thead = document.createElement("thead");
       const headerRow = document.createElement("tr");
       headerRow.style.borderBottom = "2px solid #004526";
-      const headers = ["Oy", "Asosiy qarz", "Foiz", "Oylik to'lov", "Qoldiq"];
+      const headers = [
+        t("calculator.table.month"),
+        t("calculator.table.principal"),
+        t("calculator.table.interest"),
+        t("calculator.table.payment"),
+        t("calculator.table.remaining"),
+      ];
       headers.forEach((header) => {
         const th = document.createElement("th");
         th.textContent = header;
@@ -280,7 +286,7 @@ export default function CreditCalculator() {
                         <Check className="w-3 h-3 stroke-[3]" />
                       </span>
                     )}
-                    <span>{p.name}</span>
+                    <span>{t(`activities.${p.key}.title`)} ({p.rate}%)</span>
                   </button>
                 );
               })}
@@ -301,7 +307,7 @@ export default function CreditCalculator() {
                   {/* Value Badge matching Screenshot 2 */}
                   <div className="bg-emerald-50 border border-emerald-200/80 text-[#004526] font-black text-base px-4 py-1.5 rounded-xl flex items-center space-x-1">
                     <span>{formatWithSpaces(creditAmount)}</span>
-                    <span className="text-xs font-bold text-emerald-800">so'm</span>
+                    <span className="text-xs font-bold text-emerald-800">{t("calculator.currency")}</span>
                   </div>
                 </div>
 
@@ -333,9 +339,9 @@ export default function CreditCalculator() {
                 </div>
 
                 <div className="flex justify-between text-[11px] text-slate-400 font-semibold pt-1">
-                  <span>1 000 000 so'm</span>
-                  <span>50 000 000 so'm</span>
-                  <span>100 000 000 so'm</span>
+                  <span>1 000 000 {t("calculator.currency")}</span>
+                  <span>50 000 000 {t("calculator.currency")}</span>
+                  <span>100 000 000 {t("calculator.currency")}</span>
                 </div>
               </div>
 
@@ -349,7 +355,7 @@ export default function CreditCalculator() {
                   {/* Value Badge matching Screenshot 2 */}
                   <div className="bg-emerald-50 border border-emerald-200/80 text-[#004526] font-black text-base px-4 py-1.5 rounded-xl flex items-center space-x-1">
                     <span>{creditTerm}</span>
-                    <span className="text-xs font-bold text-emerald-800">oy</span>
+                    <span className="text-xs font-bold text-emerald-800">{t("calculator.monthUnit")}</span>
                   </div>
                 </div>
 
@@ -364,9 +370,9 @@ export default function CreditCalculator() {
                 />
 
                 <div className="flex justify-between text-[11px] text-slate-400 font-semibold">
-                  <span>3 oy</span>
-                  <span>18 oy</span>
-                  <span>36 oy</span>
+                  <span>3 {t("calculator.monthUnit")}</span>
+                  <span>18 {t("calculator.monthUnit")}</span>
+                  <span>36 {t("calculator.monthUnit")}</span>
                 </div>
               </div>
 
@@ -403,7 +409,7 @@ export default function CreditCalculator() {
                   </div>
                   <div className="text-3xl sm:text-4xl font-black text-white tracking-tight">
                     {monthlyPayment > 0 ? formatNumber(monthlyPayment) : "0"}{" "}
-                    <span className="text-sm font-bold text-emerald-300">so'm</span>
+                    <span className="text-sm font-bold text-emerald-300">{t("calculator.currency")}</span>
                   </div>
                 </div>
 
@@ -411,12 +417,12 @@ export default function CreditCalculator() {
                 <div className="space-y-2.5 pt-2 text-xs border-t border-emerald-800/60">
                   <div className="flex justify-between items-center">
                     <span className="text-emerald-200/90">{t("calculator.totalRepayment")}</span>
-                    <span className="font-extrabold text-white">{formatNumber(totalAmount)} so'm</span>
+                    <span className="font-extrabold text-white">{formatNumber(totalAmount)} {t("calculator.currency")}</span>
                   </div>
 
                   <div className="flex justify-between items-center">
                     <span className="text-emerald-200/90">{t("calculator.totalInterest")}</span>
-                    <span className="font-extrabold text-[#76ff03]">+{formatNumber(totalInterest)} so'm</span>
+                    <span className="font-extrabold text-[#76ff03]">+{formatNumber(totalInterest)} {t("calculator.currency")}</span>
                   </div>
 
                   <div className="flex justify-between items-center">
@@ -428,8 +434,8 @@ export default function CreditCalculator() {
                 {/* Progress Ratio Bar */}
                 <div className="space-y-1 pt-1">
                   <div className="flex justify-between text-[10px] text-emerald-200/80 font-bold">
-                    <span>Asosiy qarz: {principalPercent}%</span>
-                    <span>Foiz: {interestPercent}%</span>
+                    <span>{t("calculator.principalPortion")}: {principalPercent}%</span>
+                    <span>{t("calculator.interestPortion")}: {interestPercent}%</span>
                   </div>
                   <div className="w-full h-2 bg-amber-400 rounded-full overflow-hidden flex">
                     <div style={{ width: `${principalPercent}%` }} className="h-full bg-emerald-400" />
@@ -466,7 +472,7 @@ export default function CreditCalculator() {
                 >
                   <Calculator className="w-4 h-4" />
                   <span>
-                    {showSchedule ? "To'lovlar jadvalini yashirish" : "To'lovlar jadvalini ko'rish"}
+                    {showSchedule ? t("calculator.hideSchedule") : t("calculator.showSchedule")}
                   </span>
                 </button>
 
@@ -484,11 +490,11 @@ export default function CreditCalculator() {
                   <table className="w-full text-xs text-left text-slate-700 border-collapse">
                     <thead className="text-[11px] text-slate-700 uppercase bg-slate-100 font-black border-b border-slate-200">
                       <tr>
-                        <th className="px-3 py-2.5">Oy</th>
-                        <th className="px-3 py-2.5 text-right">Asosiy qarz</th>
-                        <th className="px-3 py-2.5 text-right">Foiz</th>
-                        <th className="px-3 py-2.5 text-right">Oylik to'lov</th>
-                        <th className="px-3 py-2.5 text-right">Qoldiq</th>
+                        <th className="px-3 py-2.5">{t("calculator.table.month")}</th>
+                        <th className="px-3 py-2.5 text-right">{t("calculator.table.principal")}</th>
+                        <th className="px-3 py-2.5 text-right">{t("calculator.table.interest")}</th>
+                        <th className="px-3 py-2.5 text-right">{t("calculator.table.payment")}</th>
+                        <th className="px-3 py-2.5 text-right">{t("calculator.table.remaining")}</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 font-semibold">

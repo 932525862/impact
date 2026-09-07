@@ -46,7 +46,14 @@ export default function AboutPage() {
     },
   };
 
-  const docs = [
+  const docsFromI18n = t("about.docList", { returnObjects: true }) as Array<{
+    title: string;
+    desc: string;
+    type: string;
+    date?: string;
+  }>;
+
+  const docs = Array.isArray(docsFromI18n) && docsFromI18n.length > 0 ? docsFromI18n : [
     {
       title: "Markaziy Bank Litsenziyasi",
       desc: "Mikromoliya faoliyatini amalga oshirish bo'yicha O'zbekiston Respublikasi Markaziy Banki litsenziyasi",
@@ -82,15 +89,15 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto text-center space-y-4 relative z-10">
           <div className="inline-flex items-center space-x-2 bg-emerald-900/80 border border-emerald-700/60 px-4 py-1.5 rounded-full text-xs font-bold text-emerald-200">
             <Award className="w-4 h-4 text-amber-400" />
-            <span>RASMIY MIKROMOLIYALAR TASHKILOTI</span>
+            <span>{t("aboutPage.heroBadge")}</span>
           </div>
 
           <h1 className="text-3xl md:text-5xl font-black tracking-tight text-white">
-            IMPACT FINANCE Tashkiloti Haqida
+            {t("aboutPage.heroTitle")}
           </h1>
 
           <p className="text-base md:text-lg text-emerald-100/90 max-w-2xl mx-auto font-medium">
-            Barqaror moliyaviy kelajak va biznes rivoji yo'lidagi ishonchli korporativ hamkoringiz
+            {t("aboutPage.heroSub")}
           </p>
 
           <div className="w-20 h-1 bg-amber-400 mx-auto rounded-full mt-4" />
@@ -109,7 +116,7 @@ export default function AboutPage() {
                   : "text-slate-700 hover:bg-white"
               }`}
             >
-              Tashkilot Haqida
+              {t("aboutPage.tabs.info")}
             </button>
 
             <button
@@ -120,7 +127,7 @@ export default function AboutPage() {
                   : "text-slate-700 hover:bg-white"
               }`}
             >
-              Hujjatlar va Hisobotlar
+              {t("aboutPage.tabs.docs")}
             </button>
 
             <button
@@ -131,7 +138,7 @@ export default function AboutPage() {
                   : "text-slate-700 hover:bg-white"
               }`}
             >
-              A'zolik va Hamkorlik (НАУФОР)
+              {t("aboutPage.tabs.naufor")}
             </button>
           </div>
         </div>
@@ -149,7 +156,7 @@ export default function AboutPage() {
                   <div className="w-10 h-10 rounded-xl bg-emerald-100 text-[#004526] flex items-center justify-center">
                     <Target className="w-5 h-5" />
                   </div>
-                  <span>IMPACT FINANCE Missiyasi va Maqsadi</span>
+                  <span>{t("aboutPage.missionTitle")}</span>
                 </h2>
 
                 <p
@@ -165,15 +172,15 @@ export default function AboutPage() {
                 <div className="p-4 bg-emerald-50 rounded-2xl border border-emerald-200 flex items-start space-x-3 text-xs text-[#004526]">
                   <ShieldCheck className="w-5 h-5 text-[#004526] flex-shrink-0 mt-0.5" />
                   <div>
-                    <strong className="block font-bold mb-0.5">Markaziy Bank Regulyatsiyasi:</strong>
-                    Tashkilot faoliyati O'zbekiston Respublikasi Markaziy Banki qonunchilik talablari hamda moliyaviy shaffoflik me'yorlariga to'liq mos keladi.
+                    <strong className="block font-bold mb-0.5">{t("aboutPage.regTitle")}</strong>
+                    {t("aboutPage.regText")}
                   </div>
                 </div>
               </div>
 
               <div className="lg:col-span-5 space-y-6">
                 <div className="p-8 bg-gradient-to-br from-[#004526] to-[#022c22] text-white rounded-3xl shadow-xl space-y-4 border border-emerald-800">
-                  <h3 className="text-xl font-extrabold text-amber-400">Bizning Va'damiz:</h3>
+                  <h3 className="text-xl font-extrabold text-amber-400">{t("aboutPage.promiseTitle")}</h3>
                   <p
                     className="text-sm leading-relaxed font-medium italic text-emerald-100/90"
                     dangerouslySetInnerHTML={{ __html: t("about.closing") }}
@@ -181,8 +188,8 @@ export default function AboutPage() {
                 </div>
 
                 <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-xs space-y-3">
-                  <h4 className="font-extrabold text-slate-900 text-sm">Bosh Ofis va Bo'lim:</h4>
-                  <p className="text-xs text-slate-600 font-medium">Toshkent shahar, Shayxontohur tumani, O'rda MFY, Labzak ko'chasi 2a-uy</p>
+                  <h4 className="font-extrabold text-slate-900 text-sm">{t("aboutPage.officeTitle")}</h4>
+                  <p className="text-xs text-slate-600 font-medium">{t("aboutPage.officeAddress")}</p>
                   <p className="text-xs font-bold text-[#004526]">+998 (55) 515-01-11</p>
                 </div>
               </div>
@@ -192,7 +199,7 @@ export default function AboutPage() {
             <div className="space-y-8">
               <div className="text-center max-w-2xl mx-auto space-y-2">
                 <h3 className="text-2xl font-black text-slate-900">{t("about.valuesHeading")}</h3>
-                <p className="text-xs text-slate-500 font-semibold">Biz amal qiladigan asosiy korporativ tamoyillar</p>
+                <p className="text-xs text-slate-500 font-semibold">{t("aboutPage.valuesSub")}</p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -224,11 +231,11 @@ export default function AboutPage() {
             <div className="text-center max-w-2xl mx-auto space-y-2">
               <div className="inline-flex items-center space-x-2 bg-emerald-100 text-[#004526] px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
                 <FileText className="w-4 h-4" />
-                <span>Rasmiy Hujjatlar</span>
+                <span>{t("aboutPage.officialDocsBadge")}</span>
               </div>
-              <h2 className="text-3xl font-black text-slate-900">Hujjatlar va Hisobotlar</h2>
+              <h2 className="text-3xl font-black text-slate-900">{t("about.docsTab")}</h2>
               <p className="text-xs text-slate-500 font-semibold">
-                IMPACT FINANCE tashkilotining rasmiy litsenziyalari, guvohnomalari va moliyaviy audit xulosalari
+                {t("about.subheading")}
               </p>
             </div>
 
@@ -259,14 +266,14 @@ export default function AboutPage() {
                   </div>
 
                   <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-[11px] text-slate-400 font-semibold">{doc.date}</span>
+                    <span className="text-[11px] text-slate-400 font-semibold">{doc.date || ""}</span>
 
                     <button
                       onClick={() => setSelectedDoc(doc)}
                       className="bg-[#004526] hover:bg-[#00381f] text-white text-xs font-bold px-4 py-2 rounded-xl transition-all flex items-center space-x-1.5"
                     >
                       <Eye className="w-3.5 h-3.5" />
-                      <span>Hujjatni ko'rish</span>
+                      <span>{t("aboutPage.docModalView")}</span>
                     </button>
                   </div>
                 </div>
@@ -296,26 +303,26 @@ export default function AboutPage() {
               <div className="lg:col-span-8 space-y-5">
                 <div className="inline-flex items-center space-x-2 bg-sky-100 text-sky-900 border border-sky-300/60 px-3.5 py-1 rounded-full text-xs font-bold">
                   <ShieldCheck className="w-4 h-4 text-sky-700" />
-                  <span>RASMIY A'ZOLIK BILDIRISHNOMASI</span>
+                  <span>{t("aboutPage.nauforBadge")}</span>
                 </div>
 
                 <h3 className="text-2xl md:text-3xl font-black text-slate-900 leading-tight">
-                  2026-yil 13-avgustdan boshlab "Moliya bozori ishtirokchilari milliy uyushmasi" a'zosi
+                  {t("about.nauforTitle")}
                 </h3>
 
                 <p className="text-slate-600 text-sm leading-relaxed font-medium">
-                  IMPACT FINANCE mikromoliya tashkiloti moliyaviy bozorda mas'uliyatli xizmat ko'rsatish, mijozlar manfaatlari va huquqlarini ishonchli himoya qilish hamda xalqaro moliyaviy standartlarga amal qilish maqsadida <strong>"Moliya bozori ishtirokchilari milliy uyushmasi" (НАУФОР)</strong>ning rasmiy a'zosi bo'lib hisoblanadi.
+                  {t("about.nauforSub")}
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                   <div className="p-3.5 bg-sky-50/60 rounded-2xl border border-sky-100 flex items-center space-x-3 text-xs font-bold text-sky-950">
                     <CheckCircle2 className="w-5 h-5 text-sky-600 flex-shrink-0" />
-                    <span>Xalqaro standartlarga moslik</span>
+                    <span>{t("aboutPage.nauforStandard")}</span>
                   </div>
 
                   <div className="p-3.5 bg-sky-50/60 rounded-2xl border border-sky-100 flex items-center space-x-3 text-xs font-bold text-sky-950">
                     <CheckCircle2 className="w-5 h-5 text-sky-600 flex-shrink-0" />
-                    <span>Mijozlar huquqlari kafolati</span>
+                    <span>{t("aboutPage.nauforGuarantee")}</span>
                   </div>
                 </div>
               </div>

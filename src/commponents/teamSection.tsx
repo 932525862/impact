@@ -48,7 +48,7 @@ export default function WeAreLookingFor() {
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <div className="inline-flex items-center space-x-2 bg-emerald-50 text-[#004526] px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider border border-emerald-200/60">
             <UserCheck className="w-4 h-4 text-[#004526]" />
-            <span>RAHBARIYAT</span>
+            <span>{t("teamBadge")}</span>
           </div>
 
           <h2 className="text-3xl md:text-4xl font-extrabold text-[#004526] tracking-tight">

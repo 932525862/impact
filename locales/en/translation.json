@@ -1,51 +1,183 @@
 {
-
   "sectionTitle": "Board of Directors and Management",
+  "teamBadge": "MANAGEMENT",
   "items": {
     "jaloliddin": {
       "title": "Jaloliddin Kadirov",
-      "text": "Chief Executive Officer – a manager with experience in leadership and executive positions in the banking and finance sector, specializing in small and medium-sized business relations. Possesses deep knowledge in corporate and SME financing, loan recovery, and monitoring."
+      "role": "Chief Executive Officer (CEO)",
+      "text": "Chief Executive Officer – a manager with over 15 years of experience in leadership and executive positions in the banking and finance sector, specializing in small and medium-sized enterprise (SME) relations. Expert in corporate finance, risk monitoring, and strategic development."
     },
     "jamoliddin": {
       "title": "Jamoliddin Abdullaev",
-      "text": "Chief Risk Officer – an experienced specialist with 20 years of work in banking and finance, including senior and executive management. Skilled in SME financing, operations, risk management, treasury, and financial planning. Held leadership roles in both state and commercial banks."
+      "role": "Chief Risk Officer (CRO)",
+      "text": "Chief Risk Officer – an experienced specialist with 20 years of work in banking and finance, including senior management roles. Skilled in SME financing, operations, risk management, treasury, and financial planning in commercial and state banks."
     },
     "mirzo": {
       "title": "Mirzo Bozorov",
-      "text": "Chief Financial Officer – a leader with 10 years of experience in financial management, project management, and product development within the banking and finance system. Focuses on the efficiency of banking products and the delivery channels of digital banking services. Holds an international financial certification."
+      "role": "Chief Financial Officer (CFO)",
+      "text": "Chief Financial Officer – a leader with 10 years of experience in financial management, investments, and digital banking product implementation. Focuses on banking product efficiency and delivery channels. Holds an international ACCA/CFA certification."
     },
     "mirgulom": {
       "title": "Mirgulom Dosmuhammedov",
-      "text": "Chief Accountant with over 15 years of experience in the banking sector of Uzbekistan, specializing in banking and microfinance. Has deep knowledge of accounting and tax reporting, with strong attention to compliance with regulatory requirements."
+      "role": "Chief Accountant",
+      "text": "Chief Accountant with over 15 years of experience in the banking and microfinance (MFO) sector of Uzbekistan. Deep expertise in accounting, tax reporting, financial control, and regulatory compliance."
     }
-  },  
-
-
-
+  },
   "home": "Home",
+  "aboutNav": "About Us",
   "advantages": "Our Advantages",
-  "services1": "Services",
+  "services1": "Loan Types",
   "calculator1": "Calculator",
+  "teamNav": "Management",
   "contacts": "Contacts",
   "phone": "Phone Number",
-
-  "about": {
-    "heading": "About Us",
-    "intro1": "<strong>Impact Finance</strong> is a microfinance organization aimed at expanding financial inclusion and supporting economic stability. We provide fair, transparent, and reliable financial solutions for small business owners, women entrepreneurs, youth, and rural residents.",
-    "intro2": "Our main goal is to create opportunities for those excluded from the traditional financial system. Therefore, through microloans and other financial services, we encourage social and economic development.",
-    "valuesHeading": "Our Values",
-    "values": {
-      "trust": "<strong>Reliability</strong> – we always serve our clients honestly and responsibly.",
-      "transparency": "<strong>Transparency</strong> – we provide clear and understandable terms and conditions in all processes.",
-      "sustainability": "<strong>Sustainability</strong> – we strengthen community well-being through financial support.",
-      "collaboration": "<strong>Collaboration</strong> – we develop long-term, mutually beneficial partnerships."
-    },
-    "closing": "For us, the success of every client is the success of <strong>Impact Finance</strong>."
+  "applyNow": "Apply Now",
+  "topBar": {
+    "license": "Licensed by the Central Bank of the Republic of Uzbekistan",
+    "hours": "Mon-Fri: 09:00 - 18:00 | Sat: 09:00 - 15:00",
+    "address": "2a Labzak St., Shaykhontohur dist., Tashkent",
+    "hotline": "Hotline:"
   },
-
+  "hero": {
+    "slogan": "LICENSED BY THE CENTRAL BANK OF THE REPUBLIC OF UZBEKISTAN",
+    "title": "Fast and Transparent Microcredit Solutions",
+    "carousel": [
+      "Favorable loans for business development",
+      "Fast microloans up to 100,000,000 UZS",
+      "Minimal documents and zero hidden fee terms"
+    ],
+    "description": "Take your business to the next level and achieve your personal financial goals with IMPACT FINANCE. Transparent, fair, and convenient financing.",
+    "button": "View Loans",
+    "calcButton": "Calculate on Calculator",
+    "quickCalcTitle": "Quick Loan Calculator",
+    "quickCalcSub": "Select amount and term to calculate your estimated monthly payment",
+    "annualFrom": "per annum",
+    "fastApproval": "15 Min Approval",
+    "minimalDocs": "Minimal Documents",
+    "noHiddenFees": "0% Hidden Fees",
+    "creditAmountLabel": "Loan amount:",
+    "creditTermLabel": "Loan term:",
+    "estimatedMonthly": "Estimated Monthly Payment:",
+    "perMonth": " / mo",
+    "applyInstant": "Apply Right Now",
+    "presets": {
+      "label": "Recommended amounts:"
+    },
+    "metrics": {
+      "exp": "15+ Years",
+      "expLabel": "Management experience",
+      "approval": "98%",
+      "approvalLabel": "Application approval rate",
+      "speed": "15 minutes",
+      "speedLabel": "Fast decision making",
+      "clients": "10,000+",
+      "clientsLabel": "Active clients"
+    }
+  },
+  "steps": {
+    "title": "3 Simple Steps to Get a Loan",
+    "subtitle": "Fast and transparent process from application to receiving funds",
+    "step1": {
+      "title": "1. Online Application",
+      "desc": "Select your desired loan amount and term on our website and fill out a quick form."
+    },
+    "step2": {
+      "title": "2. Fast Review",
+      "desc": "Our specialists will review your application within 15 minutes and provide a decision."
+    },
+    "step3": {
+      "title": "3. Receive Funds",
+      "desc": "After signing the contract, receive the funds directly into your bank account."
+    }
+  },
+  "about": {
+    "heading": "About IMPACT FINANCE Organization",
+    "subheading": "Your trusted corporate partner on the path to a sustainable financial future and business growth",
+    "badge": "Officially Licensed Microfinance Organization",
+    "intro1": "<strong>IMPACT FINANCE</strong> is a responsible microfinance organization in the Republic of Uzbekistan aimed at expanding financial inclusion, supporting small businesses, and ensuring economic stability.",
+    "intro2": "We provide fair, transparent, and reliable financial solutions for small business owners, individual entrepreneurs, women, and individuals. Honest terms without hidden fees are our core principle.",
+    "missionTitle": "Mission and Purpose of IMPACT FINANCE",
+    "regulatoryTitle": "State Regulator Standards:",
+    "regulatoryText": "The organization's activities fully comply with the legislative requirements of the Central Bank of the Republic of Uzbekistan and financial stability norms.",
+    "stats": {
+      "clients": "10,000+",
+      "clientsText": "Satisfied Clients",
+      "experience": "15+ Years",
+      "experienceText": "Industry Experience",
+      "approval": "98%",
+      "approvalText": "Approval Rate",
+      "speed": "15 Min",
+      "speedText": "Fast Decision"
+    },
+    "valuesHeading": "Our Corporate Values",
+    "values": {
+      "trust": "<strong>Reliability</strong> – long-term and responsible cooperation with every client.",
+      "transparency": "<strong>Transparency</strong> – 100% clear conditions, zero hidden commissions, and transparent rates.",
+      "sustainability": "<strong>Sustainability</strong> – supporting sustainable business growth for our clients.",
+      "collaboration": "<strong>Client Care</strong> – an individual and prompt approach to every inquiry."
+    },
+    "closing": "For us, the success of every client is the success of <strong>IMPACT FINANCE</strong>.",
+    "docsTab": "Documents and Reports",
+    "nauforTab": "Membership and Partnership",
+    "nauforTitle": "Member of the National Association of Financial Market Participants since August 13, 2026",
+    "nauforSub": "Our organization fully complies with international and national standards for financial transparency, professional ethics, and client rights protection.",
+    "docList": [
+      {
+        "title": "Central Bank License",
+        "desc": "Official license for microfinance activity issued by the Central Bank",
+        "type": "License № 0084",
+        "file": "litsenziya-impact.pdf"
+      },
+      {
+        "title": "State Registration Certificate",
+        "desc": "Certificate of state registration as a legal entity",
+        "type": "Certificate № 75094",
+        "file": "guvohnoma-impact.pdf"
+      },
+      {
+        "title": "Annual Audit Report (2025/2026)",
+        "desc": "Independent auditor report on financial statements",
+        "type": "Audit Report",
+        "file": "audit-xulosasi-2025.pdf"
+      },
+      {
+        "title": "Charter and Internal Rules",
+        "desc": "Official approved charter and client rights protection rules",
+        "type": "Official Charter",
+        "file": "ustav-impact.pdf"
+      }
+    ]
+  },
+  "services": {
+    "title": "Why Choose IMPACT FINANCE?",
+    "subtitle": "Modern service, high trust, and the most favorable financial terms for our clients",
+    "badges": ["Within 24 Hours", "Individual Approach", "Minimal Documents"],
+    "cards": [
+      {
+        "title": "Fast & Easy Review",
+        "description": "Your application is reviewed within 15 minutes to 24 hours. A minimal document package is required."
+      },
+      {
+        "title": "Flexible Loan Terms",
+        "description": "Tailored repayment schedules and affordable interest rates suited to your business revenue."
+      },
+      {
+        "title": "High Approval Rate",
+        "description": "Our professional financial experts approach every project responsibly to help find a positive solution."
+      }
+    ],
+    "more": "Learn More"
+  },
   "section": {
     "title": "Credit",
-    "highlight": "Types",
+    "highlight": "Types and Opportunities",
+    "catalogBadge": "OFFICIAL PRODUCTS CATALOG",
+    "subtitle": "Choose the best financial product for your business or personal needs",
+    "filter": {
+      "all": "All Loans",
+      "business": "For Business",
+      "individual": "For Individuals"
+    },
     "button": "Learn More",
     "modal": {
       "mijoz": "Client Type",
@@ -53,167 +185,197 @@
       "muddat": "Maximum Loan Term",
       "tolov": "Repayment Terms",
       "garov": "Collateral",
-      "talablar": "Basic Requirements"
+      "talablar": "Basic Requirements",
+      "apply": "Apply for this loan"
     }
   },
-
   "activities": {
     "biznes": {
       "title": "Microloan Business",
-      "mijoz": ["Legal entities", "Individual entrepreneurs", "Self-employed"],
-      "foiz": "42%  Note: Rates may vary depending on the client’s situation.",
+      "badge": "For Business Owners & Sole Proprietors",
+      "desc": "The optimal loan for expanding business activities, replenishing working capital, and buying new equipment.",
+      "mijoz": ["Legal Entities", "Individual Entrepreneurs", "Self-Employed"],
+      "foiz": "42 % (per annum)",
       "muddat": "From 3 to 36 months",
-      "tolov": "Monthly, annuity payments",
-      "garov": ["Vehicle", "Real estate"],
+      "tolov": "Monthly annuity payments",
+      "garov": ["Vehicles", "Real Estate"],
       "talablar": [
-        "Must be a resident of Uzbekistan",
-        "Business owner’s age between 20 and 60",
+        "Resident of the Republic of Uzbekistan",
+        "Business owner age between 20 and 60",
         "At least 6 months of business experience",
-        "No overdue debts of more than 30 days in the past year",
-        "Profitable business indicators",
-        "Business must not violate legislation and/or internal rules of IMPACT FINANCE LEADERS"
+        "No overdue debt over 30 days in the past year",
+        "Stable business financial indicators"
       ]
     },
     "biznesPlus": {
       "title": "Microloan Business+",
-      "mijoz": ["Legal entities", "Individual entrepreneurs", "Self-employed"],
-      "foiz": "46%  Note: Rates may vary depending on the client’s situation.",
+      "badge": "With Guarantor",
+      "desc": "Fast business financing without collateral, with guarantor requirement only.",
+      "mijoz": ["Legal Entities", "Individual Entrepreneurs", "Self-Employed"],
+      "foiz": "46 % (per annum)",
       "muddat": "From 3 to 36 months",
-      "tolov": "Monthly, annuity payments",
+      "tolov": "Monthly annuity payments",
       "garov": ["Guarantee"],
       "talablar": [
-        "Must be a resident of Uzbekistan",
-        "Business owner’s age between 20 and 60",
-        "At least 6 months of business experience",
-        "No overdue debts of more than 30 days in the past year",
-        "Profitable business indicators",
-        "Business must not violate legislation and/or internal rules of IMPACT FINANCE LEADERS"
+        "Resident of the Republic of Uzbekistan",
+        "Age between 20 and 60",
+        "At least 6 months of continuous business operation",
+        "No current overdue debts",
+        "Reliable guarantor with steady income"
       ]
     },
     "oson": {
       "title": "Microloan Easy",
+      "badge": "For Individuals",
+      "desc": "Fast and convenient microloan for individuals for any personal needs and major purchases.",
       "mijoz": ["Individuals"],
-      "foiz": "49%  Note: Rates may vary depending on the client’s situation.",
+      "foiz": "49 % (per annum)",
       "muddat": "From 3 to 36 months",
-      "tolov": "Monthly, annuity payments",
-      "garov": ["Vehicle", "Real estate"],
+      "tolov": "Monthly annuity payments",
+      "garov": ["Vehicles", "Real Estate"],
       "talablar": [
-        "Must be a resident of Uzbekistan",
+        "Citizen of the Republic of Uzbekistan",
         "Age between 20 and 60",
-        "Credit rating of C or higher",
-        "No current outstanding debts",
-        "Client or guarantor must be registered in Tashkent city (including region)",
-        "Income must not violate legislation and/or internal rules of IMPACT FINANCE LEADERS"
+        "Credit rating 'C' or higher",
+        "No current overdue debts",
+        "Permanent registration in Tashkent city or Tashkent region"
       ]
     },
     "ishonch": {
       "title": "Microloan Trust",
-      "mijoz": ["Individuals", "Self-employed"],
-      "foiz": "59%",
+      "badge": "Fast & Simple",
+      "desc": "Fast microloan based on minimal document package to meet immediate financial needs.",
+      "mijoz": ["Individuals", "Self-Employed"],
+      "foiz": "59 % (per annum)",
       "muddat": "From 3 to 18 months",
-      "tolov": "Monthly, annuity payments",
+      "tolov": "Monthly annuity payments",
       "garov": ["Guarantee"],
       "talablar": [
-        "Must be a resident of Uzbekistan",
+        "Citizen of the Republic of Uzbekistan",
         "Age between 20 and 60",
-        "Client’s written income statement",
-        "Credit bureau rating of C or higher",
-        "No current outstanding debts",
-        "Client or guarantor must be registered in Tashkent city (including region)",
-        "Income must not violate legislation and/or internal rules of IMPACT FINANCE LEADERS"
+        "Written income statement",
+        "Credit rating 'C' or higher",
+        "No current overdue debts"
       ]
     }
   },
-
   "calculator": {
-  "title": "Loan",
-  "highlight": "calculation calculator",
-  "description": "Use the calculator on the website to select the amount and term and calculate the approximate monthly payment",
-  "offer": "Special offer",
-  "monthlyPayment": "Monthly payment:",
-  "currency": "UZS",
-  "button": "Submit an application",
-  "noteTitle": "Preliminary calculation",
-  "noteText": "For detailed information about amounts, terms, and payments, you may visit the organization’s office or contact us by phone.",
-  "phone": "+998 (55) 515-01-11",
-  "creditAmount": {
-    "label": "Loan amount",
-    "placeholder": "Enter the amount"
-  },
-  "creditTerm": {
-    "label": "Loan term (months)",
-    "placeholder": "Enter the term"
-  },
-  "interestRate": {
-    "label": "Interest rate (%)",
-    "placeholder": "Enter the interest rate"
-  },
-  "info": "We help entrepreneurs and businesses achieve their goals by providing financial support. With our loan services, you can confidently move toward reliability, stability, and new opportunities.",
-  "paymentSchedule": "Payment Schedule",
-  "pdfTitle": "Loan repayment schedule",
-  "creditAmountPdf": "Loan Amount",
-  "creditTermPdf": "Loan Term",
-  "interestRatePdf": "Interest Rate",
-  "monthlyPaymentPdf": "Monthly Payment",
-  "table": {
-    "month": "Month",
-    "principal": "Principal",
-    "interest": "Interest",
-    "payment": "Monthly Payment",
-    "remaining": "Remaining Balance"
-  },
-  "total": "Total",
-  "totalAmount": "Total Amount",
-  "downloadButton": "Download Schedule"
-},
-
-
-  "contact": {
-    "title": "Contacts",
-    "subtitle": "If you have any questions or requests, please feel free to contact us",
-    "phone_label": "Phone Number:",
-    "email": "impactfinanceleaders@gmail.com",
-    "address": "Tashkent city, Shaykhontokhur district, Orda Makhalla, Labzak street, house 2a",
-    "form": {
-      "title": "Feedback form for complaints and suggestions",
-      "name_placeholder": "Your name",
-      "phone_placeholder": "Your phone number",
-      "message_placeholder": "Message",
-      "button": "Send",
-      "consent": "By submitting this form, you agree to the processing of personal data."
+    "title": "Interactive Loan",
+    "highlight": "calculator",
+    "description": "Choose the loan amount and term to calculate your estimated monthly payment and complete repayment schedule.",
+    "selectProductLabel": "SELECT LOAN TYPE:",
+    "offer": "SPECIAL OFFER",
+    "annuity": "Annuity Payment",
+    "monthlyPayment": "Monthly payment:",
+    "totalRepayment": "Total repayment amount:",
+    "totalInterest": "Total interest payment:",
+    "annualRate": "Annual interest rate:",
+    "principalPortion": "Principal",
+    "interestPortion": "Interest",
+    "currency": "UZS",
+    "month": "mo",
+    "monthUnit": "mo",
+    "button": "Submit Application",
+    "noteTitle": "Official Information",
+    "noteText": "For detailed information regarding amounts, terms, and payments, please visit our office or contact us by phone.",
+    "phone": "+998 (55) 515-01-11",
+    "creditAmount": {
+      "label": "Loan amount",
+      "placeholder": "Enter amount"
     },
-    "toast": "We will contact you soon!"
+    "creditTerm": {
+      "label": "Loan term (months)",
+      "placeholder": "Enter term"
+    },
+    "interestRate": {
+      "label": "Interest rate (%)",
+      "placeholder": "Enter rate"
+    },
+    "info": "IMPACT FINANCE is a reliable financial bridge for your business and personal goals.",
+    "paymentSchedule": "Payment Schedule",
+    "pdfTitle": "Loan Repayment Schedule",
+    "creditAmountPdf": "Loan amount",
+    "creditTermPdf": "Loan term",
+    "interestRatePdf": "Interest rate",
+    "monthlyPaymentPdf": "Monthly payment",
+    "showSchedule": "Show Payment Schedule",
+    "hideSchedule": "Hide Payment Schedule",
+    "downloadButton": "Download Schedule as PDF",
+    "table": {
+      "month": "Month",
+      "principal": "Principal",
+      "interest": "Interest",
+      "payment": "Monthly Payment",
+      "remaining": "Remaining Balance"
+    },
+    "total": "Total",
+    "totalAmount": "Total Amount"
   },
-
-  "hero": {
-    "slogan": "Towards Big Dreams!",
-    "carousel": [
-      "Microcredit for any needs",
-      "Convenient loans for business development",
-      "Fast and easy loan processing"
-    ],
-    "description": "With IMPACT FINANCE, find a reliable partner to achieve your financial goals. Take advantage of fast, convenient, and secure credit services.",
-    "button": "Choose a Loan",
-    "image_alt": "IMPACT FINANCE microcredit services"
+  "contact": {
+    "title": "Contact Us and Apply",
+    "subtitle": "Have questions or want to get a loan? Our experts are ready to provide free consultation.",
+    "phone_label": "Phone number:",
+    "email": "impactfinanceleaders@gmail.com",
+    "address": "2a Labzak St., Orda Makhalla, Shaykhontohur dist., Tashkent city",
+    "addressLabel": "Head Office Address:",
+    "hoursLabel": "Working Hours & Email:",
+    "workHours": "Monday - Saturday: 09:00 - 18:00",
+    "telegramLabel": "Telegram bot / channel:",
+    "licenseNotice": "Services provided under Central Bank License",
+    "copyright": "© {{year}} IMPACT FINANCE. All rights reserved.",
+    "form": {
+      "title": "Online Application & Contact Form",
+      "name_placeholder": "Your full name",
+      "phone_placeholder": "Your phone number",
+      "message_placeholder": "Additional notes or question",
+      "button": "Submit Application",
+      "consent": "By submitting this form, you consent to the processing of your personal data."
+    },
+    "toast": "Application received! Our specialist will contact you shortly."
   },
-
-  "services": {
-    "title": "Why should you choose us?",
-    "subtitle": "With IMPACT FINANCE, enjoy reliable and convenient loan services",
-    "cards": [
-      {
-        "title": "Get a loan in a short time",
-        "description": "Fast and easy processing. Achieve maximum results with minimal time spent."
-      },
-      {
-        "title": "Favorable loan conditions",
-        "description": "The most affordable interest rates and flexible repayment terms. Tailored to your opportunities."
-      },
-      {
-        "title": "High approval rate",
-        "description": "Possibility of getting a loan with minimal documents. We serve as your trusted partner."
-      }
-    ],
-    "more": "Learn More"
+  "faq": {
+    "badge": "QUESTIONS & ANSWERS",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Answers to the most important questions about obtaining a loan",
+    "q1": "What basic documents are required to get a loan?",
+    "a1": "Identity document (Passport/ID card), business certificate for entrepreneurs, and documents confirming income.",
+    "q2": "How long does it take to review an application?",
+    "a2": "Once a full set of documents is submitted, the application is reviewed within 15 minutes to 24 hours.",
+    "q3": "Is early repayment of the loan allowed?",
+    "a3": "Yes, you can repay the loan early at any time without any additional penalties or fees."
+  },
+  "docSlider": {
+    "headerTitle": "Documents and Images Slider",
+    "interactiveBadge": "Interactive Slide",
+    "headerSub": "Official licenses, certificates, and audit reports",
+    "fullscreenBtn": "Full Screen View",
+    "prevSlide": "Previous slide",
+    "nextSlide": "Next slide",
+    "pauseAuto": "Pause auto-slide",
+    "playAuto": "Play auto-slide"
+  },
+  "aboutPage": {
+    "heroBadge": "OFFICIAL MICROFINANCE ORGANIZATION",
+    "heroTitle": "About IMPACT FINANCE Organization",
+    "heroSub": "Your trusted corporate partner on the path to a sustainable financial future and business growth",
+    "tabs": {
+      "info": "About Organization",
+      "docs": "Documents & Reports",
+      "naufor": "Membership & Partnership (NAUFOR)"
+    },
+    "missionTitle": "Mission and Purpose of IMPACT FINANCE",
+    "regTitle": "Central Bank Regulation:",
+    "regText": "The organization's activities fully comply with the legislative requirements of the Central Bank and financial transparency norms.",
+    "promiseTitle": "Our Promise:",
+    "officeTitle": "Head Office:",
+    "officeAddress": "2a Labzak St., Orda Makhalla, Shaykhontohur dist., Tashkent city",
+    "valuesSub": "Core corporate principles we adhere to",
+    "officialDocsBadge": "Official Documents",
+    "docModalView": "View Document",
+    "docModalClose": "Close",
+    "docModalDownload": "Download PDF",
+    "nauforBadge": "OFFICIAL MEMBERSHIP NOTICE",
+    "nauforStandard": "Compliance with international standards",
+    "nauforGuarantee": "Guarantee of client rights protection"
   }
 }

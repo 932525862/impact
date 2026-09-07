@@ -76,7 +76,7 @@ export default function AboutUs() {
         <div className="mb-20">
           <div className="text-center max-w-xl mx-auto mb-10 space-y-2">
             <h3 className="text-2xl font-black text-slate-900">{t("steps.title")}</h3>
-            <p className="text-xs text-slate-500 font-semibold">{t("steps.subtitle")}</p>
+            <p className="text-sm text-slate-600 font-semibold">{t("steps.subtitle")}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -98,7 +98,7 @@ export default function AboutUs() {
                   <h4 className="text-xl font-extrabold text-slate-900 group-hover:text-[#004526] transition-colors">
                     {s.title}
                   </h4>
-                  <p className="text-slate-600 text-xs leading-relaxed font-medium">
+                  <p className="text-slate-700 text-sm leading-relaxed font-medium">
                     {s.desc}
                   </p>
                 </div>
@@ -116,7 +116,7 @@ export default function AboutUs() {
                 <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center">
                   <Target className="w-5 h-5 stroke-[2.2]" />
                 </div>
-                <span>IMPACT FINANCE Missiyasi</span>
+                <span>{t("about.missionTitle")}</span>
               </h3>
 
               <p
@@ -133,8 +133,8 @@ export default function AboutUs() {
               <div className="p-4 bg-emerald-50/80 rounded-2xl border border-emerald-200/80 flex items-start space-x-3 text-xs text-[#004526]">
                 <ShieldCheck className="w-5 h-5 text-[#004526] flex-shrink-0 mt-0.5" />
                 <div className="font-medium">
-                  <strong className="block font-bold mb-0.5">Davlat Regulyatori Standartlari:</strong>
-                  Tashkilot faoliyati O'zbekiston Respublikasi Markaziy Banki qonunchilik talablari va moliyaviy barqarorlik normalariga to'liq mos keladi.
+                  <strong className="block font-bold mb-0.5">{t("about.regulatoryTitle")}</strong>
+                  {t("about.regulatoryText")}
                 </div>
               </div>
             </div>

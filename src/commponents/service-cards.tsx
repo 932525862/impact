@@ -12,7 +12,8 @@ export function ServiceCards() {
   }[];
 
   const icons = [Zap, Sliders, ShieldCheck];
-  const badges = ["24 Soat ichida", "Individual yondashuv", "Minimal hujjatlar"];
+  const translatedBadges = t("services.badges", { returnObjects: true }) as string[];
+  const badges = Array.isArray(translatedBadges) ? translatedBadges : ["24 Soat ichida", "Individual yondashuv", "Minimal hujjatlar"];
 
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);

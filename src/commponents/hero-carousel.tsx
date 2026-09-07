@@ -105,15 +105,15 @@ export function HeroCarousel() {
             <div className="grid grid-cols-3 gap-3 pt-1">
               <div className="flex items-center space-x-2 bg-emerald-900/40 border border-emerald-700/40 p-2.5 rounded-xl text-xs text-emerald-100 font-semibold backdrop-blur-xs">
                 <Zap className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                <span>15 Min Tasdiq</span>
+                <span>{t("hero.fastApproval")}</span>
               </div>
               <div className="flex items-center space-x-2 bg-emerald-900/40 border border-emerald-700/40 p-2.5 rounded-xl text-xs text-emerald-100 font-semibold backdrop-blur-xs">
                 <FileText className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                <span>Minimal Hujjat</span>
+                <span>{t("hero.minimalDocs")}</span>
               </div>
               <div className="flex items-center space-x-2 bg-emerald-900/40 border border-emerald-700/40 p-2.5 rounded-xl text-xs text-emerald-100 font-semibold backdrop-blur-xs">
                 <Lock className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                <span>0% Yashirin To'lov</span>
+                <span>{t("hero.noHiddenFees")}</span>
               </div>
             </div>
 
@@ -145,19 +145,19 @@ export function HeroCarousel() {
                 <div>
                   <h3 className="text-lg font-black text-slate-900 flex items-center space-x-2">
                     <Calculator className="w-5 h-5 text-[#004526]" />
-                    <span>Tezkor Kredit Hisoblagichi</span>
+                    <span>{t("hero.quickCalcTitle")}</span>
                   </h3>
-                  <p className="text-xs text-slate-500 font-medium">Imtiyozli shartlar bilan oylik to'lovni aniqlang</p>
+                  <p className="text-xs text-slate-500 font-medium">{t("hero.quickCalcSub")}</p>
                 </div>
                 <span className="bg-emerald-100 text-[#004526] text-xs font-black px-3 py-1 rounded-full border border-emerald-200">
-                  42% yillikdan
+                  42% {t("hero.annualFrom")}
                 </span>
               </div>
 
               {/* Amount Presets & Slider */}
               <div className="space-y-3">
                 <div className="flex justify-between items-center text-xs font-bold text-slate-700">
-                  <span>Kredit summasi:</span>
+                  <span>{t("hero.creditAmountLabel")}</span>
                   <span className="text-sm font-extrabold text-[#004526] bg-emerald-50 px-3 py-1 rounded-xl border border-emerald-200">
                     {formatNumber(heroAmount)} UZS
                   </span>
@@ -194,9 +194,9 @@ export function HeroCarousel() {
               {/* Term Slider */}
               <div className="space-y-2">
                 <div className="flex justify-between items-center text-xs font-bold text-slate-700">
-                  <span>Kredit muddati:</span>
+                  <span>{t("hero.creditTermLabel")}</span>
                   <span className="text-sm font-extrabold text-[#004526] bg-emerald-50 px-3 py-1 rounded-xl border border-emerald-200">
-                    {heroTerm} oy
+                    {heroTerm} {t("calculator.monthUnit")}
                   </span>
                 </div>
 
@@ -210,21 +210,21 @@ export function HeroCarousel() {
                   className="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#004526]"
                 />
                 <div className="flex justify-between text-[10px] text-slate-400 font-bold">
-                  <span>3 oy</span>
-                  <span>12 oy</span>
-                  <span>24 oy</span>
-                  <span>36 oy</span>
+                  <span>3 {t("calculator.monthUnit")}</span>
+                  <span>12 {t("calculator.monthUnit")}</span>
+                  <span>24 {t("calculator.monthUnit")}</span>
+                  <span>36 {t("calculator.monthUnit")}</span>
                 </div>
               </div>
 
               {/* Monthly Payment Summary Box */}
               <div className="p-4 bg-gradient-to-r from-emerald-50 to-slate-50 rounded-2xl border border-emerald-200/80 space-y-1">
                 <span className="text-xs font-bold text-[#004526] uppercase tracking-wider block">
-                  Taxminiy Oylik To'lov:
+                  {t("hero.estimatedMonthly")}
                 </span>
                 <div className="text-2xl sm:text-3xl font-black text-[#004526]">
                   {formatNumber(heroMonthlyPayment)}{" "}
-                  <span className="text-xs font-bold text-emerald-800">UZS / oy</span>
+                  <span className="text-xs font-bold text-emerald-800">UZS{t("hero.perMonth")}</span>
                 </div>
               </div>
 
@@ -233,7 +233,7 @@ export function HeroCarousel() {
                 onClick={applyWithHeroParams}
                 className="w-full bg-[#004526] hover:bg-[#02331c] text-white font-extrabold py-3.5 px-6 rounded-2xl transition-all shadow-md flex items-center justify-center space-x-2 text-sm"
               >
-                <span>Hoziroq Ariza Topshirish</span>
+                <span>{t("hero.applyInstant")}</span>
                 <ArrowRight className="w-4 h-4 text-amber-400" />
               </button>
             </div>
