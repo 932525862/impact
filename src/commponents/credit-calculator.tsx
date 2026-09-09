@@ -239,7 +239,7 @@ export default function CreditCalculator() {
       await html2pdf().set(options).from(element).save();
     } catch (err) {
       console.error("PDF error:", err);
-      alert("PDF yaratishda xatolik yuz berdi");
+      alert(t("calculator.pdfError"));
     }
   };
 
@@ -333,7 +333,7 @@ export default function CreditCalculator() {
                           : "bg-slate-100 text-slate-700 hover:bg-slate-200"
                       }`}
                     >
-                      {amt / 1000000} mln
+                      {amt / 1000000} {t("calculator.mln")}
                     </button>
                   ))}
                 </div>

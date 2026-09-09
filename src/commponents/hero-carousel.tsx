@@ -243,19 +243,19 @@ export function HeroCarousel() {
         {/* Corporate Trust & Milestones Strip Banner */}
         <div className="mt-14 bg-white/5 backdrop-blur-md rounded-3xl border border-white/10 p-6 md:p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <div className="border-r border-white/10 last:border-r-0 px-2 space-y-1">
-            <div className="text-3xl md:text-4xl font-black text-amber-400">10,000+</div>
+            <div className="text-3xl md:text-4xl font-black text-amber-400">{t("about.stats.clients")}</div>
             <div className="text-xs text-emerald-200 font-semibold">{t("about.stats.clientsText")}</div>
           </div>
           <div className="border-r border-white/10 last:border-r-0 px-2 space-y-1">
-            <div className="text-3xl md:text-4xl font-black text-white">15+ Yil</div>
+            <div className="text-3xl md:text-4xl font-black text-white">{t("about.stats.experience")}</div>
             <div className="text-xs text-emerald-200 font-semibold">{t("about.stats.experienceText")}</div>
           </div>
           <div className="border-r border-white/10 last:border-r-0 px-2 space-y-1">
-            <div className="text-3xl md:text-4xl font-black text-white">98%</div>
+            <div className="text-3xl md:text-4xl font-black text-white">{t("about.stats.approval")}</div>
             <div className="text-xs text-emerald-200 font-semibold">{t("about.stats.approvalText")}</div>
           </div>
           <div className="px-2 space-y-1">
-            <div className="text-3xl md:text-4xl font-black text-amber-400">15 Min</div>
+            <div className="text-3xl md:text-4xl font-black text-amber-400">{t("about.stats.speed")}</div>
             <div className="text-xs text-emerald-200 font-semibold">{t("about.stats.speedText")}</div>
           </div>
         </div>

@@ -148,7 +148,7 @@ export default function ActivityDirections() {
                       <div className="p-3 bg-emerald-50 rounded-xl border border-emerald-100 space-y-1">
                         <div className="flex items-center space-x-1 text-xs text-[#004526] font-bold">
                           <Percent className="w-3.5 h-3.5" />
-                          <span>Yillik foiz</span>
+                          <span>{t("section.modal.annualInterest")}</span>
                         </div>
                         <div className="text-sm font-extrabold text-slate-900">{foiz}</div>
                       </div>
@@ -156,7 +156,7 @@ export default function ActivityDirections() {
                       <div className="p-3 bg-white rounded-xl border border-slate-200/80 space-y-1">
                         <div className="flex items-center space-x-1 text-xs text-slate-600 font-bold">
                           <Calendar className="w-3.5 h-3.5 text-[#004526]" />
-                          <span>Muddati</span>
+                          <span>{t("section.modal.term")}</span>
                         </div>
                         <div className="text-sm font-extrabold text-slate-900">{muddat}</div>
                       </div>
@@ -207,7 +207,7 @@ export default function ActivityDirections() {
               <div className="space-y-3">
                 <h4 className="font-bold text-slate-900 text-sm border-b border-slate-200 pb-2 flex items-center space-x-2">
                   <FileText className="w-4 h-4 text-[#004526]" />
-                  <span>Kredit Parametrlari</span>
+                  <span>{t("section.modal.creditParams")}</span>
                 </h4>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
@@ -269,7 +269,7 @@ export default function ActivityDirections() {
                 onClick={() => setSelected(null)}
                 className="px-4 py-2 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-100"
               >
-                Yopish
+                {t("section.modal.close")}
               </button>
               <button
                 onClick={() => scrollToContact(t(`activities.${activities[selected].key}.title`))}

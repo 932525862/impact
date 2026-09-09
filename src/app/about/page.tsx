@@ -353,7 +353,7 @@ export default function AboutPage() {
             <div className="p-8 bg-slate-50 rounded-2xl border border-slate-200 text-center space-y-3">
               <FileCheck2 className="w-12 h-12 text-[#004526] mx-auto" />
               <p className="text-xs text-slate-600 font-bold">
-                Rasmiy tasdiqlangan hujjat namunasi (PDF)
+                {t("aboutPage.pdfSample")}
               </p>
               <p className="text-[11px] text-slate-400">
                 Litsenziya № 0084 • IMPACT FINANCE MFO
@@ -365,16 +365,16 @@ export default function AboutPage() {
                 onClick={() => setSelectedDoc(null)}
                 className="px-4 py-2.5 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-100"
               >
-                Yopish
+                {t("aboutPage.docModalClose")}
               </button>
               <button
                 onClick={() => {
-                  alert(`"${selectedDoc.title}" hujjati yuklab olinmoqda...`);
+                  alert(`"${selectedDoc.title}"...`);
                 }}
                 className="px-5 py-2.5 rounded-xl bg-[#004526] text-white hover:bg-[#00381f] flex items-center space-x-1.5"
               >
                 <Download className="w-4 h-4" />
-                <span>PDF Yuklab olish</span>
+                <span>{t("aboutPage.docModalDownload")}</span>
               </button>
             </div>
           </div>

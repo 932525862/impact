@@ -186,7 +186,11 @@
       "tolov": "To'lov tartibi",
       "garov": "Garov ta'minoti",
       "talablar": "Talab qilinadigan hujjatlar va shartlar",
-      "apply": "Ushbu kreditga ariza berish"
+      "apply": "Ushbu kreditga ariza berish",
+      "annualInterest": "Yillik foiz",
+      "term": "Muddati",
+      "creditParams": "Kredit Parametrlari",
+      "close": "Yopish"
     }
   },
   "activities": {
@@ -275,6 +279,8 @@
     "currency": "so'm",
     "month": "oy",
     "monthUnit": "oy",
+    "mln": "mln",
+    "pdfError": "PDF yaratishda xatolik yuz berdi",
     "button": "Ariza qoldirish",
     "noteTitle": "Rasmiy axborot",
     "noteText": "Summalar, muddatlar va to'lovlar to'g'risida batafsil ma'lumot olish uchun istalgan qulay bo'limga murojaat qilishingiz yoki telefon raqami orqali bog'lanishingiz zarur.",
@@ -352,7 +358,37 @@
     "prevSlide": "Oldingi slayd",
     "nextSlide": "Keyingi slayd",
     "pauseAuto": "Avto-slaydni to'xtatish",
-    "playAuto": "Avto-slaydni yoqish"
+    "playAuto": "Avto-slaydni yoqish",
+    "zoomDoc": "Hujjatni kattalashtirish",
+    "download": "Yuklab olish",
+    "close": "Yopish",
+    "file": "Fayl",
+    "zoomIn": "Kattalashtirish",
+    "zoomOut": "Kichiklashtirish",
+    "useButtonsToZoom": "Kattalashtirish uchun tugmalardan foydalaning",
+    "items": {
+      "h1": {
+        "title": "Markaziy Bank Litsenziyasi № 0084",
+        "subtitle": "O'zbekiston Respublikasi Markaziy Banki litsenziyasi (h1.png)",
+        "type": "Rasmiy Litsenziya",
+        "date": "2024-yil rasmiy tasdiqlangan",
+        "description": "IMPACT FINANCE mikromoliya tashkilotining O'zbekiston Respublikasi Markaziy Banki tomonidan berilgan rasmiy litsenziyasi va davlat ro'yxatidan o'tganligini tasdiqlovchi hujjat."
+      },
+      "h2": {
+        "title": "Davlat Ro'yxatidan O'tish Guvohnomasi",
+        "subtitle": "Toshkent shahar Shayxontohur tumani DXM guvohnomasi (h2.png)",
+        "type": "Guvohnoma № 75094",
+        "date": "Davlat Ro'yxati",
+        "description": "Tashkilotning yuridik shaxs sifatida davlat ro'yxatiga olinganligi hamda O'zbekiston Respublikasi qonunchiligiga to'liq mos kelishi to'g'risidagi guvohnoma."
+      },
+      "h3": {
+        "title": "Yillik Audit va Moliyaviy Hisobot Xulosasi",
+        "subtitle": "Mustaqil auditorlik tashkiloti rasmiy audit xulosasi (h3.png)",
+        "type": "Audit Xulosasi 2025/2026",
+        "date": "2025/2026 Moliyaviy yil",
+        "description": "IMPACT FINANCE tashkilotining moliyaviy barqarorligi va shaffofligini tasdiqlovchi xalqaro va milliy standartlarga muvofiq auditorlik xulosasi."
+      }
+    }
   },
   "aboutPage": {
     "heroBadge": "RASMIY MIKROMOLIYA TASHKILOTI",
@@ -374,6 +410,7 @@
     "docModalView": "Hujjatni ko'rish",
     "docModalClose": "Yopish",
     "docModalDownload": "PDF Yuklab olish",
+    "pdfSample": "Rasmiy tasdiqlangan hujjat namunasi (PDF)",
     "nauforBadge": "RASMIY A'ZOLIK BILDIRISHNOMASI",
     "nauforStandard": "Xalqaro standartlarga moslik",
     "nauforGuarantee": "Mijozlar huquqlari kafolati"

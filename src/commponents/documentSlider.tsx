@@ -23,6 +23,8 @@ import h1Img from "../h1.png";
 import h2Img from "../h2.png";
 import h3Img from "../h3.png";
 
+import { useMemo } from "react";
+
 export interface DocumentItem {
   id: string;
   title: string;
@@ -34,58 +36,59 @@ export interface DocumentItem {
   description: string;
 }
 
-const docSlides: DocumentItem[] = [
-  {
-    id: "h1",
-    title: "Markaziy Bank Litsenziyasi № 143",
-    subtitle: "O'zbekiston Respublikasi Markaziy Banki litsenziyasi (h1.png)",
-    type: "Rasmiy Litsenziya",
-    date: "2024-yil rasmiy tasdiqlangan",
-    imgSrc: h1Img,
-    publicUrl: "/h1.png",
-    description:
-      "IMPACT FINANCE mikromoliya tashkilotining O'zbekiston Respublikasi Markaziy Banki tomonidan berilgan rasmiy litsenziyasi va davlat ro'yxatidan o'tganligini tasdiqlovchi hujjat.",
-  },
-  {
-    id: "h2",
-    title: "Davlat Ro'yxatidan O'tish Guvohnomasi",
-    subtitle: "Toshkent shahar Shayxontohur tumani DXM guvohnomasi (h2.png)",
-    type: "Guvohnoma № 75094",
-    date: "Davlat Ro'yxati",
-    imgSrc: h2Img,
-    publicUrl: "/h2.png",
-    description:
-      "Tashkilotning yuridik shaxs sifatida davlat ro'yxatiga olinganligi hamda O'zbekiston Respublikasi qonunchiligiga to'liq mos kelishi to'g'risidagi guvohnoma.",
-  },
-  {
-    id: "h3",
-    title: "Yillik Audit va Moliyaviy Hisobot Xulosasi",
-    subtitle: "Mustaqil auditorlik tashkiloti rasmiy audit xulosasi (h3.png)",
-    type: "Audit Xulosasi 2025/2026",
-    date: "2025/2026 Moliyaviy yil",
-    imgSrc: h3Img,
-    publicUrl: "/h3.png",
-    description:
-      "IMPACT FINANCE tashkilotining moliyaviy barqarorligi va shaffofligini tasdiqlovchi xalqaro va milliy standartlarga muvofiq auditorlik xulosasi.",
-  },
-];
-
 export default function DocumentSlider() {
   const { t } = useTranslation();
+
+  const docSlides: DocumentItem[] = useMemo(
+    () => [
+      {
+        id: "h1",
+        title: t("docSlider.items.h1.title"),
+        subtitle: t("docSlider.items.h1.subtitle"),
+        type: t("docSlider.items.h1.type"),
+        date: t("docSlider.items.h1.date"),
+        imgSrc: h1Img,
+        publicUrl: "/h1.png",
+        description: t("docSlider.items.h1.description"),
+      },
+      {
+        id: "h2",
+        title: t("docSlider.items.h2.title"),
+        subtitle: t("docSlider.items.h2.subtitle"),
+        type: t("docSlider.items.h2.type"),
+        date: t("docSlider.items.h2.date"),
+        imgSrc: h2Img,
+        publicUrl: "/h2.png",
+        description: t("docSlider.items.h2.description"),
+      },
+      {
+        id: "h3",
+        title: t("docSlider.items.h3.title"),
+        subtitle: t("docSlider.items.h3.subtitle"),
+        type: t("docSlider.items.h3.type"),
+        date: t("docSlider.items.h3.date"),
+        imgSrc: h3Img,
+        publicUrl: "/h3.png",
+        description: t("docSlider.items.h3.description"),
+      },
+    ],
+    [t]
+  );
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [zoomLevel, setZoomLevel] = useState(1);
 
-  const activeDoc = docSlides[currentIndex];
+  const activeDoc = docSlides[currentIndex] || docSlides[0];
 
   const handleNext = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % docSlides.length);
-  }, []);
+  }, [docSlides.length]);
 
   const handlePrev = useCallback(() => {
     setCurrentIndex((prev) => (prev - 1 + docSlides.length) % docSlides.length);
-  }, []);
+  }, [docSlides.length]);
 
   // Auto-slide effect
   useEffect(() => {
@@ -208,14 +211,14 @@ export default function DocumentSlider() {
           <button
             onClick={handlePrev}
             className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-900/80 hover:bg-white text-white hover:text-slate-900 flex items-center justify-center backdrop-blur-md transition-all shadow-lg border border-white/20"
-            aria-label="Oldingi rasmi"
+            aria-label={t("docSlider.prevSlide")}
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={handleNext}
             className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-900/80 hover:bg-white text-white hover:text-slate-900 flex items-center justify-center backdrop-blur-md transition-all shadow-lg border border-white/20"
-            aria-label="Keyingi rasmi"
+            aria-label={t("docSlider.nextSlide")}
           >
             <ChevronRight className="w-5 h-5" />
           </button>
@@ -223,7 +226,7 @@ export default function DocumentSlider() {
           {/* Badge indicator on image */}
           <div className="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1 rounded-full border border-white/20 flex items-center space-x-1.5">
             <FileCheck2 className="w-3.5 h-3.5 text-amber-400" />
-            <span>Fayl: src/{activeDoc.id}.png</span>
+            <span>{t("docSlider.file")}: src/{activeDoc.id}.png</span>
           </div>
         </div>
 
@@ -256,7 +259,7 @@ export default function DocumentSlider() {
               className="flex-1 min-w-[160px] bg-[#004526] hover:bg-[#00361e] text-white font-extrabold px-5 py-3 rounded-2xl shadow-lg transition-all flex items-center justify-center space-x-2 text-xs"
             >
               <Maximize2 className="w-4 h-4 text-amber-400" />
-              <span>Hujjatni kattalashtirish</span>
+              <span>{t("docSlider.zoomDoc")}</span>
             </button>
 
             <a
@@ -265,7 +268,7 @@ export default function DocumentSlider() {
               className="bg-emerald-50 hover:bg-emerald-100 text-[#004526] border border-emerald-200 font-extrabold px-5 py-3 rounded-2xl transition-all flex items-center justify-center space-x-2 text-xs"
             >
               <Download className="w-4 h-4" />
-              <span>Yuklab olish</span>
+              <span>{t("docSlider.download")}</span>
             </a>
           </div>
         </div>
@@ -329,7 +332,7 @@ export default function DocumentSlider() {
           <div className="w-full max-w-6xl flex items-center justify-between text-white border-b border-white/10 pb-4 z-10">
             <div className="flex items-center space-x-3">
               <span className="bg-amber-400 text-slate-950 font-black text-xs px-3 py-1 rounded-full">
-                Fayl: src/{activeDoc.id}.png
+                {t("docSlider.file")}: src/{activeDoc.id}.png
               </span>
               <h3 className="text-sm sm:text-base font-bold truncate text-white max-w-xs sm:max-w-md">
                 {activeDoc.title}
@@ -342,7 +345,7 @@ export default function DocumentSlider() {
                 <button
                   onClick={() => setZoomLevel((z) => Math.max(0.75, z - 0.25))}
                   className="p-1.5 rounded-lg hover:bg-white/20 text-white transition-colors"
-                  title="Kichiklashtirish"
+                  title={t("docSlider.zoomOut")}
                 >
                   <ZoomOut className="w-4 h-4" />
                 </button>
@@ -350,7 +353,7 @@ export default function DocumentSlider() {
                 <button
                   onClick={() => setZoomLevel((z) => Math.min(2.5, z + 0.25))}
                   className="p-1.5 rounded-lg hover:bg-white/20 text-white transition-colors"
-                  title="Kattalashtirish"
+                  title={t("docSlider.zoomIn")}
                 >
                   <ZoomIn className="w-4 h-4" />
                 </button>
@@ -360,7 +363,7 @@ export default function DocumentSlider() {
                 href={activeDoc.publicUrl}
                 download={`${activeDoc.id}.png`}
                 className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/10 transition-colors"
-                title="Yuklab olish"
+                title={t("docSlider.download")}
               >
                 <Download className="w-4 h-4" />
               </a>
@@ -368,7 +371,7 @@ export default function DocumentSlider() {
               <button
                 onClick={() => setIsModalOpen(false)}
                 className="p-2 rounded-xl bg-red-500/80 hover:bg-red-600 text-white transition-colors ml-2"
-                title="Yopish (Esc)"
+                title={t("docSlider.close")}
               >
                 <X className="w-5 h-5" />
               </button>
@@ -408,7 +411,7 @@ export default function DocumentSlider() {
           {/* Modal Footer Bar */}
           <div className="w-full max-w-2xl bg-white/10 backdrop-blur-md rounded-2xl p-3 border border-white/10 flex items-center justify-between text-white text-xs font-semibold">
             <span>
-              Slayd {currentIndex + 1} / {docSlides.length}
+              {t("docSlider.interactiveBadge")} {currentIndex + 1} / {docSlides.length}
             </span>
             <div className="flex items-center space-x-2">
               {docSlides.map((_, i) => (
@@ -421,7 +424,7 @@ export default function DocumentSlider() {
               ))}
             </div>
             <span className="text-[11px] text-emerald-200">
-              Kattalashtirish uchun tugmalardan foydalaning
+              {t("docSlider.useButtonsToZoom")}
             </span>
           </div>
         </div>

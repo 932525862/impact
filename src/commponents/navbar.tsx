@@ -12,23 +12,35 @@ import i18n from "../../lib/i18n";
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const { t, i18n } = useTranslation();
   const [currentLang, setCurrentLang] = useState("UZ");
-  const { t } = useTranslation();
   const pathname = usePathname();
   const router = useRouter();
 
   useEffect(() => {
-    const savedLang = localStorage.getItem("lang") || "uz";
-    i18n.changeLanguage(savedLang);
+    const savedLang = localStorage.getItem("lang") || i18n.language || "uz";
+    if (i18n.language !== savedLang) {
+      i18n.changeLanguage(savedLang);
+    }
     setCurrentLang(savedLang.toUpperCase());
-  }, []);
+
+    const handleLangChange = (lng: string) => {
+      setCurrentLang(lng.toUpperCase());
+    };
+
+    i18n.on("languageChanged", handleLangChange);
+    return () => {
+      i18n.off("languageChanged", handleLangChange);
+    };
+  }, [i18n]);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const changeLanguage = (lang: string) => {
-    i18n.changeLanguage(lang.toLowerCase());
-    localStorage.setItem("lang", lang.toLowerCase());
-    setCurrentLang(lang);
+    const targetLang = lang.toLowerCase();
+    i18n.changeLanguage(targetLang);
+    localStorage.setItem("lang", targetLang);
+    setCurrentLang(lang.toUpperCase());
     setLangOpen(false);
   };
 

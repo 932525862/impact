@@ -186,7 +186,11 @@
       "tolov": "Repayment Terms",
       "garov": "Collateral",
       "talablar": "Basic Requirements",
-      "apply": "Apply for this loan"
+      "apply": "Apply for this loan",
+      "annualInterest": "Annual Interest Rate",
+      "term": "Term",
+      "creditParams": "Loan Parameters",
+      "close": "Close"
     }
   },
   "activities": {
@@ -275,6 +279,8 @@
     "currency": "UZS",
     "month": "mo",
     "monthUnit": "mo",
+    "mln": "mln",
+    "pdfError": "An error occurred while generating PDF",
     "button": "Submit Application",
     "noteTitle": "Official Information",
     "noteText": "For detailed information regarding amounts, terms, and payments, please visit our office or contact us by phone.",
@@ -352,7 +358,37 @@
     "prevSlide": "Previous slide",
     "nextSlide": "Next slide",
     "pauseAuto": "Pause auto-slide",
-    "playAuto": "Play auto-slide"
+    "playAuto": "Play auto-slide",
+    "zoomDoc": "Zoom Document",
+    "download": "Download",
+    "close": "Close",
+    "file": "File",
+    "zoomIn": "Zoom In",
+    "zoomOut": "Zoom Out",
+    "useButtonsToZoom": "Use controls to zoom in and out",
+    "items": {
+      "h1": {
+        "title": "Central Bank License № 0084",
+        "subtitle": "License of the Central Bank of the Republic of Uzbekistan (h1.png)",
+        "type": "Official License",
+        "date": "Officially verified 2024",
+        "description": "Official license of IMPACT FINANCE microfinance organization issued by the Central Bank of the Republic of Uzbekistan confirming state registration."
+      },
+      "h2": {
+        "title": "State Registration Certificate",
+        "subtitle": "Tashkent city Shaykhontohur district Public Service Center certificate (h2.png)",
+        "type": "Certificate № 75094",
+        "date": "State Registration",
+        "description": "Certificate confirming state registration of the organization as a legal entity in full compliance with the legislation of the Republic of Uzbekistan."
+      },
+      "h3": {
+        "title": "Annual Audit & Financial Report Opinion",
+        "subtitle": "Independent audit organization official audit opinion (h3.png)",
+        "type": "Audit Report 2025/2026",
+        "date": "2025/2026 Financial Year",
+        "description": "Audit opinion in accordance with international and national standards confirming the financial stability and transparency of IMPACT FINANCE."
+      }
+    }
   },
   "aboutPage": {
     "heroBadge": "OFFICIAL MICROFINANCE ORGANIZATION",
@@ -374,6 +410,7 @@
     "docModalView": "View Document",
     "docModalClose": "Close",
     "docModalDownload": "Download PDF",
+    "pdfSample": "Official verified document sample (PDF)",
     "nauforBadge": "OFFICIAL MEMBERSHIP NOTICE",
     "nauforStandard": "Compliance with international standards",
     "nauforGuarantee": "Guarantee of client rights protection"
