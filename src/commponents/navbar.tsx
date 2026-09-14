@@ -18,14 +18,20 @@ export function Navbar() {
   const router = useRouter();
 
   useEffect(() => {
-    const savedLang = localStorage.getItem("lang") || i18n.language || "uz";
-    if (i18n.language !== savedLang) {
-      i18n.changeLanguage(savedLang);
+    const rawLang = localStorage.getItem("lang");
+    const validLang = rawLang && ["uz", "ru", "en"].includes(rawLang) ? rawLang : "uz";
+
+    if (i18n.language !== validLang) {
+      i18n.changeLanguage(validLang);
     }
-    setCurrentLang(savedLang.toUpperCase());
+    localStorage.setItem("lang", validLang);
+    setCurrentLang(validLang.toUpperCase());
 
     const handleLangChange = (lng: string) => {
-      setCurrentLang(lng.toUpperCase());
+      const cleanLng = lng ? lng.split("-")[0].toLowerCase() : "uz";
+      if (["uz", "ru", "en"].includes(cleanLng)) {
+        setCurrentLang(cleanLng.toUpperCase());
+      }
     };
 
     i18n.on("languageChanged", handleLangChange);

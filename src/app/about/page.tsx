@@ -367,15 +367,16 @@ export default function AboutPage() {
               >
                 {t("aboutPage.docModalClose")}
               </button>
-              <button
-                onClick={() => {
-                  alert(`"${selectedDoc.title}"...`);
-                }}
+              <a
+                href="/audit-report-2025-2026.pdf"
+                download="audit-report-2025-2026.pdf"
+                target="_blank"
+                rel="noreferrer"
                 className="px-5 py-2.5 rounded-xl bg-[#004526] text-white hover:bg-[#00381f] flex items-center space-x-1.5"
               >
                 <Download className="w-4 h-4" />
                 <span>{t("aboutPage.docModalDownload")}</span>
-              </button>
+              </a>
             </div>
           </div>
         </div>

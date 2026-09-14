@@ -153,7 +153,7 @@ export default function ContactPage() {
             <div className="pt-2 flex items-center space-x-3">
               <span className="text-xs text-emerald-200 font-bold">{t("contact.telegramLabel")}</span>
               <a
-                href="https://t.me/impactfinance_uz"
+                href="https://t.me/impactfinanceleaders"
                 target="_blank"
                 rel="noreferrer"
                 className="w-10 h-10 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-[#00381f] flex items-center justify-center transition-all shadow-md"

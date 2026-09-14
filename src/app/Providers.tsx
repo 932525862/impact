@@ -11,6 +11,11 @@ export function Providers({ children }: { children: React.ReactNode }) {
       if (i18n.language !== savedLang) {
         i18n.changeLanguage(savedLang);
       }
+    } else {
+      localStorage.setItem("lang", "uz");
+      if (i18n.language !== "uz") {
+        i18n.changeLanguage("uz");
+      }
     }
   }, []);
 
