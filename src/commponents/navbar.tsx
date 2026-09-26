@@ -52,7 +52,16 @@ export function Navbar() {
 
   const navigateOrScroll = (id: string) => {
     setIsOpen(false);
-    if (pathname !== "/") {
+    if (id === "team") {
+      if (pathname === "/about") {
+        const section = document.getElementById("team");
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      } else {
+        router.push("/about#team");
+      }
+    } else if (pathname !== "/") {
       router.push(`/#${id}`);
     } else {
       const section = document.getElementById(id);

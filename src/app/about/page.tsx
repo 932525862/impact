@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Navbar } from "../../commponents/navbar";
 import Footer from "../../commponents/footer";
 import DocumentSlider from "../../commponents/documentSlider";
+import TeamSection from "../../commponents/teamSection";
 import { useTranslation } from "react-i18next";
 import {
   FileText,
@@ -330,6 +331,9 @@ export default function AboutPage() {
           </div>
         )}
       </section>
+
+      {/* Boshqaruv va Direktorlar Kengashi Section */}
+      <TeamSection />
 
       {/* Document View Modal */}
       {selectedDoc && (
