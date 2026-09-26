@@ -151,12 +151,7 @@ export default function ContactPage() {
                     >
                       info@impactfinance.uz
                     </a>
-                    <a
-                      href="mailto:j.kadirov@impactfinance.uz"
-                      className="text-sm font-semibold text-emerald-100 hover:text-emerald-300 transition-colors"
-                    >
-                      j.kadirov@impactfinance.uz
-                    </a>
+
                   </div>
                 </div>
               </div>
