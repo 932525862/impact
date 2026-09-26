@@ -140,12 +140,34 @@ export default function ContactPage() {
 
               <div className="flex items-start space-x-4">
                 <div className="w-11 h-11 rounded-2xl bg-emerald-900/80 text-emerald-400 flex items-center justify-center flex-shrink-0 border border-emerald-700">
+                  <Mail className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-xs text-emerald-300 font-bold block">{t("contact.emailLabel")}</span>
+                  <div className="flex flex-col space-y-1 mt-1">
+                    <a
+                      href="mailto:info@impactfinance.uz"
+                      className="text-sm font-semibold text-emerald-100 hover:text-emerald-300 transition-colors"
+                    >
+                      info@impactfinance.uz
+                    </a>
+                    <a
+                      href="mailto:j.kadirov@impactfinance.uz"
+                      className="text-sm font-semibold text-emerald-100 hover:text-emerald-300 transition-colors"
+                    >
+                      j.kadirov@impactfinance.uz
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="w-11 h-11 rounded-2xl bg-emerald-900/80 text-emerald-400 flex items-center justify-center flex-shrink-0 border border-emerald-700">
                   <Clock className="w-5 h-5" />
                 </div>
                 <div className="space-y-0.5">
                   <span className="text-xs text-emerald-300 font-bold block">{t("contact.hoursLabel")}</span>
                   <p className="text-sm font-semibold text-emerald-100">{t("contact.workHours")}</p>
-                  <p className="text-xs text-emerald-300">{t("contact.email")}</p>
                 </div>
               </div>
             </div>

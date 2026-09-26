@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Phone, ChevronDown, Clock, ShieldCheck, MapPin, ArrowRight } from "lucide-react";
+import { Menu, X, Phone, ChevronDown, Clock, ShieldCheck, MapPin, ArrowRight, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -88,9 +88,16 @@ export function Navbar() {
               <span>{t("topBar.hours")}</span>
             </div>
 
-            <div className="flex items-center space-x-1.5 bg-[#004526] px-3 py-1 rounded-full text-emerald-200 border border-emerald-800/80">
-              <MapPin className="w-3 h-3 text-emerald-400" />
+            <div className="flex items-start space-x-1.5 bg-[#004526] px-3 py-1 rounded-full text-emerald-200 border border-emerald-800/80">
+              <MapPin className="w-3 h-3 text-emerald-400 mt-0.5" />
               <span>{t("topBar.address")}</span>
+            </div>
+
+            <div className="flex items-center space-x-1.5 bg-[#004526] px-3 py-1 rounded-full text-emerald-200 border border-emerald-800/80">
+              <Mail className="w-3 h-3 text-emerald-400" />
+              <a href="mailto:info@impactfinance.uz" className="hover:text-amber-400 transition-colors">
+                info@impactfinance.uz
+              </a>
             </div>
           </div>
 
